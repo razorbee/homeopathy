@@ -1,0 +1,1 @@
+//Disease : {{$patient->disease->disease}} <br>
