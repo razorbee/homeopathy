@@ -23,6 +23,7 @@
                     <th width="5px">#</th>
                     <th width="120px">Photo</th>
                     <th>Name & Email</th>
+                    <th>Role</th>
                     <th>info</th>
                     <th>Status</th>
                     <th width="100px">Action</th>
@@ -47,6 +48,7 @@
                     { "data" : "#"},
                     { "data": "image" },
                     { "data": "name" },
+                    { "data": "role"},
                     { "data": "address" },
                     { "data": "status" },
                     { "data": "action" }

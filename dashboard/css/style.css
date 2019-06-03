@@ -6052,9 +6052,11 @@ Background-image
     /* background-color:#a5d489; */
 
 }
-.footer_text{
-  color:#000;
+.footer_text,footers{
+  background-color: #555555;
 }
+
+
 .print_class{
   padding-left:50px;
 }
@@ -6070,4 +6072,13 @@ height: 27px;
 }
 .mtop25{
   margin-top: 25px !important;
+ }
+ #_patientName{
+   font-weight: bold!important;
+ }
+ center > p > span:nth-child(1){
+   font-size: 18px;
+ }
+ #drugListView > li > ul > li > span{
+   list-style: none!important;
  }

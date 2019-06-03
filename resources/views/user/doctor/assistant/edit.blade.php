@@ -13,10 +13,10 @@
         <a href="{{url('/')}}" class="">Home</a>&nbsp;/&nbsp;
     </li>
     <li class="float-left">
-        Assistant / &nbsp;
+        User / &nbsp;
     </li>
     <li class="float-left">
-        <a href="{{url('/new-assistant')}}" class="">New Assistant</a>
+        <a href="{{url('/new-assistant')}}" class="">New User</a>
     </li>
 @endsection
 
@@ -27,7 +27,7 @@
                 <i class="fa fa-user-circle-o fa-2x"></i>
             </div>
             <div class="card-content">
-                <h4 class="card-title">Edit assistant - {{$user->name}}</h4>
+                <h4 class="card-title">Edit User - {{$user->name}}</h4>
                 <form action="#" method="post" id="newAssistant" enctype="multipart/form-data">
                     {{csrf_field()}}
 
@@ -50,7 +50,7 @@
                             </div>
 							<div class="form-group-custom">
                                         <select name="role" id="" required="required">
-                                            <option {{$user->role ==2 ? 'selected' : ''}} value="2">Assistant</option>
+                                            <option {{$user->role ==2 ? 'selected' : ''}} value="2">Receiptionist</option>
                                             <option {{$user->role ==3 ? 'selected' : ''}} value="3">Doctor</option>
                                             <option {{$user->role ==4 ? 'selected' : ''}} value="4">Pharmacist</option>
                                         </select>

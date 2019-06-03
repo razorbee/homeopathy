@@ -289,7 +289,7 @@ $(document).ready(function () {
                     $("<i>",{text:data.drug_type}).append("&nbsp;&nbsp;"),
                     $("<b>",{text:data.drug_name}).append("&emsp;"),
                     $("<i>",{text:data.strength}).append("&emsp;"),
-
+                    
                     $("<button>",{class:"btn btn-sm btn-link btn-primary",
                         onClick:"$(this).editDrug("+key+")"}).append(
                         $("<i>",{class:'fa fa-pencil'})
@@ -301,7 +301,8 @@ $(document).ready(function () {
                     $('<ul>').append(
                         $('<li>').append(
                             $('<span>',{text:data.dose}).append("&emsp;"),
-                            $("<span>",{text:data.duration})
+                            $("<span>",{text:data.duration}),
+                            $("<span>",{text:data.frequencies})
                         ),
                         $('<li>',{text:data.drug_advice})
                     )
@@ -342,6 +343,7 @@ $(document).ready(function () {
         $("#updateDrugDuration").val(drug.duration);
         $("#updateDrugAdvice").val(drug.drug_advice);
         $("#updateDrugType").val(drug.drug_type);
+        $("#updatefrequencies").val(drug.frequencies);
 
     };
 

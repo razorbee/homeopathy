@@ -94,6 +94,14 @@
         </div>
 
       </div>
-	   <p class="footer_text">(C) razorbee <a href="http://www.razorbee.com">razorbee.com</a></p>
+       
     </div>
+    <div class="container mt-3">
+  
+  <div class="d-flex justify-content-around bg-secondary mb-3" style="color:#fff;">
+    <div class="p-2">&#x24B8; Reserved to razorbee <a href="http://www.razorbee.com">razorbee.com</a></div>
+    
+    <div class="p-2">For contact : support@razorbee.com </div>
+  </div>
+</div>
 @endsection

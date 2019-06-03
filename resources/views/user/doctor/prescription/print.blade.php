@@ -23,6 +23,10 @@
         ol > li{
             margin-left:-25px;
         }
+        #print,#printPageBtn{
+            margin-top:40px;
+            margin-bottom:20px;
+        margin-left:100px;        }
     </style>
 @endsection
 
@@ -104,13 +108,13 @@
                                                 ({{$drug->drug['generic_name']}})
                                             @endif
                                             <br>
-                                            <b>Drug-Strength:</b> {{$drug->strength}}
+                                            <b>Strength:</b> {{$drug->strength}}
                                             </div>
                                             <div class="col-md-4" style="margin-top: 10px;">
                                           
                                             <ul style="padding-left: 0px">
                                                 <li style="list-style: none">
-                                                <b>Drug-Dose:</b> {{$drug->dose}} &emsp; <b>Drug Duration</b>{{$drug->duration}}</li>
+                                                <b>Dose:</b> {{$drug->dose}} &emsp; <b>Drug Duration</b>{{$drug->duration}}</li>
                                                 <li style="list-style: none"><b> Advice:</b> {{$drug->advice}}</li>
                                                 
                                             </ul>
@@ -119,24 +123,25 @@
                                             <ul style="padding-left: 0px">
                                            
                                             <li style="list-style: none"><b> Frequencies:</b> {{$drug->frequencies}}</li>
-                                           
+                                          
                                             </ul>
                                         </li>
+                                        
                                   </div>
                                         @endforeach
                                                 </div>
-                            
+                                                
                          
                        
                             </ol>
-                            <!-- <div class="col-md-2" style="margin-top: 10px;">
+                             <div class="col-md-2" style="margin-top: 10px;">
                                 <table>
                                     <tr>
-                                        <td>Disease</td>
+                                        <td>Disease:</td>
                                         <td>{{$prescription->disease}}</td>
                                     </tr>
                                 </table>
-                            </div> -->
+                            </div>
                             </div>
                             <div class="col-md-2">
                                 @if($prescription->next_visit != null || $prescription->next_visit != '')
@@ -153,8 +158,8 @@
 
                     </div>
                 </div>
-                <button id="print" class="btn btn-inverse pull-right m-t-15 m-l-15"><i class="fa fa-print"></i> &nbsp; Print Prescription</button>
-                <button id="printPageBtn" class="btn btn-success pull-right  m-t-15  m-l-15" style="margin-left: 15px;><i class="fa fa-print"></i> &nbsp; Print Page</button>
+                <button id="print" class="btn btn-inverse pull-right m-l-15"><i class="fa fa-print"></i> &nbsp; Print Prescription</button>
+                <button id="printPageBtn" class="btn btn-success pull-right m-l-15"><i class="fa fa-print"></i> &nbsp; Print Page</button>
                 <br>
                 <br>
             </div>

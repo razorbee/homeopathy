@@ -34,7 +34,7 @@
             <thead>
             <tr>
                 <th width="5px">#</th>
-                <th>Datehii</th>
+                <th>Date</th>
                 <th>Patient_id</th>
 				<th>Patient</th>
                 <th>Age</th>

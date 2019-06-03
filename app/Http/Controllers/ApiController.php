@@ -52,7 +52,7 @@ class ApiController extends Controller
      */
     public function allAssistantToDataTable()
     {
-        $assistant = User::where('role',2)->get();
+        $assistant = User::all();
         return datatables($assistant)
             ->addColumn('#',function(){
                 static $i = 1;
@@ -62,16 +62,24 @@ class ApiController extends Controller
                 return $drug->status ==1 ? 'Active' : "in-Active";
             })
             ->editColumn('name',function ($assistant){
-                return $assistant->name . '<br>' . $assistant->username . '<br>' . $assistant->email;
+                return $assistant->name . '<br>' . $assistant->username . '<br>' . $assistant->email ;
             })
+
+            ->addColumn('role',function($assistant){
+                return view('user.doctor.assistant.datatable.role',[
+                    'assistant'   =>  $assistant
+                ]);
+            })
+            
             ->editColumn('address',function ($assistant){
                 return 'Address : '.$assistant->address . "<br>" .
                     "Phone Number :". $assistant->phone . "<br>".
                     'Assistant since :' .$assistant->created_at->format('d-M-Y');
             })
             ->editColumn('image','user.doctor.assistant.datatable.image')
+            
             ->addColumn('action','user.doctor.assistant.datatable.actions')
-            ->rawColumns(['image','action','name','address'])
+            ->rawColumns(['image','action','name','role','address'])
             ->make(true);
     }
 

@@ -7,6 +7,11 @@
 @section('extra-css')
     <link rel="stylesheet" href="{{url('/dashboard/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{url('/dashboard/plugins/jquery-ui/jquery-ui.css')}}">
+    <style>
+        ul > li {
+            list-style:none;
+        }
+        </style>
 
 @endsection
 
@@ -189,7 +194,7 @@
                       
                             <option value="">Select Patient</option>
                             @foreach($patients as $patient)
-                                <option value="{{$patient->id}}">{{$patient->name}} | <span>{{$patient->id}} |<span>@if($patient->gender ==1)
+                                <option value="{{$patient->id}}"> {{$patient->id}} | <span>{{$patient->name}}</span>  | <span>@if($patient->gender ==1)
     Male
 @elseif($patient->gender == 2)
     Female
@@ -203,9 +208,7 @@
                         <center>
                             <img id="_patientImage" src="{{url('/dashboard/images/image_placeholder.jpg')}}" width="40%"
                                  style="margin-top:10px;" class="rounded-circle img-fluid" alt="">
-                            <h4 id="_patientName">No Patient Selected yet</h4>
-                            <p id="_patientAge"></p>
-                            <p id="_patientGender"></p>
+                            <p><span id="_patientName">No Patient Selected yet</span>&nbsp;&nbsp; <span id="_patientAge"></span>&nbsp;&nbsp; <span id="_patientGender"></span></p>
                              <p id="_patientDetails" class="patientdetail"></p>
                             {{--<p>Patient phone : <br> 01738070062 <br> Patient email : abc@patient.com</p>--}}
                         </center>
