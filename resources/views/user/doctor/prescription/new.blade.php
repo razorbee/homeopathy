@@ -1,3 +1,5 @@
+
+    
 @extends('layouts.app')
 
 @section('title')
@@ -7,11 +9,6 @@
 @section('extra-css')
     <link rel="stylesheet" href="{{url('/dashboard/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{url('/dashboard/plugins/jquery-ui/jquery-ui.css')}}">
-    <style>
-        ul > li {
-            list-style:none;
-        }
-        </style>
 
 @endsection
 
@@ -194,7 +191,7 @@
                       
                             <option value="">Select Patient</option>
                             @foreach($patients as $patient)
-                                <option value="{{$patient->id}}"> {{$patient->id}} | <span>{{$patient->name}}</span>  | <span>@if($patient->gender ==1)
+                                <option value="{{$patient->id}}">{{$patient->name}} | <span>{{$patient->id}} |<span>@if($patient->gender ==1)
     Male
 @elseif($patient->gender == 2)
     Female
@@ -208,7 +205,9 @@
                         <center>
                             <img id="_patientImage" src="{{url('/dashboard/images/image_placeholder.jpg')}}" width="40%"
                                  style="margin-top:10px;" class="rounded-circle img-fluid" alt="">
-                            <p><span id="_patientName">No Patient Selected yet</span>&nbsp;&nbsp; <span id="_patientAge"></span>&nbsp;&nbsp; <span id="_patientGender"></span></p>
+                            <h4 id="_patientName">No Patient Selected yet</h4>
+                            <p id="_patientAge"></p>
+                            <p id="_patientGender"></p>
                              <p id="_patientDetails" class="patientdetail"></p>
                             {{--<p>Patient phone : <br> 01738070062 <br> Patient email : abc@patient.com</p>--}}
                         </center>
@@ -281,14 +280,11 @@
         $(document).ready(function () {
             $("#loadingSaveTemplate").hide();
             $("#loadingSavePrescription").hide();
-
             var defaultPatient = $("#defaultPatient").val();
             if(defaultPatient != '' || defaultPatient != null){
                 $(this).getPatientDetails(defaultPatient);
                 $("#selectPatient").val(defaultPatient).change();
             }
-
-
             function decodeHtml(html) {
                  return $('<div>').html(html).text();
             }
@@ -304,15 +300,11 @@
                         $("select.select2").append("<option value='"+drugs[i].id+"'>"+drugs[i].name+"</option>");
                     }
                 }
-
-
             });
-
             // Select template
             $("#selectTemplate").select2({
                 placeholder: "Prescription template"
             });
-
             // Select patient
             $("#selectPatient").select2({
                 placeholder: "Patients"
@@ -320,7 +312,6 @@
             $("#selectDisease").select2({
                 placeholder: "Disease"
             });
-
             // Select template
             $("#selectTemplate").on('change', function () {
                 var templateId = $("#selectTemplate").val();
@@ -329,9 +320,7 @@
                         $(this).setSelectedTemplate(templateId);
                         var _drugs = [];
                         $.each(data.drugs, function (key, data) {
-
                             var _drug = {
-
                                 drug_id: data.drug.id,
                                 drug_name: data.drug.name,
                                 drug_type: data.type,
@@ -349,13 +338,11 @@
                     });
                 }
             });
-
             // Get patient prescription
             $("#_patientPrescriptions").on('change', function () {
                 $(this).setTemplateId(null);
                 $(this).getPrescriptionDetails($("#_patientPrescriptions").val());
             });
-
             // get patient details
             $("#selectPatient").on('change', function () {
                 console.log("Change");
@@ -364,9 +351,6 @@
             });
                 //checkbox
                 
-
-
-
             // Create new patient on prescription page
             $("#newPatient").on("submit",function (e) {
                e.preventDefault();
@@ -385,23 +369,19 @@
                                 placeholder: "Select Patient"
                             })
                         );
-
                        $("#selectPatient").val(data.id).trigger('change');
                        $(".bs-example-modal-lg").modal('hide');
                    },error:function (data) {
                         $(this).showAjaxError(data);
                    }
                });
-
             });
-
         });
         $('select#selectDisease').on('select2:open', function (e) {
             $($('#selectDisease').data('select2').$dropdown).addClass('mtop25')
-
 });
        
 $( ".patientdetail" ).appendTo( "#patienthistory" );
-
     </script>
 @endsection
+

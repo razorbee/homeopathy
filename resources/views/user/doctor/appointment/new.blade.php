@@ -6,6 +6,31 @@
 
 @section('extra-css')
     <link rel="stylesheet" href="{{url('/dashboard/plugins/select2/css/select2.min.css')}}">
+    <style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+</style>
 @endsection
 
 @section('content')
@@ -34,6 +59,9 @@
 
                             </div>
                         </div>
+                        <div class="col-md-1">
+                        <button onclick="myFunction()">see schedule</button>
+                        </div>
                         <div class="col-md-3">
                             <div class="form-group-custom">
                                 <!-- <input type="date" name="date" id="date" required="required"/> -->
@@ -41,18 +69,23 @@
                                 <label class="control-label">Date &nbsp;*</label><i class="bar"></i>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group-custom">
                                 <input type="time" required="required" name="time"/>
                                 <label class="control-label">Time</label><i class="bar"></i>
+                                
+                                   
+                                
                             </div>
                         </div>
+                       
                     </div>
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form-group-custom">
                                 <select required="required" class="form-control select3" name="appointment_id" id="">
-                                    <option value="">Select Place</option>
+                                    <button class="accordion" onclick="myFunction()">Select Place</button>
+                                   
                                     @foreach($schedules as $schedule)
                                         <option value="{{$schedule->id}}">{{$schedule->name}}</option>
                                     @endforeach
@@ -73,11 +106,57 @@
                     </div>
                   </div>
                     </div>
+                   
+            
                     <button type="submit" class="btn btn-primary waves-effect waves-light">Submit &nbsp; <i id="loading" class="fa fa-refresh fa-spin"></i></button>
-                    <button type="reset" class="btn btn-danger waves-effect waves-light">Cancel</button>
+                    <button type="reset" class="btn btn-danger waves-effect waves-light m-l-10 m-l-10">Cancel</button>
                 </form>
             </div>
         </div>
+    </div>
+    <div class="card">
+    
+    <div class="panel" id="panel" style="display:none;">
+                <!-- <h4 class="text-center"><strong>Appointment Schedule</strong></h4> -->
+           
+            <div class="panel-body">
+            <h4 class="text-center red"><strong>Appointment Schedule</strong></h4>
+                @foreach($schedules as $appointment)
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 style="color:#000;">{{$appointment->name}}</h4>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 style="color:#000;">Contact :</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" style="padding-left: 45px;">
+                            @foreach($appointment->dateTime as $date)
+                                <p style="color:#000;"><b><u>{{$date->days}}</u></b> <br>
+                                    Chamber Time : <b>{{\Carbon\Carbon::parse($date->start_time)->format('g:i a')}}</b> to
+                                   <b> {{\Carbon\Carbon::parse($date->end_time)->format('g:i a')}}</b></p>
+                            @endforeach
+                        </div>
+                        <div class="col-md-6" style="padding-left: 45px;">
+                            <h4 style="font-size: 20px;color:#000;">
+                                {{$appointment->contact_person_name}}
+                            </h4>
+                            <dl class="row">
+                                <dt class="col-sm-1"><i class="fa fa-phone-square" aria-hidden="true"></i></dt>
+                                <dd class="col-sm-11"><a href="tel:{{$appointment->phone}}">{{$appointment->phone}}</a></dd>
+                                <dt class="col-sm-1"><i class="fa fa-envelope" aria-hidden="true"></i></dt>
+                                <dd class="col-sm-11"><a href="mailto:{{$appointment->email}}">{{$appointment->email}}</a></dd>
+                                <dt class="col-sm-1"><i class="fa fa-map-marker" aria-hidden="true"></i></dt>
+                                <dd class="col-sm-11"> {!! nl2br(e($appointment->address)) !!}</dd>
+                            </dl>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+         
+        </div>
+    
     </div>
 @endsection
 
@@ -122,13 +201,16 @@
                 })
             });
         })
-        function checkDate() {
-   var selectedText = document.getElementById('datepicker').value;
-   var selectedDate = new Date(selectedText);
-   var now = new Date();
-   if (selectedDate < now) {
-    alert("Date must be in the future");
-   }
- }
+//         function checkDate() {
+//    var selectedText = document.getElementById('datepicker').value;
+//    var selectedDate = new Date(selectedText);
+//    var now = new Date();
+//    if (selectedDate < now) {
+//     alert("Date must be in the future");
+//    }
+//  }
+function myFunction() {
+  document.getElementById("panel").style.display = "block";
+}
     </script>
 @endsection
