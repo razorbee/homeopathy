@@ -48,15 +48,17 @@ class PrescriptionController extends Controller
     public function newPrescription()
     {
 
-        $disease = Diseases::select('id','disease')->orderBy('disease','asc')->get();
+       
+  
         $drugs = Drug::select('id','name','generic_name')->orderBy('name','asc')->get();
         $template = PrescriptionTemplate::select('id','name')->orderBy('name','asc')->get();
         $patients = Patient::select('id','name','gender','date_of_birth','patientdetails')->orderBy('name','asc')->get();
+        $diseases = Diseases::get();
         return view('user.doctor.prescription.new',[
             'drugs'     =>  $drugs,
             'templates' =>  $template,
             'patients'  =>  $patients,
-            'disease' => $disease
+            'diseases'  => $diseases
         ]);
     }
 

@@ -133,6 +133,7 @@ class TemplateController extends Controller
                     $template_drug->strength = $drug['strength'];
                     $template_drug->advice = $drug['drug_advice'];
                     $template_drug->type = $drug['drug_type'];
+                    $prescription_drug->frequencies = $drug['frequencies'];
                     $template_drug->save();
                 }
                 return response()->json(['template'=>$template->name], 200);

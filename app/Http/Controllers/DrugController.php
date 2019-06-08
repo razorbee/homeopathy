@@ -38,7 +38,7 @@ class DrugController extends Controller
             return abort(404);
         }
 
-        $drugs = Drug::select('id','name')->get();
+        $drugs = Drug::select('id','name','generic_name')->groupBy('id','name','generic_name')->get();
         $query = $id == 0 ? '>' : '=';
         $start_date = Carbon::parse($start_date)->toDateString();
         $end_date = Carbon::parse($end_date)->addDay(0)->toDateString();

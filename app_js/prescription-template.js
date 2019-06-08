@@ -60,7 +60,7 @@ $(document).ready(function () {
     // Add drug to the list
     $("#addDrugToListForm").on('submit',function (e) {
         e.preventDefault();
-        if($(this).checkValidation()){
+      
             var freq = $('input[type=checkbox]:checked').map(function(_, el) {
                 return $(el).val();
             }).get();
@@ -80,8 +80,7 @@ $(document).ready(function () {
             $(this).refreshDrugForm();
             $(this).renderDrug(drugList);
             console.log(drugList);
-        }
-    });
+            });
 
     // Open drug update (form the drug list) modal
     $("#updateDrugList").on('click',function () {
@@ -91,6 +90,12 @@ $(document).ready(function () {
     // Update drug form the list
     $("#drugUpdateForm").on('submit',function (e) {
         e.preventDefault();
+        var freq = $('input[type=checkbox]:checked').map(function(_, el) {
+            return $(el).val();
+        }).get();
+        debugger;
+        freq = freq?freq.join(','):'';
+            
         if(drugUpdateKey != null){
             drug = {
                 drug_id : $("#drugUpdateSelect").val(),
@@ -100,7 +105,7 @@ $(document).ready(function () {
                 duration : $("#updateDrugDuration").val(),
                 drug_advice : $("#updateDrugAdvice").val(),
                 drug_type : $("#updateDrugType").val(),
-                frequencies: $('#frequencies').val()
+                frequencies: freq
             };
             drugList[drugUpdateKey] = drug;
             $(this).refreshDrugForm();
@@ -108,7 +113,7 @@ $(document).ready(function () {
             $("#edit-drug-modal").modal('hide');
             drugUpdateKey = null;
         }
-    });
+        });
 
     // Save Template
     $("#saveTemplate").on('click',function (e) {
@@ -289,7 +294,7 @@ $(document).ready(function () {
                     $("<i>",{text:data.drug_type}).append("&nbsp;&nbsp;"),
                     $("<b>",{text:data.drug_name}).append("&emsp;"),
                     $("<i>",{text:data.strength}).append("&emsp;"),
-                    
+                    $("<i>",{text:data.frequencies}).append("&emsp;"),
                     $("<button>",{class:"btn btn-sm btn-link btn-primary",
                         onClick:"$(this).editDrug("+key+")"}).append(
                         $("<i>",{class:'fa fa-pencil'})
@@ -301,10 +306,11 @@ $(document).ready(function () {
                     $('<ul>').append(
                         $('<li>').append(
                             $('<span>',{text:data.dose}).append("&emsp;"),
-                            $("<span>",{text:data.duration}),
-                            $("<span>",{text:data.frequencies})
+                            $("<span>",{text:data.duration})
                         ),
-                        $('<li>',{text:data.drug_advice})
+
+                        $('<li>',{text:data.drug_advice}),
+                        $('<li>',{text:data.frequencies})
                     )
                 )
             )
@@ -343,7 +349,6 @@ $(document).ready(function () {
         $("#updateDrugDuration").val(drug.duration);
         $("#updateDrugAdvice").val(drug.drug_advice);
         $("#updateDrugType").val(drug.drug_type);
-        $("#updatefrequencies").val(drug.frequencies);
 
     };
 
@@ -358,15 +363,7 @@ $(document).ready(function () {
     };
 
     // check validation
-    $.fn.checkValidation = function () {
-      if($("#drug").val() == ''){
-          alert('You have to select a drug first');
-          return false;
-      }else{
-          return true;
-      }
-    };
-
+    
     // Refresh drug form
     $.fn.refreshDrugForm = function () {
         $("#drug").val('').trigger('change');
@@ -462,3 +459,4 @@ $.fn.getPatientDetails = function (patientId) {
     };
 
 });
+

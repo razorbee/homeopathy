@@ -10,6 +10,7 @@ $factory->define(\App\Model\PrescriptionTemplateDrug::class, function (Faker $fa
         'dose'                      =>  '1+0+1',
         'duration'                  =>  $faker->numberBetween(1,10) . "Days",
         'strength'                  =>  $faker->numberBetween(10,1000) . "mg",
-        'advice'                    =>  $faker->text(40)
+        'advice'                    =>  $faker->text(40),
+        'frequencies'               =>1
     ];
 });

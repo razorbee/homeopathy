@@ -1,5 +1,3 @@
-
-    
 @extends('layouts.app')
 
 @section('title')
@@ -9,7 +7,11 @@
 @section('extra-css')
     <link rel="stylesheet" href="{{url('/dashboard/plugins/select2/css/select2.min.css')}}">
     <link rel="stylesheet" href="{{url('/dashboard/plugins/jquery-ui/jquery-ui.css')}}">
-
+    <style>
+#drugListView > li > ul >li {
+list-style:none!important;
+}
+</style>
 @endsection
 
 @section('content')
@@ -88,25 +90,26 @@
                                     </button>
                                 </div>
                                 <div class="col-md-4">
-                                  <div class="form-group-custom1">
-                          
-                                <select class="form-control js-select2" id="selectDisease" multiple="multiple">
-                                    <option value="">Select Disease</option>
-                            @foreach($disease as $disease)
-                                <option value="{{$disease->disease}}" data-badge="">{{$disease->disease}}</span>
-                                </option>
-                            @endforeach
-                        </select>
-                                   <!-- <input type="text" name="other" id="other" style='display:none;'/>-->
+                                  <div class="form-group-custom">
+                                  <input type="text" id="strength"/>
+                                        <label class="control-label">Strength</label><i class="bar"></i>
+                                
+                                   
                                   </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group-custom">
-                                        <input type="text" id="strength"/>
-                                        <label class="control-label">Strength</label><i class="bar"></i>
+                                    <input type="text" id="dose"/>
+                                        <label class="control-label">Dose</label><i class="bar"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-4">
+                                    <div class="form-group-custom">
+                                        <input type="text" id="duration"/>
+                                        <label class="control-label">Duration</label><i class="bar"></i>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
                                     <div   class="form-group-custom">
                                     
                                       <label type="hidden" class="control-label" id="frequencies"></label>
@@ -141,18 +144,18 @@
 
                             <div class="row">
 
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <div class="form-group-custom">
                                         <input type="text" id="dose"/>
                                         <label class="control-label">Dose</label><i class="bar"></i>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
+                                </div> -->
+                                <!-- <div class="col-md-6">
                                     <div class="form-group-custom">
                                         <input type="text" id="duration"/>
                                         <label class="control-label">Duration</label><i class="bar"></i>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
@@ -224,7 +227,19 @@
                                 Create new patient
                             </button>
                         </center>
-                  </div>
+                    
+                        <div class="form-group-custom1">
+                          
+                                <select class="form-control js-select2" id="selectDisease" multiple="multiple">
+                                    <option value="">Select Disease</option>
+                                    @foreach($diseases as $diseases)
+                                <option value="{{$diseases -> disease}}" data-badge="">{{$diseases -> disease}}</span>
+                                </option>
+                            @endforeach
+                        </select>
+                                   <!-- <input type="text" name="other" id="other" style='display:none;'/>-->
+                                 
+                                  </div>
                 </div>
             </div>
 
@@ -384,4 +399,3 @@
 $( ".patientdetail" ).appendTo( "#patienthistory" );
     </script>
 @endsection
-

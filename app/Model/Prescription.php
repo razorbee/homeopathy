@@ -48,7 +48,7 @@ class Prescription extends Model
     {
         return $this->hasMany(Prescription::class);
     }
-    public function diseases()
+    public function disease()
     {
         return $this->hasMany(Diseases::class);
     }

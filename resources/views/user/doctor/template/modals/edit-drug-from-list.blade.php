@@ -45,12 +45,44 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-12">
+                        <div class="col-md-6">
                             <div class="form-group-custom">
                                 <input type="text" id="updateDrugAdvice"/>
                                 <label class="control-label">Advice</label><i class="bar"></i>
                             </div>
                         </div>
+                        <div class="col-md-6">
+                                    <div   class="form-group-custom">
+                                    
+                                      <label type="hidden" class="control-label" id="updateFrequencies"></label>
+                                    
+                                      <br>
+                                      <ul class="medi">
+                                      
+                                      <li class="d-inline">
+                                      <label class="checkbox-inline  m-r-10 m-l-10   text-center" for="morning">
+                                      <input type="checkbox" id="updateFrequencies" name="frequencies[]" value="{{$drug->frequencies}}" class="mor"/>Morning
+                                        </label>
+                                        </li>
+                                        <li  class="d-inline m-r-5  text-center">
+                                          <label class="checkbox-inline m-r-10 m-r-10 m-r-10 " for="afternoon">
+                                      <input type="checkbox" id="updateFrequencies" name="frequencies[]" value="{{$drug->frequencies}}"/>Afternoon
+                                    </label>
+                                    </li>
+                                        <li class="d-inline m-r-5  text-center">
+                                      <label class="checkbox-inline" for="evening">
+                                      <input type="checkbox" id="updateFrequencies" name="frequencies[]" value="{{$drug->frequencies}}"/>Evening
+                                    </label>
+                                    </li>
+                                        <li class="d-inline m-r-5 text-center">
+                                      <label class="checkbox-inline" for="night">
+                                        <input type="checkbox" id="updateFrequencies" name="frequencies[]" value="{{$drug->frequencies}}"/>Night
+                                        </label> </li>
+                                        </ul>
+
+
+                                    </div>
+                                </div>   
                     </div>
                     <button type="submit" hidden>Submit</button>
                 </form>

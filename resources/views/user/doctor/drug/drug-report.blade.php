@@ -20,8 +20,21 @@
                     {{csrf_field()}}
                     <div class="row">
                         <div class="col-md-6">
+                        <div class="form-group-custom">
+                        <!-- <input type="text" name="generic_name" required="required"/> -->
+                        <select name="drug_type" id="drug_type" required="required" class="drug_type select2 dynamic" data-dependent="drug_id">
+                        <option  value="select">select Medicine type</option>
+                            <option  value="Medicine">Medicine</option>
+                            <option  value="Mother-Tinture">Mother-Tinture</option>
+                            <option  value="Ointments & Oils">Ointments & Oils</option>
+                            <option  value="Syrups">Syrups</option>
+                            <option  value="Dilutions">Dilutions</option>
+                        </select>
+                     </div>
+                        </div>
+                        <div class="col-md-4">
                             <div class="form-group-custom ">
-                                <select class="form-control select2" name="drug_id" id="" required="required">
+                                <select class="form-control select2" name="drug_id" id="drug_id" required="required">
                                     <option value="0" {{$drug_id ==0 ? 'selected' : ''}}>All Drug</option>
                                     @foreach($drugs as $drug)
                                         <option value="{{$drug->id}}" {{$drug_id ==$drug->id ? 'selected' : ''}}>{{$drug->name}} </option>
@@ -29,6 +42,7 @@
                                 </select>
 
                             </div>
+                         
                         </div>
                         <div class="col-md-3">
                             <div class="form-group-custom">
@@ -90,6 +104,9 @@
 
             $('#drugReport').on('submit',function (e) {
                 e.preventDefault();
+                $('#drug_type').change(function(){
+  $('#drug_id').val('');
+ });
                 var drugId = $(".select2").val();
                 var start = $('#start').val() != '' ?  $('#start').val() : '2017-06-05';
                 var end = $('#end').val() != '' ? $('#end').val() : '{{\Carbon\Carbon::today()->addDay(1)->toDateString()}}';

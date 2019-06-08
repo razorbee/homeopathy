@@ -88,6 +88,10 @@
                                     <span class="prescription-p-title">Date :</span>
                                     {{$prescription->prescription_date->format('d-M-Y')}}
                                 </th>
+                                <th>
+                                    <span class="prescription-p-title">Disease :</span>
+                                    {{$prescription->disease}}
+                                </th>
                             </tr>
                             </thead>
                         </table>
@@ -134,14 +138,14 @@
                          
                        
                             </ol>
-                             <div class="col-md-2" style="margin-top: 10px;">
+                             <!-- <div class="col-md-2" style="margin-top: 10px;">
                                 <table>
                                     <tr>
                                         <td>Disease:</td>
                                         <td>{{$prescription->disease}}</td>
                                     </tr>
                                 </table>
-                            </div>
+                            </div> -->
                             </div>
                             <div class="col-md-2">
                                 @if($prescription->next_visit != null || $prescription->next_visit != '')

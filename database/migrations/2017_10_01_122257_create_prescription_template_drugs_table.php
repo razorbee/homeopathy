@@ -22,6 +22,7 @@ class CreatePrescriptionTemplateDrugsTable extends Migration
             $table->string('duration')->nullable();
             $table->string('strength')->nullable();
             $table->string('advice')->nullable();
+            $table->integer('frequencies');
             $table->timestamps();
             
         });

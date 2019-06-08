@@ -5,7 +5,7 @@ if(in_array($_SERVER['REMOTE_ADDR'], $localhost)){
  $rbpath = 'C:/xampp/htdocs/homeopathy/';
    $domain = 'http://localhost/homeopathy/';
 
-  $rb_database= 'homeopathy';
+  $rb_database= 'homeopathy1';
   $rb_username = 'root';
   $rb_password = '';
 }

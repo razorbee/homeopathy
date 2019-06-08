@@ -51,7 +51,7 @@
                         <div class="col-md-6">
                             <div class="form-group-custom ">
                                 <select class="form-control select2" name="patient_id" id="" required="required">
-                                    <option></option>
+                                    <option>Select the patient</option>
                                     @foreach($patients as $patient)
                                         <option value="{{$patient->id}}">{{$patient->name}} | {{$patient->phone}}</option>
                                     @endforeach
@@ -85,7 +85,7 @@
                             <div class="form-group-custom">
                                 <select required="required" class="form-control select3" name="appointment_id" id="">
                                     <button class="accordion" onclick="myFunction()">Select Place</button>
-                                   
+                                    <option>Select the schedule</option>
                                     @foreach($schedules as $schedule)
                                         <option value="{{$schedule->id}}">{{$schedule->name}}</option>
                                     @endforeach
@@ -109,7 +109,9 @@
                    
             
                     <button type="submit" class="btn btn-primary waves-effect waves-light">Submit &nbsp; <i id="loading" class="fa fa-refresh fa-spin"></i></button>
-                    <button type="reset" class="btn btn-danger waves-effect waves-light m-l-10 m-l-10">Cancel</button>
+             
+                    <!-- <button type="reset" class="btn btn-danger waves-effect waves-light m-l-10 m-l-10">Cancel</button> -->
+                    <button type="reset" class="btn btn-danger waves-effect waves-light m-l-10 m-l-10" onclick=" window.history.back();">Cancel</button>
                 </form>
             </div>
         </div>

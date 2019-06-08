@@ -163,7 +163,8 @@
                         strength : data.strength,
                         dose : data.dose,
                         duration : data.duration,
-                        drug_advice : data.advice
+                        drug_advice : data.advice,
+                        frequencies:data.frequencies
                     }
                     _drugs.push(_drug);
                });
