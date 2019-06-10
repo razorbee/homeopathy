@@ -1,3 +1,26 @@
+<style>
+.inner-addon { 
+    position: relative; 
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+  pointer-events: none;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+</style>
+
+
 <input type="hidden" id="appurl" value="{{url('/')}}"/>
 <!-- Top Bar Start -->
 <div class="topbar">
@@ -24,8 +47,12 @@
 
    
         <ul class="list-inline float-right mb-0">
-        <li class="list-inline-item"><form id="search_patient_form">Search Patient
-               <input type="text" placeholder="search_patient" id="search_patient"/>
+        <li class="list-inline-item">
+        <form id="search_patient_form">
+        <div class="inner-addon left-addon">
+    
+               <input type="text" placeholder="Enter Patient id" id="search_patient"/>
+               </div>
                </form>
                </li>
             <li class="list-inline-item dropdown notification-list">

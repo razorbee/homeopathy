@@ -5703,6 +5703,12 @@ span.select2-container--open .select2-dropdown .select2-search--dropdown input{
   background-size: cover;
   height:520px;
 }
+#search_patient{
+
+  background:url('/homeopathy/dashboard/images/magnifier.png');
+  background-repeat: no-repeat;
+  border-radius:25px;
+}
 .account-pages {
   /* background: url("../images/banner2.jpg"); */
   background-repeat: no-repeat;
