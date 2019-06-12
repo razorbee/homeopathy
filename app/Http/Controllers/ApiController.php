@@ -11,6 +11,7 @@ use App\Model\DrugDuration;
 use App\Model\DrugStrength;
 use App\Model\DrugType;
 use App\Model\Patient;
+use App\Model\Diseases;
 use App\Model\PatientAppointment;
 use App\Model\Prescription;
 use App\Model\PrescriptionTemplate;
@@ -518,6 +519,22 @@ class ApiController extends Controller
             ->make(true);
     }
 
+    public function allDiseaseToDataTable()
+    {
+        $disease = Diseases::all();
+        return datatables($disease)
+            ->addColumn('#',function (){
+                static $i = 1;
+                return $i++;
+            })
+            ->addColumn('action','user.doctor.drug.datatable.action')
+            ->editColumn('created_at',function($disease){
+                return $disease->created_at->format('d-M-Y');
+            })
+           
+            ->rawColumns(['action'])
+            ->make(true);
+    }
 
 
 

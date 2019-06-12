@@ -46,11 +46,11 @@
             $.get('api/get-advice-details/'+id,function (data) {
                 $("#input_update_advice").val(data.advice);
                 $("#checkbox_advice_status").prop('checked',data.status == 1 ? true : false);
-                $(this).setDrugAdviceId(data.id);
+                $(this).setAdviceId(data.id);
             })
         };
 
-        $.fn.setDrugAdviceId = function (id) {
+        $.fn.setAdviceId = function (id) {
             updateAdvice = id;
         };
 

@@ -5705,7 +5705,7 @@ span.select2-container--open .select2-dropdown .select2-search--dropdown input{
 }
 #search_patient{
 
-  background:url('/homeopathy/dashboard/images/magnifier.png');
+  /* background:url('../homeopathy/dashboard/images/magnifier.png'); */
   background-repeat: no-repeat;
   border-radius:25px;
 }

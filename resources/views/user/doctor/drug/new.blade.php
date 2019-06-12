@@ -89,7 +89,7 @@
             </div>
             <div class="card-content">
                 <h4 class="card-title">View disease</h4>
-                <table class="table table-striped table-bordered">
+                <!-- <table class="table table-striped table-bordered">
                 <thead>
                 <tr>
                 <td></td>
@@ -107,8 +107,18 @@
                     
                     @endforeach
                     </tbody>
-                    </table>
-                    
+                    </table> -->
+                    <table id="diseaseTable" class="table table-striped table-bordered" width="100%">
+        <thead>
+        <tr>
+            <th>#</th>
+            <th>diseases</th>
+           
+            <th>Date</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+    </table> 
               
             </div>
         </div>
@@ -116,9 +126,22 @@
 
 @endsection
 @section('extra-js')
+<script src="{{url('/dashboard/plugins/datatables/datatable.min.js')}}"></script>
     <script>
         $(document).ready(function () {
-         
+    
+            $("#diseaseTable").dataTable({
+               
+            "processing": true,
+            "serverSide": true,
+            "ajax": "{{ url('/api/data-table/all-disease') }}",
+            "columns": [
+                { "data" : "#"},
+                { "data": "disease" },
+                { "data": "created_at" },
+                { "data": "action" }
+            ]
+        });
 
             var form = $("#newDrug");
             form.on('submit',function (e) {
@@ -128,7 +151,11 @@
                 $(this).speedPost('{{url('/save-drug')}}',formData,form);
             });
 
-            var forms = $("#newDisease");
+            
+
+    
+
+        var forms = $("#newDisease");
             forms.on('submit',function (e) { 
             debugger;
                 var formData = new FormData(this);
@@ -142,21 +169,22 @@
             cache: false,
             processData:false,
             success:function (data) {
-                $.Notification.notify('success','top right',"Drug added successfully","drug has been added successfully");
-                $("#disease_name").appendto(
-                    $("<tr>").appendto(
-                           $("#id",{text:data.id}),
-                           $("#diseases",{text:data.id}),
-                          
-                       )
-                   )
+                $.Notification.notify('success','top right',"Disease added successfully","Disease has been added successfully");
+                
                 
             },error:function (data){
                 $(this).showAjaxError(data);
             }
 
         });
-    });
+    })
+
+    @if(session('delete_diseae'))
+            $.Notification.notify('success','top right','Disease Deleted','Disease has been deleted successfully');
+        @endif
+        @if(session('delete_fail'))
+            $.Notification.notify('error','top right','Disease cannot delete','Something went wrong');
+        @endif
 });
 </script>
     

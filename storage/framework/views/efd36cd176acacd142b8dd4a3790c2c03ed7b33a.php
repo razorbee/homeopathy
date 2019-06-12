@@ -1,0 +1,219 @@
+<?php $__env->startSection('title'); ?>
+    New Appointment
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('extra-css'); ?>
+    <link rel="stylesheet" href="<?php echo e(url('/dashboard/plugins/select2/css/select2.min.css')); ?>">
+    <style>
+.accordion {
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+  transition: 0.4s;
+}
+
+.active, .accordion:hover {
+  background-color: #ccc; 
+}
+
+.panel {
+  padding: 0 18px;
+  display: none;
+  background-color: white;
+  overflow: hidden;
+}
+</style>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('content'); ?>
+    <?php if(session('has_patient')): ?>
+        <?php $patient = session('has_patient') ?>
+        <input type="hidden" value="<?php echo e($patient->id); ?>" id="defaultPatient">
+    <?php endif; ?>
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header card-header-icon">
+                <i class="fa fa-calendar fa-2x"></i>
+            </div>
+            <div class="card-content">
+                <h4 class="card-title">New Appointment</h4>
+                <form action="#" method="post" id="newAppointment">
+                    <?php echo e(csrf_field()); ?>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group-custom ">
+                                <select class="form-control select2" name="patient_id" id="" required="required">
+                                    <option>Select the patient</option>
+                                    <?php $__currentLoopData = $patients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patient): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($patient->id); ?>"><?php echo e($patient->name); ?> | <?php echo e($patient->phone); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                        <button onclick="myFunction()">see schedule</button>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group-custom">
+                                <!-- <input type="date" name="date" id="date" required="required"/> -->
+                                <input id="datepicker" name="date" onchange="checkDate()" required class="datepicker-input" type="date" data-date-format="yyyy-mm-dd" >
+                                <label class="control-label">Date &nbsp;*</label><i class="bar"></i>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group-custom">
+                                <input type="time" required="required" name="time"/>
+                                <label class="control-label">Time[24hr-format]</label><i class="bar"></i>
+                                
+                                   
+                                
+                            </div>
+                        </div>
+                       
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group-custom">
+                                <select required="required" class="form-control select3" name="appointment_id" id="">
+                                    <button class="accordion" onclick="myFunction()">Select Place</button>
+                                    <option>Select the schedule</option>
+                                    <?php $__currentLoopData = $schedules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $schedule): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                        <option value="<?php echo e($schedule->id); ?>"><?php echo e($schedule->name); ?></option>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-6">
+                            <div class="form-group-custom">
+                                <input type="text" name="payment"/>
+                                <label class="control-label">Payment Amount &nbsp;</label><i class="bar"></i>
+                            </div>
+                        </div> -->
+
+                        <div class="col-md-6">
+                    <div class="form-group-custom">
+                        <textarea name="note" ></textarea>
+                        <label class="control-label">Note</label><i class="bar"></i>
+                    </div>
+                  </div>
+                    </div>
+                   
+            
+                    <button type="submit" class="btn btn-primary waves-effect waves-light">Submit &nbsp; <i id="loading" class="fa fa-refresh fa-spin"></i></button>
+             
+                    <!-- <button type="reset" class="btn btn-danger waves-effect waves-light m-l-10 m-l-10">Cancel</button> -->
+                    <button type="reset" class="btn btn-danger waves-effect waves-light m-l-10 m-l-10" onclick=" window.history.back();">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+    
+    <div class="panel" id="panel" style="display:none;">
+                <!-- <h4 class="text-center"><strong>Appointment Schedule</strong></h4> -->
+           
+            <div class="panel-body">
+            <h4 class="text-center red"><strong>Appointment Schedule</strong></h4>
+                <?php $__currentLoopData = $schedules; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $appointment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4 style="color:#000;"><?php echo e($appointment->name); ?></h4>
+                        </div>
+                        <div class="col-md-6">
+                            <h4 style="color:#000;">Contact :</h4>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6" style="padding-left: 45px;">
+                            <?php $__currentLoopData = $appointment->dateTime; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $date): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                <p style="color:#000;"><b><u><?php echo e($date->days); ?></u></b> <br>
+                                    Chamber Time : <b><?php echo e(\Carbon\Carbon::parse($date->start_time)->format('g:i a')); ?></b> to
+                                   <b> <?php echo e(\Carbon\Carbon::parse($date->end_time)->format('g:i a')); ?></b></p>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                        </div>
+                        <div class="col-md-6" style="padding-left: 45px;">
+                            <h4 style="font-size: 20px;color:#000;">
+                                <?php echo e($appointment->contact_person_name); ?>
+
+                            </h4>
+                            <dl class="row">
+                                <dt class="col-sm-1"><i class="fa fa-phone-square" aria-hidden="true"></i></dt>
+                                <dd class="col-sm-11"><a href="tel:<?php echo e($appointment->phone); ?>"><?php echo e($appointment->phone); ?></a></dd>
+                                <dt class="col-sm-1"><i class="fa fa-envelope" aria-hidden="true"></i></dt>
+                                <dd class="col-sm-11"><a href="mailto:<?php echo e($appointment->email); ?>"><?php echo e($appointment->email); ?></a></dd>
+                                <dt class="col-sm-1"><i class="fa fa-map-marker" aria-hidden="true"></i></dt>
+                                <dd class="col-sm-11"> <?php echo nl2br(e($appointment->address)); ?></dd>
+                            </dl>
+                        </div>
+                    </div>
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+            </div>
+         
+        </div>
+    
+    </div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('extra-js'); ?>
+    <script src="<?php echo e(url('/dashboard/plugins/select2/js/select2.min.js')); ?>"></script>
+    <script>
+        $(document).ready(function () {
+            $(".select2").select2({
+                placeholder: "Please select a patient *",
+                width: '100%'
+            });
+            $(".select3").select2({
+                placeholder: "Please select a schedule *",
+                width: '100%'
+            });
+
+            var defaultPatient = $("#defaultPatient").val();
+            if(defaultPatient != '' || defaultPatient != null){
+                $(".select2").val(defaultPatient).change();
+            }
+            
+                
+            $("#newAppointment").on('submit',function (e) {
+                e.preventDefault();
+                var formId = $("#newAppointment");
+                var data = new FormData(this);
+                $.ajax({
+                    url:'<?php echo e(url('/save-appointment')); ?>',
+                    type:'POST',
+                    data:data,
+                    contentType: false,
+                    cache: false,
+                    processData:false,
+                    success:function (data) {
+                        $.Notification.notify('success','top right','Appointment make successfully');
+                        formId.get(0).reset();
+                        $('.select2').val('').change();
+                        $('.select3').val('').change();
+                    },error:function (data) {
+                        $.Notification.notify('error','top right','Doctor will not available on that day in selected place')
+                    }
+                })
+            });
+        })
+//         function checkDate() {
+//    var selectedText = document.getElementById('datepicker').value;
+//    var selectedDate = new Date(selectedText);
+//    var now = new Date();
+//    if (selectedDate < now) {
+//     alert("Date must be in the future");
+//    }
+//  }
+function myFunction() {
+  document.getElementById("panel").style.display = "block";
+}
+    </script>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

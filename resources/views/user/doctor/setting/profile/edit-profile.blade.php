@@ -32,6 +32,10 @@
                                 <label class="control-label">Name &nbsp;*</label><i class="bar"></i>
                             </div>
                             <div class="form-group-custom">
+                                <input type="text" name="username" value="{{auth()->user()->username}}" required="required" autofocus/>
+                                <label class="control-label">Username &nbsp;*</label><i class="bar"></i>
+                            </div>
+                            <div class="form-group-custom">
                                 <input type="email" name="email" value="{{auth()->user()->email}}" required="required"/>
                                 <label class="control-label">Email &nbsp;*</label><i class="bar"></i>
                             </div>

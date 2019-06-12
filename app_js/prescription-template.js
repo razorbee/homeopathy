@@ -90,12 +90,8 @@ $(document).ready(function () {
     // Update drug form the list
     $("#drugUpdateForm").on('submit',function (e) {
         e.preventDefault();
-        var freq = $('input[type=checkbox]:checked').map(function(_, el) {
-            return $(el).val();
-        }).get();
-        debugger;
-        freq = freq?freq.join(','):'';
-            
+           var freq = $('#updateFrequencies').prop("checked") ? 1 : 0;
+            freq = freq?freq.join(','):'';
         if(drugUpdateKey != null){
             drug = {
                 drug_id : $("#drugUpdateSelect").val(),
@@ -105,7 +101,7 @@ $(document).ready(function () {
                 duration : $("#updateDrugDuration").val(),
                 drug_advice : $("#updateDrugAdvice").val(),
                 drug_type : $("#updateDrugType").val(),
-                frequencies: freq
+                frequencies:  freq
             };
             drugList[drugUpdateKey] = drug;
             $(this).refreshDrugForm();
@@ -294,7 +290,7 @@ $(document).ready(function () {
                     $("<i>",{text:data.drug_type}).append("&nbsp;&nbsp;"),
                     $("<b>",{text:data.drug_name}).append("&emsp;"),
                     $("<i>",{text:data.strength}).append("&emsp;"),
-                    $("<i>",{text:data.frequencies}).append("&emsp;"),
+                
                     $("<button>",{class:"btn btn-sm btn-link btn-primary",
                         onClick:"$(this).editDrug("+key+")"}).append(
                         $("<i>",{class:'fa fa-pencil'})

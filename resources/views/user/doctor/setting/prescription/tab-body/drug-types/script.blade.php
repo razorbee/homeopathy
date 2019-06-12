@@ -92,9 +92,6 @@
         @if(session('delete_drug_type'))
             $.Notification.notify('success','top right','Drug Type Deleted','Drug type has been deleted successfully');
         @endif
-        @if(session('delete_fail'))
-            $.Notification.notify('error','top right','Drug Type cannot delete','Something went wrong');
-        @endif
-
+        
     })
 </script>

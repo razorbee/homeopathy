@@ -194,6 +194,13 @@ class DrugController extends Controller
 
         }
     }
+    public function deleteDisease($id)
+    {
+        $disease = Diseases::findOrFail($id);
+        if($disease->delete()){
+            return redirect()->back()->with('disease_delete','Disease has been deleted');
+        }
+    }
 
 
 }

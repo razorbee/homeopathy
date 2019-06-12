@@ -91,7 +91,7 @@ class UserController extends Controller
                 ->move('uploads/assistant', rand(100000, 900000) . '.' . $request->image->extension());
         }
         if($user->save()){
-            return response()->json([$user->name.' - Added',$user->name." Has been added as doctor assistant successfully"],'200');
+            return response()->json([$user->name.' - Added',$user->name." Has been added as user successfully"],'200');
         }
 
     }
@@ -128,7 +128,7 @@ class UserController extends Controller
 		 $user->status = $request->get('status') == 'on' ? 1 : 0;
         //$user->role = 2;
         if($user->save()){
-            return response()->json([$user->name.' - Added',$user->name." Has been added as doctor assistant successfully"],'200');
+            return response()->json([$user->name.' - Updated',$user->name." Has been updated successfully"],'200');
         }
 
     }
@@ -165,7 +165,7 @@ class UserController extends Controller
                 ->move('uploads/assistant', rand(100000, 900000) . '.' . $request->image->extension());
         }
         if($user->save()){
-            return response()->json([$user->name.' - Added',$user->name." Has been added as doctor assistant successfully"],'200');
+            return response()->json([$user->name.' - Updated',$user->name." Has been updated successfully"],'200');
         }
     }
 

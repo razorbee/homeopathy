@@ -58,7 +58,7 @@
             e.preventDefault();
             var data = new FormData(this);
             $.ajax({
-                url: '{{url('/update-drug-advice')}}'+'/'+updateDrugAdvice,
+                url: '{{url('update-drug-advice/')}}'+'/'+updateDrugAdvice,
                 type: 'POST',
                 data: data,
                 contentType: false,

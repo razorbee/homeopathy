@@ -95,7 +95,38 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-md-12">
+                                    <div class="col-md-5">
+                                        <div   class="form-group-custom">
+                                    
+                                      <label type="hidden" class="control-label" id="frequencies"></label>
+                                    
+                                      <br>
+                                      <ul class="medi">
+                                      <li class="d-inline">
+                                      <label class="checkbox-inline  m-r-10 m-l-10   text-center" for="morning">
+                                      <input type="checkbox" name="frequencies" value="morning" class="mor"/>Morning
+                                        </label>
+                                        </li>
+                                        <li  class="d-inline m-r-5  text-center">
+                                          <label class="checkbox-inline m-r-10 m-r-10 m-r-10 " for="afternoon">
+                                      <input type="checkbox" name="frequencies" value="afternoon"/>Afternoon
+                                    </label>
+                                    </li>
+                                        <li class="d-inline m-r-5  text-center">
+                                      <label class="checkbox-inline" for="evening">
+                                      <input type="checkbox" name="frequencies" value="evening"/>Evening
+                                    </label>
+                                    </li>
+                                        <li class="d-inline m-r-5 text-center">
+                                      <label class="checkbox-inline" for="night">
+                                        <input type="checkbox" name="frequencies" value="night"/>Night
+                                        </label> </li>
+                                        </ul>
+
+
+                                    </div>
+                                </div>
+                            <div class="col-md-7">
                                 <div class="form-group-custom">
                                     <input type="text" id="drug_advice"/>
                                     <label class="control-label">Advice</label><i class="bar"></i>
@@ -115,6 +146,7 @@
                                 {{--<ul>--}}
                                     {{--<li>1+1+1 7Days</li>--}}
                                     {{--<li>Advice</li>--}}
+                                    {{--<li>Frequencies</li>--}}
                                 {{--</ul>--}}
                             {{--</li>--}}
                         </ol>

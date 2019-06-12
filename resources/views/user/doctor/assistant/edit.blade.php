@@ -16,7 +16,7 @@
         User / &nbsp;
     </li>
     <li class="float-left">
-        <a href="{{url('/new-assistant')}}" class="">New User</a>
+        <a href="{{url('/new-assistant')}}" class="">Edit User</a>
     </li>
 @endsection
 
@@ -33,9 +33,10 @@
 
                     <div class="row">
                         <div class="col-md-4" style="padding-left: 81px;">
-                            <div id="image-preview"><img src="{{url('/')}}/{{$user->image}}"  alt="">
+                            <!-- <div id="image-preview"><img src="{{url('/')}}/{{$user->image}}" style="width:250px;height:250px;margin-bottom: -200px;" alt=""> -->
+                            <div id="image-preview"><img src="{{url('/')}}/{{$user->image}}" style="width:250px;height:250px;margin-bottom:-200px;z-index:-2!important;" alt="">
                                 <label for="image-upload" id="image-label"><img src="{{url('/')}}/dashboard/images/pencil.png" height="20"/></label>
-                                <input type="file" name="image" id="image-upload"/>
+                                <input type="file" name="image" id="image-upload" style="position: relative;"/>
                             </div>
                         </div>
                         <div class="col-md-8">

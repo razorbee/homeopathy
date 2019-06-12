@@ -51,8 +51,8 @@
                                 <label class="control-label">Advice</label><i class="bar"></i>
                             </div>
                         </div>
-                        <div class="col-md-6">
-                                    <div   class="form-group-custom">
+                                    <div class="col-md-6">
+                                     <div   class="form-group-custom">
                                     
                                       <label type="hidden" class="control-label" id="updateFrequencies"></label>
                                     

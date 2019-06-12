@@ -72,7 +72,7 @@
                         <div class="col-md-2">
                             <div class="form-group-custom">
                                 <input type="time" required="required" name="time"/>
-                                <label class="control-label">Time</label><i class="bar"></i>
+                                <label class="control-label">Time[24hr-format]</label><i class="bar"></i>
                                 
                                    
                                 

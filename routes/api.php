@@ -52,6 +52,7 @@ Route::get('/data-table/all-drug-dose','ApiController@allDrugDosesToDataTable');
 Route::get('/data-table/all-drug-duration','ApiController@allDrugDurationToDataTable');
 Route::get('/data-table/all-drug-advice','ApiController@allDrugAdviceToDataTable');
 Route::get('/data-table/all-advice','ApiController@allAdviceToDataTable');
+Route::get('/data-table/all-disease','ApiController@allDiseaseToDataTable');
 
 // Api for prescription
 Route::get('/get-drug-types','PrescriptionApiController@getDrugTypes');

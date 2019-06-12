@@ -51,7 +51,7 @@
         <form id="search_patient_form">
         <div class="inner-addon left-addon">
     
-               <input type="text" placeholder="Enter Patient id" id="search_patient"/>
+               <input type="text" placeholder="&#x2315; Enter Patient id" id="search_patient"/>
                </div>
                </form>
                </li>
@@ -83,7 +83,11 @@
                  <!--    <a href="{{url('/profile')}}" class="dropdown-item notify-item">
                         <i class="zmdi zmdi-account-circle"></i> <span>Profile</span>
                     </a>
-					-->
+                    -->
+                    <a href="" class="dropdown-item notify-item" style="border-bottom: 1px black;">
+                        <i class="zmdi zmdi-settings"></i> <span><b>{{auth()->user()->username}}</b></span>
+                    </a>
+
                     <!-- item-->
                     <a href="{{url('/edit-profile')}}" class="dropdown-item notify-item">
                         <i class="zmdi zmdi-settings"></i> <span>Settings</span>

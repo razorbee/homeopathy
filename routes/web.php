@@ -162,6 +162,7 @@ Route::middleware(['auth','active.user'])->group(function (){
         //Disease
         Route::post('/save-disease', 'DrugController@saveDisease');
         Route::get('/fetch_disease','DrugController@fetch_disease');
+        Route::get('/delete-disease/{id}', 'DrugController@deleteDisease');
 
         // Route::get('/button-view','PatientController@viewPatient');
 
