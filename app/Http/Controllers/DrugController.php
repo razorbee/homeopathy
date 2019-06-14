@@ -22,6 +22,8 @@ class DrugController extends Controller
      */
     public function drugReport($id,$start_date,$end_date)
     {
+       // echo "------".$id;
+        //exit();
         $request = [
             'id'            =>  $id,
             'start_date'    =>  $start_date,
@@ -29,7 +31,7 @@ class DrugController extends Controller
         ];
 
         $validator  = Validator::make($request,[
-            'id'            =>  'required|numeric',
+            'id'            =>  'required',
             'start_date'    =>  'required|date',
             'end_date'      =>  'required|date'
         ]);

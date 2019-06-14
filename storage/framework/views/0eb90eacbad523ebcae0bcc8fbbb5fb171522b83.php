@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="<?php echo e(url('/dashboard/plugins/select2/css/select2.min.css')); ?>">
     <link rel="stylesheet" href="<?php echo e(url('/dashboard/plugins/jquery-ui/jquery-ui.css')); ?>">
     <style>
-#drugListView > li > ul >li {
+#drugListView > li > ul >li,.print_class {
 list-style:none!important;
 }
 </style>
@@ -113,25 +113,25 @@ list-style:none!important;
                                       <label type="hidden" class="control-label" id="frequencies"></label>
                                     
                                       <br>
-                                      <ul class="medi">
+                                      <ul class="medi" id="main_freq">
                                       <li class="d-inline">
                                       <label class="checkbox-inline  m-r-10 m-l-10   text-center" for="morning">
-                                      <input type="checkbox" name="frequencies" value="morning" class="mor"/>Morning
+                                      <input type="checkbox" name="frequencies[]" value="morning" class="mor"/>Morning
                                         </label>
                                         </li>
                                         <li  class="d-inline m-r-5  text-center">
                                           <label class="checkbox-inline m-r-10 m-r-10 m-r-10 " for="afternoon">
-                                      <input type="checkbox" name="frequencies" value="afternoon"/>Afternoon
+                                      <input type="checkbox" name="frequencies[]" value="afternoon"/>Afternoon
                                     </label>
                                     </li>
                                         <li class="d-inline m-r-5  text-center">
                                       <label class="checkbox-inline" for="evening">
-                                      <input type="checkbox" name="frequencies" value="evening"/>Evening
+                                      <input type="checkbox" name="frequencies[]" value="evening"/>Evening
                                     </label>
                                     </li>
                                         <li class="d-inline m-r-5 text-center">
                                       <label class="checkbox-inline" for="night">
-                                        <input type="checkbox" name="frequencies" value="night"/>Night
+                                        <input type="checkbox" name="frequencies[]" value="night"/>Night
                                         </label> </li>
                                         </ul>
 
@@ -171,7 +171,7 @@ list-style:none!important;
                         </form>
 
                         <hr>
-                        <ol id="drugListView">
+                     
 
                         </ol>
                     </div>
@@ -192,25 +192,26 @@ list-style:none!important;
                       
                             <option value="">Select Patient</option>
                             <?php $__currentLoopData = $patients; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $patient): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                <option value="<?php echo e($patient->id); ?>"><?php echo e($patient->name); ?> | <span><?php echo e($patient->id); ?> |<span><?php if($patient->gender ==1): ?>
+                                <option value="<?php echo e($patient->id); ?>"><?php echo e($patient->name); ?>  (P-<?php echo e($patient->id); ?> ) |<span><?php if($patient->gender ==1): ?>
     Male
 <?php elseif($patient->gender == 2): ?>
     Female
 <?php else: ?>
     Other
-<?php endif; ?></span> | <?php echo e($patient->age()); ?>
+<?php endif; ?></span> | age-<?php echo e($patient->age()); ?>
 
                                 </option>
                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                         </select>
                         
                         <center>
-                            <img id="_patientImage" src="<?php echo e(url('/dashboard/images/image_placeholder.jpg')); ?>" width="40%"
-                                 style="margin-top:10px;" class="rounded-circle img-fluid" alt="">
-                            <h4 id="_patientName">No Patient Selected yet</h4>
-                            <p id="_patientAge"></p>
-                            <p id="_patientGender"></p>
-                             <p id="_patientDetails" class="patientdetail"></p>
+                            <img id="_patientImage" src="<?php echo e(url('/dashboard/images/image_placeholder.jpg')); ?>" height="35"
+                                 style="margin-top:10px; height:90px" class="rounded-circle img-fluid" alt="">
+                           <div> <span id="_patientName"><b>No Patient Selected yet</b></span>
+                            <span id="_patientAge"></span>
+                            <span id="_patientGender"></span>
+                            <span id="_patientDetails" class="patientdetail"></span>
+                            </div>
                             
                         </center>
                         <!-- <div class="form-group-custom patientPres" style="display: none">
@@ -221,11 +222,7 @@ list-style:none!important;
                         </div> -->
 
                         <br>
-                        <center>
-                            <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
-                                Create new patient
-                            </button>
-                        </center>
+             
                     
                         <div class="form-group-custom1">
                           
@@ -239,6 +236,12 @@ list-style:none!important;
                                    <!-- <input type="text" name="other" id="other" style='display:none;'/>-->
                                  
                                   </div>
+                                  <center>
+                                  <br/> <br/> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
+                                  
+                                Create new patient
+                            </button>
+                        </center>
                 </div>
             </div>
 
@@ -252,7 +255,9 @@ list-style:none!important;
                 </div>
                 -->
                
-               
+                <div class="col-md-12">
+    <ol id="drugListView"></ol>
+</div>
                 <div class="col-md-12" style="margin-top:20px;">
                     <button onclick="$(this).savePrescription();"
                             class="btn btn-block btn-lg btn-inverse waves-effect waves-light">Save & Print
@@ -263,6 +268,7 @@ list-style:none!important;
 
         </div>
     </div>
+
     <div class="col-md-12">
         <div class="card">
             <div class="card-header card-header-icon">
@@ -274,7 +280,7 @@ list-style:none!important;
 
             <div class="col-md-12">
                 <div class="row m-l-15">
-                <p id="patienthistory" value="<?php echo e($patient->id); ?>" style="text-align:justify;margin-right:40px;"><?php echo e($patient->patientdetails); ?></p>
+                <p id="patienthistory" value="<?php echo e($patient->id); ?>" style="text-align:justify;margin-right:40px;"></p>
                </div> 
             </div>
         </div>
@@ -395,7 +401,15 @@ list-style:none!important;
             $($('#selectDisease').data('select2').$dropdown).addClass('mtop25')
 });
        
-$( ".patientdetail" ).appendTo( "#patienthistory" );
+ $( ".patientdetail" ).appendTo( "#patienthistory" );
+
+
+
+
+// var htmlString= document.getElementById("patienthistory");
+
+// var text = htmlString.replace(/<[^>]+>/g, '');
+
     </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

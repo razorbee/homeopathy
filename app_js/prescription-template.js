@@ -61,7 +61,7 @@ $(document).ready(function () {
     $("#addDrugToListForm").on('submit',function (e) {
         e.preventDefault();
       
-            var freq = $('input[type=checkbox]:checked').map(function(_, el) {
+            var freq = $('#main_freq input[type=checkbox]:checked').map(function(_, el) {
                 return $(el).val();
             }).get();
             debugger;
@@ -90,8 +90,11 @@ $(document).ready(function () {
     // Update drug form the list
     $("#drugUpdateForm").on('submit',function (e) {
         e.preventDefault();
-           var freq = $('#updateFrequencies').prop("checked") ? 1 : 0;
-            freq = freq?freq.join(','):'';
+
+        var freq = $('#popup_freq input[type=checkbox]:checked').map(function(_, el) {
+            return $(el).val();
+        }).get();
+        freq = freq?freq.join(','):'';
         if(drugUpdateKey != null){
             drug = {
                 drug_id : $("#drugUpdateSelect").val(),
@@ -150,40 +153,6 @@ $(document).ready(function () {
           $(this).renderPrescriptionLeftForPrescription(data);
 
       })
-    };
-
-    $.fn.getPatientDetails = function (patientId) {
-        $(this).setPatientId(patientId);
-        if (patientId != '') {
-            $.get('api/patient-details/' + patientId, function (data) {
-                $("#_patientName").text(data.patient.name);
-                $("#_patientAge").text(data.age);
-                $("#_patientDetails").text(data.patient.patientdetails);
-                $("#_patientGender").text(data.patient.gender === 1 ? 'Male' : data.patient.gender === 2 ? 'Female' : 'Other');
-                $("#_patientImage").attr('src', data.patient.image != null ? data.patient.image : 'dashboard/images/patient.png')
-                if (data.patient.prescriptions.length != 0) {
-
-                    $("#_patientPrescriptions").children().remove();
-                    $(".patientPres").show();
-                    $("#_patientPrescriptions").append(
-                        $("<option>", {value: null, text: 'Select one'})
-                    );
-                    $.each(data.patient.prescriptions, function (key, data) {
-                        var d = new Date(data.created_at);
-                        $("#_patientPrescriptions").append(
-                            $("<option>", {value: data.id,
-                                text: d.getDate()+"-"+monthNames[d.getMonth()]+"-"+d.getFullYear()
-                            })
-                        )
-                    });
-
-                } else {
-                    $("#_patientPrescriptions").children().remove();
-                    $(".patientPres").hide();
-                }
-                console.log(data.patient);
-            })
-        }
     };
 
     // Save Prescription function
@@ -287,9 +256,16 @@ $(document).ready(function () {
             console.log(data);
             $("#drugListView").append(
                 $('<li>').append(
-                    $("<i>",{text:data.drug_type}).append("&nbsp;&nbsp;"),
-                    $("<b>",{text:data.drug_name}).append("&emsp;"),
-                    $("<i>",{text:data.strength}).append("&emsp;"),
+                    $('<div>').append('<div class="row"> <div class="col-md-4" style="margin-top: 10px;">'+
+                     '<ul><li class="print_class"><b>Drug-Type:</b> <i>'+data.drug_type+'</i> <b>Drug Name:</b> '+data.drug_name+' <br>'+
+                     '<b>Advice:</b> '+data.drug_advice+' </li></ul></div> <div class="col-md-4" style="margin-top: 10px;"> <ul style="padding-left: 0px">'+
+                     '<li style="list-style: none"> <b>Dose:</b> '+data.dose+' <b>Drug Duration:</b>'+data.duration+'</li> <li style="list-style: none"><b> Strength:</b>'+data.strength+''+
+                      '</li> </ul> </div> <div class="col-md-4" style="margin-top: 10px;"> <ul style="padding-left: 0px">'+
+                    '<li style="list-style: none"><b> Frequencies:</b>'+data.frequencies+'</li> </ul> </div> </div>'),
+
+                   // $("<i>",{text:data.drug_type}).append("&nbsp;&nbsp;"),
+                   // $("<b>",{text:data.drug_name}).append("&emsp;"),
+                    //$("<i>",{text:data.strength}).append("&emsp;"),
                 
                     $("<button>",{class:"btn btn-sm btn-link btn-primary",
                         onClick:"$(this).editDrug("+key+")"}).append(
@@ -299,7 +275,7 @@ $(document).ready(function () {
                         onClick:"$(this).deleteDrug("+key+")"}).append(
                         $("<i>",{class:'fa fa-trash-o'})
                     ),
-                    $('<ul>').append(
+                  /*  $('<ul>').append(
                         $('<li>').append(
                             $('<span>',{text:data.dose}).append("&emsp;"),
                             $("<span>",{text:data.duration})
@@ -307,7 +283,7 @@ $(document).ready(function () {
 
                         $('<li>',{text:data.drug_advice}),
                         $('<li>',{text:data.frequencies})
-                    )
+                    ),*/
                 )
             )
         })
@@ -338,6 +314,7 @@ $(document).ready(function () {
     $.fn.editDrug = function (key) {
         var drug = drugList[key];
         drugUpdateKey = key;
+        debugger;
         $("#edit-drug-modal").modal('show');
         $("#drugUpdateSelect").val(drug.drug_id).trigger('change');
         $("#updateDrugStrength").val(drug.strength);
@@ -345,6 +322,11 @@ $(document).ready(function () {
         $("#updateDrugDuration").val(drug.duration);
         $("#updateDrugAdvice").val(drug.drug_advice);
         $("#updateDrugType").val(drug.drug_type);
+        $('#morning').prop( "checked", drug.frequencies.indexOf('morning')!==-1 );
+        $('#afternoon').prop( "checked", drug.frequencies.indexOf('afternoon')!==-1 );
+        $('#evening').prop( "checked", drug.frequencies.indexOf('evening')!==-1 );
+        $('#night').prop( "checked", drug.frequencies.indexOf('night')!==-1 );
+
 
     };
 
@@ -421,12 +403,17 @@ $(document).ready(function () {
     }
 
 $.fn.getPatientDetails = function (patientId) {
+    debugger;
         $(this).setPatientId(patientId);
         if (patientId != '') {
             $.get('api/patient-details/' + patientId, function (data) {
                 $("#_patientName").text(data.patient.name);
                 $("#_patientAge").text(data.age);
-                $("#_patientDetails").text(data.patient.patientdetails);
+
+                var details = $('<textarea />').html(data.patient.patientdetails).text();
+                $("#_patientDetails").html(details)
+          
+                
                 $("#_patientGender").text(data.patient.gender === 1 ? 'Male' : data.patient.gender === 2 ? 'Female' : 'Other');
                 $("#_patientImage").attr('src', data.patient.image != null ? data.patient.image : 'dashboard/images/patient.png')
                 if (data.patient.prescriptions.length != 0) {

@@ -22,6 +22,7 @@
         ol > li{
             margin-left:-25px;
         }
+        
         #print,#printPageBtn{
             margin-top:40px;
             margin-bottom:20px;
@@ -98,32 +99,33 @@
                             </thead>
                         </table>
                         <div class="row">
-                        <div class="col-md-2"></div>
-                        <img src="<?php echo e(url('/dashboard/images/rx.png')); ?>" width="30px" height="25px" alt="" style="margin-left:-200px;">  
-                        <ol>
+                       
+                          <img src="<?php echo e(url('/dashboard/images/rx.png')); ?>" width="30px" height="25px" alt="" style="margin-left:  20px  ">  
                         
+                        </div>
                    
                             <div class="row">
                             <?php $__currentLoopData = $prescription->drugs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $drug): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                             <div class="col-md-4" style="margin-top: 10px;">
 
                          
-                                  
+                            <ol>
                                         <li class="print_class"><b>Drug-Type:</b> <i><?php echo e($drug->type); ?></i> <b>Drug Name:</b> <?php echo e($drug->drug['name']); ?>
 
                                             <?php if(config('app.generic_name') == 1): ?>
                                                 (<?php echo e($drug->drug['generic_name']); ?>)
                                             <?php endif; ?>
                                             <br>
-                                            <b>Strength:</b> <?php echo e($drug->strength); ?>
+                                            <b> Advice:</b> <?php echo e($drug->advice); ?>
 
+                                            
                                             </div>
                                             <div class="col-md-4" style="margin-top: 10px;">
                                           
                                             <ul style="padding-left: 0px">
                                                 <li style="list-style: none">
                                                 <b>Dose:</b> <?php echo e($drug->dose); ?> &emsp; <b>Drug Duration</b><?php echo e($drug->duration); ?></li>
-                                                <li style="list-style: none"><b> Advice:</b> <?php echo e($drug->advice); ?></li>
+                                                <li style="list-style: none"><b>Strength:</b> <?php echo e($drug->strength); ?></li>
                                                 
                                             </ul>
                                             </div>
@@ -136,12 +138,13 @@
                                         </li>
                                         
                                   </div>
-                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                                      
                                                 </div>
                                                 
                          
                        
                             </ol>
+                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                              <!-- <div class="col-md-2" style="margin-top: 10px;">
                                 <table>
                                     <tr>
@@ -166,14 +169,14 @@
                         </div>
 
                     </div>
-                </div>
+            
                 <button id="print" class="btn btn-inverse pull-right m-l-15"><i class="fa fa-print"></i> &nbsp; Print Prescription</button>
                 <button id="printPageBtn" class="btn btn-success pull-right m-l-15"><i class="fa fa-print"></i> &nbsp; Print Page</button>
                 <br>
                 <br>
             </div>
         </div>
-    </div>
+  
 <?php $__env->stopSection(); ?>
 
 <?php $__env->startSection('extra-js'); ?>

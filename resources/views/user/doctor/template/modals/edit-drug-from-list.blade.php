@@ -55,28 +55,28 @@
                                      <div   class="form-group-custom">
                                     
                                       <label type="hidden" class="control-label" id="updateFrequencies"></label>
-                                    
+                                     <!-- ======= {{$drug}} -->
                                       <br>
-                                      <ul class="medi">
+                                      <ul class="medi" id="popup_freq">
                                       
                                       <li class="d-inline">
                                       <label class="checkbox-inline  m-r-10 m-l-10   text-center" for="morning">
-                                      <input type="checkbox" id="updateFrequencies" name="frequencies[]" value="{{$drug->frequencies}}" class="mor"/>Morning
+                                      <input type="checkbox" id="morning" name="frequencies[]" value="morning" class="mor"/>Morning
                                         </label>
                                         </li>
                                         <li  class="d-inline m-r-5  text-center">
                                           <label class="checkbox-inline m-r-10 m-r-10 m-r-10 " for="afternoon">
-                                      <input type="checkbox" id="updateFrequencies" name="frequencies[]" value="{{$drug->frequencies}}"/>Afternoon
+                                      <input type="checkbox" id="afternoon" name="frequencies[]" value="afternoon"/>Afternoon
                                     </label>
                                     </li>
                                         <li class="d-inline m-r-5  text-center">
                                       <label class="checkbox-inline" for="evening">
-                                      <input type="checkbox" id="updateFrequencies" name="frequencies[]" value="{{$drug->frequencies}}"/>Evening
+                                      <input type="checkbox" id="evening" name="frequencies[]" value="evening"/>Evening
                                     </label>
                                     </li>
                                         <li class="d-inline m-r-5 text-center">
                                       <label class="checkbox-inline" for="night">
-                                        <input type="checkbox" id="updateFrequencies" name="frequencies[]" value="{{$drug->frequencies}}"/>Night
+                                        <input type="checkbox" id="night" name="frequencies[]" value="night"/>Night
                                         </label> </li>
                                         </ul>
 

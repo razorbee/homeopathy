@@ -19,29 +19,15 @@
 
                     <div class="row">
                         <div class="col-md-6">
-                        <div class="form-group-custom">
-                        <!-- <input type="text" name="generic_name" required="required"/> -->
-                        <select name="drug_type" id="drug_type" required="required" class="drug_type select2 dynamic" data-dependent="drug_id">
-                        <option  value="select">select Medicine type</option>
-                            <option  value="Medicine">Medicine</option>
-                            <option  value="Mother-Tinture">Mother-Tinture</option>
-                            <option  value="Ointments & Oils">Ointments & Oils</option>
-                            <option  value="Syrups">Syrups</option>
-                            <option  value="Dilutions">Dilutions</option>
-                        </select>
-                     </div>
-                        </div>
-                        <div class="col-md-4">
                             <div class="form-group-custom ">
-                                <select class="form-control select2" name="drug_id" id="drug_id" required="required">
+                                <select class="form-control select2" name="drug_id" id="" required="required">
                                     <option value="0" <?php echo e($drug_id ==0 ? 'selected' : ''); ?>>All Drug</option>
                                     <?php $__currentLoopData = $drugs; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $drug): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                        <option value="<?php echo e($drug->id); ?>" <?php echo e($drug_id ==$drug->id ? 'selected' : ''); ?>><?php echo e($drug->name); ?> </option>
+                                    <option value="<?php echo e($drug->id); ?>" <?php echo e($drug_id ==$drug->id ? 'selected' : ''); ?>><?php echo e($drug->generic_name); ?>: <?php echo e($drug->name); ?> </option>
                                     <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                 </select>
 
                             </div>
-                         
                         </div>
                         <div class="col-md-3">
                             <div class="form-group-custom">
@@ -100,18 +86,13 @@
     <script src="<?php echo e(url('/dashboard/plugins/chartjs/chart.bundle.min.js')); ?>"></script>
     <script>
         $(document).ready(function () {
-
             $('#drugReport').on('submit',function (e) {
                 e.preventDefault();
-                $('#drug_type').change(function(){
-  $('#drug_id').val('');
- });
                 var drugId = $(".select2").val();
                 var start = $('#start').val() != '' ?  $('#start').val() : '2017-06-05';
                 var end = $('#end').val() != '' ? $('#end').val() : '<?php echo e(\Carbon\Carbon::today()->addDay(1)->toDateString()); ?>';
                 window.location.replace('<?php echo e(url('/drug-report')); ?>/drug='+drugId+'/start='+start+'/end='+end);
             });
-
             $(".select2").select2({
                 placeholder: "Please select a drug *",
                 width: '100%'
@@ -210,5 +191,4 @@
         </script>
     <?php endif; ?>
 <?php $__env->stopSection(); ?>
-
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

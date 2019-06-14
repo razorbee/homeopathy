@@ -33,14 +33,15 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group-custom">
-                                <input type="date" value="{{$appointment->date->format('Y-m-d')}}" name="date" required="required"/>
+                            <input id="datepicker"   value="{{$appointment->date->format('Y-m-d')}}" required class="datepicker-input" type="date" data-date-format="yyyy-mm-dd" >
+                                <!-- <input type="date" value="{{$appointment->date->format('Y-m-d')}}" name="date" required="required"/> -->
                                 <label class="control-label">Date &nbsp;*</label><i class="bar"></i>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group-custom">
                                 <input type="time" value="{{$appointment->time}}" required="required" name="time"/>
-                                <label class="control-label">Time</label><i class="bar"></i>
+                                <label class="control-label">Time[24hrs-format]</label><i class="bar"></i>
                             </div>
                         </div>
                     </div>
@@ -90,20 +91,7 @@
                 placeholder: "Please select a schedule *",
                 width: '100%'
             });
-            
-            if($this->appointmentDateValidate($request)){
-          $date = new Date();
-            $mydate=new Date('Carbon::parse($request->get($appointment->created_at))');
-            if(date < mydate)
-                {
-                    alert(" The given date is Future Date");
-                }
-                
-                else
-                {
-                    alert(" The given date is Past Date");
-                }
-                
+        
             $("#updateAppointment").on('submit',function (e) {
                 e.preventDefault();
                 var data = new FormData(this);
@@ -122,5 +110,16 @@
                 })
             });
         })
-    </script>
+        </script>
+        <!-- <script>
+        function checkDate() {
+   var selectedText = document.getElementById('datepicker').value;
+   var selectedDate = new Date(selectedText);
+   var now = new Date();
+   if (selectedDate < now) {
+    alert("Date must be in the future");
+   }
+ }
+
+    </script> -->
 @endsection
