@@ -179,7 +179,7 @@ class PatientController extends Controller
           $patient->user_id = auth()->user()->id;
         if ($request->hasFile('image')) {
             $patient->image = $request->file('image')
-                ->move('uploads/patient/\/', rand(100000, 900000) . '.' . $request->image->extension());
+                ->move('../data/uploads/patient/\/', rand(100000, 900000) . '.' . $request->image->extension());
         }
 
 
@@ -210,7 +210,7 @@ class PatientController extends Controller
            $patient->patientdetails = $request->get('patientdetails');
 if ($request->hasFile('image')) {
             $patient->image = $request->file('image')
-                ->move('uploads/patient/', rand(100000, 900000) . '.' . $request->image->extension());
+                ->move('../data/uploads/patient/', rand(100000, 900000) . '.' . $request->image->extension());
         }
         $patient->user_id = auth()->user()->id;
         if ($patient->save()) {
@@ -232,8 +232,8 @@ if ($request->hasFile('image')) {
         $patient_document->patient_id = $patient_id;
         $patient_document->prescription_id = 0;
         $patient_document->type = 1;
-        if (!file_exists('uploads')) { mkdir('uploads', 0777, true); }
-        if (!file_exists('uploads/medical_files')) { mkdir('uploads/medical_files', 0777, true); }
+        if (!file_exists('../data/uploads')) { mkdir('uploads', 0777, true); }
+        if (!file_exists('../data/uploads/medical_files')) { mkdir('../data/uploads/medical_files', 0777, true); }
 
         error_log("before", 3, "./my-errors.log");
 
@@ -242,7 +242,7 @@ if ($request->hasFile('image')) {
             error_log("inside", 3, "./my-errors.log");
 
             $patient_document->path = $request->file('image')
-                ->move('uploads/medical_files', rand(100000, 900000) . '.' . $request->image->extension());
+                ->move('../data/uploads/medical_files', rand(100000, 900000) . '.' . $request->image->extension());
        }
         $patient_document->user_id = auth()->user()->id;
         if($patient_document->save()){

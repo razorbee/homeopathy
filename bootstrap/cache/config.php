@@ -8,6 +8,7 @@ if(in_array($_SERVER['REMOTE_ADDR'], $localhost)){
   $rb_database= 'homeopathy';
   $rb_username = 'root';
   $rb_password = '';
+  $storage = 'C:/xampp/htdocs/homeopathy/data/';
 }
 
 else{
@@ -273,7 +274,7 @@ return array (
       'file' =>
       array (
         'driver' => 'file',
-        'path' => $rbpath.'storage/framework/cache/data',
+        'path' => $storage.'storage/framework/cache/data',
       ),
       'memcached' =>
       array (
@@ -311,7 +312,7 @@ return array (
     'lifetime' => 120,
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => $rbpath.'storage/framework/sessions',
+    'files' => $storage.'storage/framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -409,7 +410,7 @@ return array (
     array (
       0 => $rbpath.'resources/views',
     ),
-    'compiled' => $rbpath.'storage/framework/views',
+    'compiled' => $storage.'storage/framework/views',
   ),
   'filesystems' =>
   array (
@@ -420,12 +421,12 @@ return array (
       'local' =>
       array (
         'driver' => 'local',
-        'root' => $rbpath.'storage/app',
+        'root' => $storage.'storage/app',
       ),
       'public' =>
       array (
         'driver' => 'local',
-        'root' => $rbpath.'storage/app/public',
+        'root' => $storage.'storage/app/public',
         'url' => 'localhost/storage',
         'visibility' => 'public',
       ),
