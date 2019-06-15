@@ -24,9 +24,9 @@
                     <div class="col-md-4">
                         <center>
                             <!-- <div id="image-preview" style="background-image: url(<?php echo e(url($patient->image != null ? $patient->image : "/dashboard/images/patient.png")); ?>)"> -->
-                            <div id="image-preview"><img src="<?php echo e(url('/')); ?>/<?php echo e($patient->image); ?>" class="img-responsive" style="width:250px;height:250px;margin-bottom: -200px;" alt="">
+                            <div id="image-preview"><img id="default_image" src="<?php echo e(url('/')); ?>/<?php echo e($patient->image); ?>" class="img-responsive" style="width:250px;height:250px;margin-bottom: -200px;" alt="">
                                 <label for="image-upload" id="image-label"><img src="<?php echo e(url('/')); ?>/dashboard/images/pencil.png" height="20" /></label>
-                                <input type="file" name="image" id="image-upload" />
+                                <input type="file" name="image" id="image-upload"  onchange='hidedefault()' />
                             </div>
                         </center>
                     </div>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group-custom">
                             <input value="<?php echo e($patient->phone); ?>" type="text" name="phone" />
-                            <label class="control-label">Phone &nbsp;<span class="text-danger">*</span></label><i class="bar"></i>
+                            <label class="control-label">Phone &nbsp;<span class="text-danger"></span></label><i class="bar"></i>
                         </div>
                         <div class="form-group-custom">
                             <input value="<?php echo e($patient->email); ?>" type="text" name="email" />
@@ -199,6 +199,11 @@
             $(this).speedPost("<?php echo e(url('/')); ?>/update-patient/<?php echo e($patient->id); ?>", data);
         })
     });
+
+    function hidedefault(){
+        debugger;
+        $('#default_image').hide();
+    }
 </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

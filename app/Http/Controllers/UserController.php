@@ -156,6 +156,7 @@ class UserController extends Controller
         $user = User::findOrFail(auth()->user()->id);
         $user->email = $request->get('email');
         $user->name = $request->get('name');
+        $user->username = $request->get('username');
         $user->phone = $request->get('phone');
         $user->address = $request->get('address');
         $user->info = $request->get('info');

@@ -36,7 +36,7 @@
                         <li><a href="{{url('/appointment-today')}}">Appointment Today</a></li>
                     </ul>
                 </li>
-<!--
+
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-user"></i> <span> {!! trans('menus.assistant.main_menu') !!} </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
@@ -45,7 +45,7 @@
                     </ul>
                 </li>
 
-
+<!--
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect {{Request::is('edit-template/*')  ? 'active' : ''}} {{Request::is('view-template/*')  ? 'active' : ''}}"><i class="ti-layout"></i> <span> {!! trans('menus.template.main_menu') !!} </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">

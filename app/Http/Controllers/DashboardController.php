@@ -17,7 +17,8 @@ class DashboardController extends Controller
      */
     public function todaysPatient()
     {
-        $patient = count(Patient::where('created_at','like',Carbon::today().'%')->get());
+        // $patient = count(Patient::where('created_at','like',Carbon::today().'%')->get());
+        $patient = count(Patient::whereDate('created_at', Carbon::today())->get());
         return $patient;
     }
 

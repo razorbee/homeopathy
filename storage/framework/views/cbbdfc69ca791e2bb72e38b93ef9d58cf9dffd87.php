@@ -33,9 +33,9 @@
                     <div class="row">
                         <div class="col-md-4" style="padding-left: 81px;">
                             <!-- <div id="image-preview"><img src="<?php echo e(url('/')); ?>/<?php echo e($user->image); ?>" style="width:250px;height:250px;margin-bottom: -200px;" alt=""> -->
-                            <div id="image-preview"><img src="<?php echo e(url('/')); ?>/<?php echo e($user->image); ?>" style="width:250px;height:250px;margin-bottom:-200px;z-index:-2!important;" alt="">
+                            <div id="image-preview"><img id="default_image" src="<?php echo e(url('/')); ?>/<?php echo e($user->image); ?>" style="width:250px;height:250px;margin-bottom:-200px;z-index:-2!important;" alt="">
                                 <label for="image-upload" id="image-label"><img src="<?php echo e(url('/')); ?>/dashboard/images/pencil.png" height="20"/></label>
-                                <input type="file" name="image" id="image-upload" style="position: relative;"/>
+                                <input type="file" name="image" id="image-upload" onchange='hidedefault()'/>
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -107,6 +107,10 @@
                 $(this).speedPost('<?php echo e(url('/update-assistant/'.$user->id)); ?>',data,form);
             });
         })
+        function hidedefault(){
+        debugger;
+        $('#default_image').hide();
+    }
     </script>
 <?php $__env->stopSection(); ?>
 <?php echo $__env->make('layouts.app', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

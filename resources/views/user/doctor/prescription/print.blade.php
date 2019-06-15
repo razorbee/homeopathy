@@ -2,7 +2,6 @@
 @section('title')
     Print
 @endsection
-
 @section('extra-css')
     <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
     <style>
@@ -10,7 +9,6 @@
         p > b {
             font-family: 'Lobster', cursive;
         }
-
         .prescription-p-title{
             font-family: 'Lobster', cursive;
             font-weight: 100;
@@ -30,7 +28,6 @@
         margin-left:100px;        }
     </style>
 @endsection
-
 @section('content')
     <div class="col-md-12">
         <div class="card">
@@ -43,9 +40,7 @@
                         <h3>{{$prescription->user->name}}</h3>
                         <p>{!! nl2br(e($prescription->user->info)) !!}</p>
                     </div>
-
                     <div id="print_prescription">
-
                         <style>
                             @media print {
                                 @if(config('app.fancy_font') == 1)
@@ -61,19 +56,16 @@
                                 .col-md-4 {
                                     width: 40%;
                                 }
-
                                 .col-md-8 {
                                     width: 60%;
                                 }
                             }
                         </style>
-
-
                         <table width="100%" style="margin-bottom: 10px;">
                             <thead>
                             <tr>
                                 <th> <span class="prescription-p-title">Name</span> : {{$prescription->patient->name}}
-								</th>
+                                </th>
                                 <th> <span class="prescription-p-title">Age</span>
                                     : {{$prescription->patient->date_of_birth->diff($prescription->created_at)->format('%y years,%m month,%d days')}}</th>
                                 <th><span class="prescription-p-title">Gender</span>
@@ -101,46 +93,55 @@
                           <img src="{{url('/dashboard/images/rx.png')}}" width="30px" height="25px" alt="" style="margin-left:  20px  ">  
                         
                         </div>
-                   
+                        <ol>
                             <div class="row">
                             @foreach($prescription->drugs as $drug)
                             <div class="col-md-4" style="margin-top: 10px;">
-
                          
-                            <ol>
-                                        <li class="print_class"><b>Drug-Type:</b> <i>{{$drug->type}}</i> <b>Drug Name:</b> {{$drug->drug['name']}}
+                            
+                                        <li class="print_class"><b>Drug-Type:</b> <i>{{$drug->type}}</i> <br>
+                                        <b>Dose:</b> {{$drug->dose}}
+                                            <br>
+                                           </div>
+                                            
+                                            <div class="col-md-4" style="margin-top: 10px;">
+                                            <ul style="padding-left: 0px">
+                                                <li style="list-style: none">
+                                                <b>Drug Name:</b> {{$drug->drug['name']}}
                                             @if(config('app.generic_name') == 1)
                                                 ({{$drug->drug['generic_name']}})
                                             @endif
-                                            <br>
-                                            <b> Advice:</b> {{$drug->advice}}
-                                            
-                                            </div>
-                                            <div class="col-md-4" style="margin-top: 10px;">
-                                          
-                                            <ul style="padding-left: 0px">
-                                                <li style="list-style: none">
-                                                <b>Dose:</b> {{$drug->dose}} &emsp; <b>Drug Duration</b>{{$drug->duration}}</li>
-                                                <li style="list-style: none"><b>Strength:</b> {{$drug->strength}}</li>
+                                           
+                                                <li style="list-style: none"><b>Drug Duration:</b> {{$drug->duration}}</li>
                                                 
                                             </ul>
                                             </div>
                                             <div class="col-md-4" style="margin-top: 10px;">
                                             <ul style="padding-left: 0px">
-                                           
+                                            <li style="list-style: none"><b>Strength:</b> {{$drug->strength}}</li>
                                             <li style="list-style: none"><b> Frequencies:</b> {{$drug->frequencies}}</li>
                                           
                                             </ul>
                                         </li>
                                         
                                   </div>
-                                      
+                                  <div class="col-md-12" style="margin-top: 0px;">
+                                            <ul style="padding-left: 50px">
+                                            <li style="list-style: none"><b> Advice:</b> {{$drug->advice}}</li>
+                                           
+                                          
+                                            </ul>
+                                        
+                                        
+                                  </div>
+                                  </li>
+                                  @endforeach
                                                 </div>
-                                                
-                         
+                            
+                      </li>
                        
                             </ol>
-                            @endforeach
+                      
                              <!-- <div class="col-md-2" style="margin-top: 10px;">
                                 <table>
                                     <tr>
@@ -162,7 +163,6 @@
                                     Signature</p>
                             </div>
                         </div>
-
                     </div>
             
                 <button id="print" class="btn btn-inverse pull-right m-l-15"><i class="fa fa-print"></i> &nbsp; Print Prescription</button>
@@ -173,7 +173,6 @@
         </div>
   
 @endsection
-
 @section('extra-js')
     <script src="{{url('/dashboard/plugins/printthis/printThis.js')}}"></script>
     <script>
@@ -181,7 +180,6 @@
             $("#print").on('click', function () {
                 $("#print_prescription").printThis();
             });
-
             $("#printPageBtn").on('click',function () {
                 $("#printPage").printThis();
             });

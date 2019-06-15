@@ -1,29 +1,24 @@
 /**
  * Created by rifat on 10/7/17.
  */
-
 $(document).bind('keydown', 'ctrl+d', function (e) {
     e.preventDefault();
     $("#btnNewDrug").click();
 });
-
 $(document).ready(function () {
     var updateTemplateId = null;
     var patientId = null;
     var drugList = [];
     var drugUpdateKey = null;
     var selectedTemplate = null;
-
     var monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
         "Jul", "Aug", "Sep", "Oct", "Nove", "Dec"
     ];
-
     // Select 2 initialize
     $(".select2").select2({
         placeholder: "Please select a drug",
         width: '100%'
     });
-
     // Add new drug
     $("#saveDrug").on('click', function () {
         $("#newDrug").submit();
@@ -31,7 +26,6 @@ $(document).ready(function () {
         // var frequencies = $('input[type=checkbox]:checked').map(function(_, el) {
         //     return $(el).val();
         // }).get();
-
     // Open new drug modal
     $("#newDrug").on('submit', function (e) {
         e.preventDefault();
@@ -53,10 +47,8 @@ $(document).ready(function () {
             },error:function (data){
                 $(this).showAjaxError(data);
             }
-
         });
     });
-
     // Add drug to the list
     $("#addDrugToListForm").on('submit',function (e) {
         e.preventDefault();
@@ -81,16 +73,13 @@ $(document).ready(function () {
             $(this).renderDrug(drugList);
             console.log(drugList);
             });
-
     // Open drug update (form the drug list) modal
     $("#updateDrugList").on('click',function () {
        $("#drugUpdateForm").submit();
     });
-
     // Update drug form the list
     $("#drugUpdateForm").on('submit',function (e) {
         e.preventDefault();
-
         var freq = $('#popup_freq input[type=checkbox]:checked').map(function(_, el) {
             return $(el).val();
         }).get();
@@ -113,20 +102,16 @@ $(document).ready(function () {
             drugUpdateKey = null;
         }
         });
-
     // Save Template
     $("#saveTemplate").on('click',function (e) {
         $(this).saveTemplate('save-template',true);
     });
-
     // Update template
     $("#updateTemplate").on('click',function (e) {
       
         var url = $("#appurl").val()+'/update-template/'+updateTemplateId;
         $(this).saveTemplate(url,false);
     });
-
-
     // Generate prescription form prescription
     $.fn.getPrescriptionDetails = function(prescriptionId){
       console.log(prescriptionId);
@@ -151,10 +136,8 @@ $(document).ready(function () {
           $(this).setDrugList(_drugs);
           $(this).renderDrug();
           $(this).renderPrescriptionLeftForPrescription(data);
-
       })
     };
-
     // Save Prescription function
     $.fn.savePrescription = function () {
         console.log('Save prescription');
@@ -173,7 +156,7 @@ $(document).ready(function () {
                     lab_workup : $("#lab_worekup").val(),
                     advice : $("#advice").val(),
                     note : $("#note").val(),
-					disease:$("#selectDisease").val().join(','),
+                    disease:$("#selectDisease").val().join(','),
                     next_visit : $("#next_visit").val()
                 };
                 $("#loadingSavePrescription").show();
@@ -203,7 +186,6 @@ $(document).ready(function () {
                 "Please add minimum one drug to save template.");
         }
     };
-
     // Save template function
     $.fn.saveTemplate = function (url,isFormReset) {
         if(drugList.length != 0){
@@ -248,7 +230,6 @@ $(document).ready(function () {
                 "Please add minimum one drug to save template.");
         }
     };
-
     // Render drug
     $.fn.renderDrug = function () {
         $("#drugListView").empty();
@@ -256,39 +237,27 @@ $(document).ready(function () {
             console.log(data);
             $("#drugListView").append(
                 $('<li>').append(
-                    $('<div>').append('<div class="row"> <div class="col-md-4" style="margin-top: 10px;">'+
-                     '<ul><li class="print_class"><b>Drug-Type:</b> <i>'+data.drug_type+'</i> <b>Drug Name:</b> '+data.drug_name+' <br>'+
-                     '<b>Advice:</b> '+data.drug_advice+' </li></ul></div> <div class="col-md-4" style="margin-top: 10px;"> <ul style="padding-left: 0px">'+
-                     '<li style="list-style: none"> <b>Dose:</b> '+data.dose+' <b>Drug Duration:</b>'+data.duration+'</li> <li style="list-style: none"><b> Strength:</b>'+data.strength+''+
-                      '</li> </ul> </div> <div class="col-md-4" style="margin-top: 10px;"> <ul style="padding-left: 0px">'+
-                    '<li style="list-style: none"><b> Frequencies:</b>'+data.frequencies+'</li> </ul> </div> </div>'),
 
+                    $('<div style="margin-left: 10px; overflow: hidden; position: absolute; margin-top: 10px;z-index:100">').append(
+                        $("<button>",{class:"btn btn-sm btn-link btn-primary",
+                            onClick:"$(this).editDrug("+key+")"}).append(
+                            $("<i>",{class:'fa fa-pencil'})
+                        ),
+                        $("<button>",{class:"btn btn-sm btn-link btn-danger",
+                            onClick:"$(this).deleteDrug("+key+")"}).append(
+                            $("<i>",{class:'fa fa-trash-o'})
+                        ),
+                    ),
+
+                    $('<div>').append('<div class="row"> <div class="col-md-4" style="margin-top: 10px;"> <ol> <li class="print_class"><b>Drug-Type:</b> <i>'+data.drug_type+'</i> <br> <b>Dose:</b> '+data.dose+'  </li></ol></div> <div class="col-md-4" style="margin-top: 10px;"> <ul style="padding-left: 0px"> <li style="list-style: none"> <b>Drug Name:</b> '+data.drug_name+' </li><li style="list-style: none"><b>Drug Duration:</b> '+data.duration+' </li> </ul> </div> <div class="col-md-4" style="margin-top: 10px;"> <ul style="padding-left: 0px"> <li style="list-style: none"><b>Strength:</b> '+data.strength+'</li> <li style="list-style: none"><b> Frequencies:</b>'+data.frequencies+'</li> </ul> </div><div class="col-md-12" style="margin-top: 0px;"><ul style="padding-left: 100px"><li style="list-style: none"><b> Advice:</b> '+data.drug_advice+'</li></ul></div>'),
                    // $("<i>",{text:data.drug_type}).append("&nbsp;&nbsp;"),
                    // $("<b>",{text:data.drug_name}).append("&emsp;"),
                     //$("<i>",{text:data.strength}).append("&emsp;"),
-                
-                    $("<button>",{class:"btn btn-sm btn-link btn-primary",
-                        onClick:"$(this).editDrug("+key+")"}).append(
-                        $("<i>",{class:'fa fa-pencil'})
-                    ),
-                    $("<button>",{class:"btn btn-sm btn-link btn-danger",
-                        onClick:"$(this).deleteDrug("+key+")"}).append(
-                        $("<i>",{class:'fa fa-trash-o'})
-                    ),
-                  /*  $('<ul>').append(
-                        $('<li>').append(
-                            $('<span>',{text:data.dose}).append("&emsp;"),
-                            $("<span>",{text:data.duration})
-                        ),
-
-                        $('<li>',{text:data.drug_advice}),
-                        $('<li>',{text:data.frequencies})
-                    ),*/
+      
                 )
             )
         })
     };
-
     // Render prescription elements left
     $.fn.renderPrescriptionLeft = function (data) {
         $("#cc").val(data.prescription_template_left.cc);
@@ -300,7 +269,6 @@ $(document).ready(function () {
         $("#note").val(data.note);
         $("#advice").val(data.prescription_template_left.advice);
     };
-
     $.fn.renderPrescriptionLeftForPrescription = function (data) {
         $("#cc").val(data.prescription_left.cc);
         $("#oe").val(data.prescription_left.oe);
@@ -309,7 +277,6 @@ $(document).ready(function () {
         $("#lab_worekup").val(data.prescription_left.lab_workup);
         $("#advice").val(data.prescription_left.advice);
     };
-
     // Set the selected drug value on the drug update modal
     $.fn.editDrug = function (key) {
         var drug = drugList[key];
@@ -326,10 +293,7 @@ $(document).ready(function () {
         $('#afternoon').prop( "checked", drug.frequencies.indexOf('afternoon')!==-1 );
         $('#evening').prop( "checked", drug.frequencies.indexOf('evening')!==-1 );
         $('#night').prop( "checked", drug.frequencies.indexOf('night')!==-1 );
-
-
     };
-
     // Delete drug form the list
     $.fn.deleteDrug = function (key) {
         var check = confirm('Are you sure you want to delete this drug form the list ?');
@@ -339,7 +303,6 @@ $(document).ready(function () {
             $(this).renderDrug(drugList);
         }
     };
-
     // check validation
     
     // Refresh drug form
@@ -351,7 +314,6 @@ $(document).ready(function () {
         $("#drug_advice").val('');
         $("#drug_type").val('')
     };
-
     $.fn.showAjaxError = function(data){
         if(data.status == 422 ){
             $.each(data.responseJSON,function (key,data) {
@@ -370,7 +332,6 @@ $(document).ready(function () {
                 "Or, contact to your system admin")
         }
     };
-
     // Reset prescription template
     $.fn.resetTemplate = function () {
         $(this).refreshDrugForm();
@@ -385,23 +346,18 @@ $(document).ready(function () {
         $("#note").val('');
         $("#advice").val('');
     };
-
     $.fn.setDrugList = function (drugs) {
         drugList = drugs;
     };
-
     $.fn.setTemplateId = function (id) {
         updateTemplateId = id;
     };
-
     $.fn.setPatientId = function (id) {
         patientId = id;
     };
-
     $.fn.setSelectedTemplate = function (id) {
         selectedTemplate = id;
     }
-
 $.fn.getPatientDetails = function (patientId) {
     debugger;
         $(this).setPatientId(patientId);
@@ -409,7 +365,6 @@ $.fn.getPatientDetails = function (patientId) {
             $.get('api/patient-details/' + patientId, function (data) {
                 $("#_patientName").text(data.patient.name);
                 $("#_patientAge").text(data.age);
-
                 var details = $('<textarea />').html(data.patient.patientdetails).text();
                 $("#_patientDetails").html(details)
           
@@ -417,7 +372,6 @@ $.fn.getPatientDetails = function (patientId) {
                 $("#_patientGender").text(data.patient.gender === 1 ? 'Male' : data.patient.gender === 2 ? 'Female' : 'Other');
                 $("#_patientImage").attr('src', data.patient.image != null ? data.patient.image : 'dashboard/images/patient.png')
                 if (data.patient.prescriptions.length != 0) {
-
                     $("#_patientPrescriptions").children().remove();
                     $(".patientPres").show();
                     $("#_patientPrescriptions").append(
@@ -431,7 +385,6 @@ $.fn.getPatientDetails = function (patientId) {
                             })
                         )
                     });
-
                 } else {
                     $("#_patientPrescriptions").children().remove();
                     $(".patientPres").hide();
@@ -440,6 +393,4 @@ $.fn.getPatientDetails = function (patientId) {
             })
         }
     };
-
 });
-

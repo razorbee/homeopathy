@@ -21,7 +21,8 @@
 
                     <div class="row">
                         <div class="col-md-4" style="padding-left: 81px;">
-                            <div id="image-preview" style="background-image: url('{{url(auth()->user()->image ? auth()->user()->image : '/dashboard/images/image_placeholder.jpg')}}')">
+                            <!-- <div id="image-preview" style="background-image: url('{{url(auth()->user()->image ? auth()->user()->image : '/dashboard/images/image_placeholder.jpg')}}')"> -->
+                            <div id="image-preview"><img id="default_image" src="{{url('/')}}/{{auth()->user()->image}}" style="width:250px;height:250px;margin-bottom:-200px;z-index:-2!important;" alt="">
                                 <label for="image-upload" id="image-label">Profile Pic</label>
                                 <input type="file" name="image" id="image-upload" />
                             </div>
@@ -78,5 +79,9 @@
                 $(this).speedPost('{{url('/update-profile')}}',data);
             })
         })
+        function hidedefault(){
+        debugger;
+        $('#default_image').hide();
+    }
     </script>
 @endsection
