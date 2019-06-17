@@ -73,7 +73,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="form-group-custom">
-                            
+                        @if(auth()->user()->role == 1 || auth()->user()->role == 3)    
                         <div style="margin-bottom:10px;margin-top:-10px;">
                                 <strong >Patient History</strong>
                         </div>
@@ -90,10 +90,10 @@
 
                     </div>
                 </div>
-
+               
                 <button id="edit_history" type="button" class="btn btn-danger waves-effect waves-light">edit history</button>
                 <button id="addreport"  type="button" class="btn btn-danger waves-effect waves-light">+Add Today's Report</button>
-
+                @endif
                 <div style="display:none" id="detailsarea_div_add">
                 <br/>   
                     <textarea name="ck_patientdetails_add" id="ck_patientdetails_add"><strong>{{date("m/d/Y")}}</strong></textarea>

@@ -7,6 +7,7 @@ use App\Model\PatientAppointment;
 use App\Model\PatientDocument;
 use App\Model\PatientPayment;
 use App\Model\Prescription;
+use App\Model\Diseases;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -135,7 +136,10 @@ class PatientController extends Controller
      */
     public function allPatient()
     {
-        return view('user.doctor.patient.all');
+        $patient = Diseases::all();
+        return view('user.doctor.patient.all',[
+            'patient'   =>      $patient
+        ]);
     }
 
     /**

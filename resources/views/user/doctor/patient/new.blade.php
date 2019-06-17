@@ -71,14 +71,9 @@
                     cache: false,
                     processData:false,
                     success:function (data) {
-                        console.log(data.image);
-
-                        $("#patientSavedSuccessModal").modal('show');
-                        $(this).formReset($("#newPatient"));
-                        $(this).newPatientSetPatientId(data.id);
-                        $("#modalPatientImage").attr('src',data.image != null ? data.image : 'http://via.placeholder.com/120x120');
-                        $("#modalPatientName").text(data.name);
-                        $("#modalPatientPhone").text(data.phone);
+                        $.Notification.notify('success','top right','Schedule update successfully',
+                            'We are taking you to edit page');
+                        window.location.replace('{{url('/')}}/edit-patient/'+data.id);
                     },error:function (data) {
                         if(data.status == 422 ){
                             $.each(data.responseJSON,function (key,data) {

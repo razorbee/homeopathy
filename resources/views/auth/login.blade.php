@@ -5,7 +5,11 @@
 @endsection
 
 @section('content')
-
+<style>
+.form-group-customhas-error > input{
+    width:335px;
+}
+</style>
 
     <div class="container fullpage" style="margin-top:-80px;">
     <div class="wrapper-page">
@@ -21,8 +25,9 @@
                     {{csrf_field()}}
 					
                     <div class="form-group-custom{{$errors->has('username')||$errors->has('email') ? 'has-error':''}}">
-                        <input type="text" id="user-name" name="username" value="{{old('username')}}" />
-                        <label class="control-label" for="user-name">Username/Email Address</label><i class="bar"></i>
+                        <input type="text" id="user-name" name="username" value="{{old('username')}}" /><i class="bar"></i>
+                        <br>
+                        <label class="control-label" for="user-name">Username/Email Address</label>
                         @if ($errors->has('username'))
                             <span class="help-block">
                                 <strong class="text-danger">{{$errors->first('username')}}</strong>
@@ -38,8 +43,9 @@
 
                     <div class="form-group-custom{{$errors->has('password') ? 'has-error':''}}">
                         <input type="password" id="user-password" name="password" value="{{old('password')}}"
-                               required="required"/>
-                        <label class="control-label" for="user-password">Password</label><i class="bar"></i>
+                               required="required"/><i class="bar"></i>
+                               <br>
+                        <label class="control-label" for="user-password">Password</label>
                         @if ($errors->has('password'))
                             <span class="help-block">
                                 <strong class="text-danger">{{ $errors->first('password') }}</strong>

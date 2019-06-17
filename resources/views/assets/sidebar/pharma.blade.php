@@ -12,18 +12,18 @@
                     <a href="{{url('/home')}}" class="waves-effect"><i class="ti-home"></i> <span> {!! trans('menus.dash') !!} </span></a>
                 </li>
 
-                <li class="has_sub">
+                <!-- <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-wheelchair"></i> <span> {!! trans('menus.patient.main_menu') !!} </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{url('/new-patient')}}">{!! trans('menus.patient.new_patient_menu') !!}</a></li>
                         <li><a href="{{url('/all-patient')}}">{!! trans('menus.patient.all_patient_menu') !!}</a></li>
                     </ul>
-                </li>
+                </li> -->
 
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-notepad"></i> <span> {!! trans('menus.prescription.main_menu') !!} </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="{{url('/new-prescription')}}">{!! trans('menus.prescription.new_prescription_menu') !!}</a></li>
+                        <!-- <li><a href="{{url('/new-prescription')}}">{!! trans('menus.prescription.new_prescription_menu') !!}</a></li> -->
                         <li><a href="{{url('/all-prescription')}}">{!! trans('menus.prescription.all_prescription_menu') !!}</a></li>
                     </ul>
                 </li>

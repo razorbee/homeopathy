@@ -56,8 +56,7 @@ $(document).ready(function () {
             var freq = $('#main_freq input[type=checkbox]:checked').map(function(_, el) {
                 return $(el).val();
             }).get();
-            debugger;
-            freq = freq?freq.join(','):'';
+         freq = freq?freq.join(','):'';
             drug = {
                 drug_id : $("#drug").val(),
                 drug_name : $("#drug").select2('data')[0].text,
@@ -281,7 +280,6 @@ $(document).ready(function () {
     $.fn.editDrug = function (key) {
         var drug = drugList[key];
         drugUpdateKey = key;
-        debugger;
         $("#edit-drug-modal").modal('show');
         $("#drugUpdateSelect").val(drug.drug_id).trigger('change');
         $("#updateDrugStrength").val(drug.strength);
@@ -359,8 +357,7 @@ $(document).ready(function () {
         selectedTemplate = id;
     }
 $.fn.getPatientDetails = function (patientId) {
-    debugger;
-        $(this).setPatientId(patientId);
+  $(this).setPatientId(patientId);
         if (patientId != '') {
             $.get('api/patient-details/' + patientId, function (data) {
                 $("#_patientName").text(data.patient.name);

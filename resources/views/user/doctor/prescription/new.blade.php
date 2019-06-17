@@ -210,7 +210,7 @@ list-style:none!important;
                                  style="margin-top:10px; height:90px" class="rounded-circle img-fluid" alt="">
                            <div> <span id="_patientName"><b>No Patient Selected yet</b></span>
                             <span id="_patientAge"></span>
-                            <span id="_patientGender"></span>
+                            <!-- <span id="_patientGender"></span> -->
                             <span id="_patientDetails" class="patientdetail"></span>
                             </div>
                             {{--<p>Patient phone : <br> 01738070062 <br> Patient email : abc@patient.com</p>--}}
@@ -230,7 +230,7 @@ list-style:none!important;
                                 <select class="form-control js-select2" id="selectDisease" multiple="multiple">
                                     <option value="">Select Disease</option>
                                     @foreach($diseases as $diseases)
-                                <option value="{{$diseases -> disease}}" data-badge="">{{$diseases -> disease}}</span>
+                                <option value="{{$diseases -> disease}}" data-badge="">{{$diseases -> disease}}
                                 </option>
                             @endforeach
                         </select>
@@ -238,9 +238,9 @@ list-style:none!important;
                                  
                                   </div>
                                   <center>
-                                  <br/> <br/> <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-lg">
-                                  
-                                Create new patient
+                                  <br/> <br/> 
+                                  <button class="btn btn-primary"><a style="color:#ffffff;" href="{{url('/new-patient/')}}"> Create new patient</a></button>
+                                
                             </button>
                         </center>
                 </div>

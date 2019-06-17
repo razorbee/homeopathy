@@ -37,13 +37,13 @@
                         <li><a href="{{url('/all-prescription')}}">{!! trans('menus.prescription.all_prescription_menu') !!}</a></li>
                     </ul>
                 </li>
-				<li class="has_sub">
+				<!-- <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect {{Request::is('edit-drug/*') ? 'active' :''}}"><i class="icon icon-pill-small"></i> <span> {!! trans('menus.drug.main_menu') !!} </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{url('/new-drug')}}">Add new drug</a></li>
                         <li><a href="{{url('/all-drug')}}">All Drug</a></li>
                     </ul>
-                </li>
+                </li> -->
 
 
 

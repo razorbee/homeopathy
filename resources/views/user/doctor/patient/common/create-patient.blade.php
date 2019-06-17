@@ -65,7 +65,7 @@
     <div style="padding-left: 35%;">
         <button type="submit" class="btn btn-primary waves-effect waves-light">Submit &nbsp; <i id="loading" class="fa fa-refresh fa-spin"></i></button>
         <!-- <button type="reset" class="btn btn-danger waves-effect waves-light">Cancel</button> -->
-        <button type="reset" class="btn btn-danger waves-effect waves-light" onclick=" window.history.back();">Cancel</button>
+        <button type="reset" class="btn btn-danger waves-effect waves-light" onclick="window.history.back();">Cancel</button>
     </div>
 
 </form>

@@ -1,5 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.auth')
 
+@section('title')
+    {{config('app.name')}} 
+@endsection
 @section('content')
 <div class="container">
     <div class="row">

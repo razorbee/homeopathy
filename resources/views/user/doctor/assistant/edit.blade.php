@@ -109,8 +109,7 @@
             });
         })
         function hidedefault(){
-        debugger;
-        $('#default_image').hide();
+     $('#default_image').hide();
     }
     </script>
 @endsection

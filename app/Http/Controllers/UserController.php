@@ -75,12 +75,13 @@ class UserController extends Controller
     {
         $request->validate([
             'email'     =>      'required|unique:users|max:255',
-            'password'  =>      'required|min:5'
+            'password'  =>      'required|min:5',
+            'username'     =>      'required|unique:users|max:255',
         ]);
 
         $user = new User();
         $user->email = $request->get('email');
-		 $user->username = $request->get('username');
+		$user->username = $request->get('username');
         $user->name = $request->get('name');
         $user->phone = $request->get('phone');
         $user->address = $request->get('address');
@@ -107,7 +108,8 @@ class UserController extends Controller
         $request->validate([
             'email'     =>      'required|max:255',Rule::unique('users')->ignore($id),
             'name'      =>      'required|max:222',
-            'phone'     =>      'required|max:255'
+            'phone'     =>      'required|max:255',
+            'username'     =>      'required|unique:username|max:255',
         ]);
 
         $user = User::findOrFail($id);
