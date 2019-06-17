@@ -26,13 +26,15 @@
                     </div>
                     <div class="col-md-8">
 					<div class="row">
-                        <div class="col-sm-4"><span class="title_p"  style="font-size:16px!important;font-weight:bold; color:#fe5314!important;"><b>Name : </b></span>{{$patient->name}}</div>
-                           
-                            <div class="col-sm-4"><span class="title_p"  style="font-size:16px!important;font-weight:bold; color:#fe5314!important;"><b>Gender :</b></span>
+                        <div class="col-sm-3"><span class="title_p"  style="font-size:16px!important;font-weight:bold; color:#fe5314!important;"><b>Name : </b></span>{{$patient->name}}</div>
+                        <div class="col-sm-3"><span class="title_p"  style="font-size:16px!important;font-weight:bold; color:#fe5314!important;"><b>ID: </b></span>
+							{{$patient->id}}</div>
+                            <div class="col-sm-3"><span class="title_p"  style="font-size:16px!important;font-weight:bold; color:#fe5314!important;"><b>Gender :</b></span>
 							{{$patient->gender ==1 ? "Male" : $patient->gender ==2 ? "Female" : "Other" }}</div>
 							 
-							<div class="col-sm-4"><span class="title_p"  style="font-size:16px!important;font-weight:bold; color:#fe5314!important;"><b>Age : </b></span>
+							<div class="col-sm-3"><span class="title_p"  style="font-size:16px!important;font-weight:bold; color:#fe5314!important;"><b>Age : </b></span>
 							{{$patient->age()}}</div>
+                            
                           
 			   
                    <!-- <div class="col-md-12" style="margin-top:20px;">

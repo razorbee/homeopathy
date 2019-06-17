@@ -80,7 +80,7 @@
             })
         })
         function hidedefault(){
-        debugger;
+      
         $('#default_image').hide();
     }
     </script>

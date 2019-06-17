@@ -1,4 +1,6 @@
-<b>{{$patient->name}}</b> <br>
+<b>{{$patient->name}}</b><br>
+Patient-Id : (P-{{$patient->id}} )
+ <br>
 Gender : @if($patient->gender ==1)
     Male
 @elseif($patient->gender == 2)

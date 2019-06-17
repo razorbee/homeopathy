@@ -178,12 +178,18 @@ class DrugController extends Controller
     }
     public function saveDisease(Request $request)
     {
-      
+        $request->validate([
+            'disease'          =>   'required|unique:diseases|max:255',
+           
+        ]);
+
         $disease = new Diseases();
         
         $disease->disease = $request->get('disease');
+        $disease->user_id = auth()->user()->id;
         if ($disease->save()) {
-            return response()->json([$disease->disease.' - Disease Added',$disease->disease." Has been added successfully"],'200');
+            return response()->json($diseases,200);
+            // return response()->json([$disease->disease.' - Disease Added',$disease->disease." Has been added successfully"],'200');
         }
     }
     public function fetch_disease(Request $request)

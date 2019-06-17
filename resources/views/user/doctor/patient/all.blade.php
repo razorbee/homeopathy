@@ -51,20 +51,10 @@
                 <div ><b>Disease</b></div>		
                 <select name="disease" id="search_disease" class="advselect">		
                     <option  value="">select disease</option>		
-                    <option  value="Autoimmune Diseases">Autoimmune Diseases</option>		
-                    <option  value="Allergies & Asthma">Allergies & Asthma</option>		
-                    <option  value="Cancer">Cancer</option>		
-                    <option  value="Celiac Disease">Celiac Disease</option>		
-                    <option  value="Crohn's & Colitis">Crohn's & Colitis</option>		
-                    <option  value="Heart Disease">Heart Disease</option>		
-                    <option  value="Infectious Disease">Infectious Disease</option>		
-                    <option  value="Liver Disease">Liver Disease</option>		
-                    <option  value="Lupus">Lupus</option>		
-                    <option  value="Relapsing Polychondritis">Relapsing Polychondritis</option>		
-                    <option  value="Rheumatoid Arthritis">Rheumatoid Arthritis</option>		
-                    <option  value="Scleroderma">Scleroderma</option>		
-                    <option  value="Type 1 Diabetes">Type 1 Diabetes</option>		
-                    <option  value="Other">Other</option>		
+                    @foreach($patient as $diseases)
+                                <option value="{{$diseases -> disease}}">{{$diseases -> disease}}
+                                </option>
+                            @endforeach	
                 </select>		
             </div>	
             <div class="col-2">		
@@ -133,7 +123,7 @@
             @if(session('delete_patient'))
                 $.Notification.notify('success','top right',"Patient deleted",'Patient has been deleted successfully');
             @endif
-                    // debugger;
+                   
         });
 
         $("#advancesearch").submit(function( e ) {		

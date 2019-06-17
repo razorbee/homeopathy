@@ -53,15 +53,13 @@
                                 <select class="form-control select2" name="patient_id" id="" required="required">
                                     <option>Select the patient</option>
                                     @foreach($patients as $patient)
-                                        <option value="{{$patient->id}}">{{$patient->name}} | {{$patient->phone}}</option>
+                                        <option value="{{$patient->id}}">{{$patient->name}} | (P-{{$patient->id}} )</option>
                                     @endforeach
                                 </select>
 
                             </div>
                         </div>
-                        <div class="col-md-1">
-                        <button onclick="myFunction()">see schedule</button>
-                        </div>
+                        
                         <div class="col-md-3">
                             <div class="form-group-custom">
                                 <!-- <input type="date" name="date" id="date" required="required"/> -->
@@ -69,7 +67,7 @@
                                 <label class="control-label">Date &nbsp;*</label><i class="bar"></i>
                             </div>
                         </div>
-                        <div class="col-md-2">
+                        <div class="col-md-3">
                             <div class="form-group-custom">
                                 <input type="time" required="required" name="time"/>
                                 <label class="control-label">Time[24hr-format]</label><i class="bar"></i>
@@ -111,14 +109,14 @@
                     <button type="submit" class="btn btn-primary waves-effect waves-light">Submit &nbsp; <i id="loading" class="fa fa-refresh fa-spin"></i></button>
              
                     <!-- <button type="reset" class="btn btn-danger waves-effect waves-light m-l-10 m-l-10">Cancel</button> -->
-                    <button type="reset" class="btn btn-danger waves-effect waves-light m-l-10 m-l-10" onclick=" window.history.back();">Cancel</button>
+                    <button type="reset" class="btn btn-danger waves-effect waves-light m-l-10 m-l-10" onclick="window.history.back();">Cancel</button>
                 </form>
             </div>
         </div>
     </div>
     <div class="card">
     
-    <div class="panel" id="panel" style="display:none;">
+   
                 <!-- <h4 class="text-center"><strong>Appointment Schedule</strong></h4> -->
            
             <div class="panel-body">
@@ -157,7 +155,7 @@
                 @endforeach
             </div>
          
-        </div>
+       
     
     </div>
 @endsection
@@ -211,8 +209,6 @@
 //     alert("Date must be in the future");
 //    }
 //  }
-function myFunction() {
-  document.getElementById("panel").style.display = "block";
-}
+
     </script>
 @endsection

@@ -35,7 +35,7 @@
             <tr>
                 <th width="5px">#</th>
                 <th>Date</th>
-                <th>Patient_id</th>
+                <th>Patient id</th>
 				<th>Patient</th>
                 <th>Age</th>
                 <th>Disease</th>
@@ -62,7 +62,7 @@
 	
     <script>
         $(document).ready( function () {
-            debugger;
+          
             $('#datatable').DataTable({
                 "processing": true,
                 "serverSide": true,
@@ -72,7 +72,7 @@
                   
                     data: function (d) {		
                         d.patient_id = $('#search_patient_id').val()		
-                        debugger;    	
+                           	
                 }		
             },
                 "columns": [

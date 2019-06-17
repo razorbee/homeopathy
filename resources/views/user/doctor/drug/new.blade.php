@@ -130,7 +130,7 @@
     <script>
         $(document).ready(function () {
     
-            $("#diseaseTable").dataTable({
+            var diseaseTable =  $("#diseaseTable").dataTable({
                
             "processing": true,
             "serverSide": true,
@@ -157,8 +157,7 @@
 
         var forms = $("#newDisease");
             forms.on('submit',function (e) { 
-            debugger;
-                var formData = new FormData(this);
+            var formData = new FormData(this);
                 e.preventDefault();
                 //$(this).speedPost('{{url('/save-disease')}}',formData,form);
                 $.ajax({
@@ -170,10 +169,12 @@
             processData:false,
             success:function (data) {
                 $.Notification.notify('success','top right',"Disease added successfully","Disease has been added successfully");
-                
+                $('#diseaseTable').DataTable().ajax.reload()
+
                 
             },error:function (data){
-                $(this).showAjaxError(data);
+                // $(this).showAjaxError("The name has already been taken");
+                $.Notification.notify('error','top right',"Disease has already taken","Disease has already taken");
             }
 
         });

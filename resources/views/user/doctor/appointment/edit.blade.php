@@ -25,7 +25,7 @@
                                 <select class="form-control select2" name="patient_id" id="" required="required">
                                     <option></option>
                                     @foreach($patients as $patient)
-                                        <option {{$patient->id == $appointment->patient_id ? 'selected' : ''}} value="{{$patient->id}}">{{$patient->name}} | {{$patient->phone}}</option>
+                                        <option {{$patient->id == $appointment->patient_id ? 'selected' : ''}} value="{{$patient->id}}">{{$patient->name}} | (P-{{$patient->id}} )</option>
                                     @endforeach
                                 </select>
 

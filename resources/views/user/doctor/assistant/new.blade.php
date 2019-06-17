@@ -99,8 +99,7 @@
 		
             var form = $("#newAssistant");
             form.on('submit',function (e) {
-                debugger;
-               e.preventDefault();
+            e.preventDefault();
                data = new FormData(this);
                $(this).speedPost('{{url('/save-assistant')}}',data,form);
             });
