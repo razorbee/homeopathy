@@ -12,11 +12,12 @@ if(in_array($_SERVER['REMOTE_ADDR'], $localhost)){
 }
 
 else{
-  $rbpath = '/home/o6fz03c94a0p/public_html/homeopathy/';
-   $domain = 'http://project.razorbee.com/homeopathy/';
+  $rbpath = '/home/o6fz03c94a0p/public_html/homeopathy/homeopathy/';
+   $domain = 'http://project.razorbee.com/homeopathy/homeopathy/';
   $rb_database= 'homeopathy1';
   $rb_username = 'drdiary';
    $rb_password = 'drdiary';
+    $storage = '/home/o6fz03c94a0p/public_html/homeopathy/data/';
 }
 
 return array (
