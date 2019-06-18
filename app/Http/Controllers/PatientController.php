@@ -137,8 +137,11 @@ class PatientController extends Controller
     public function allPatient()
     {
         $patient = Diseases::all();
+        $patients = Patient::all();
+        $patients->user_id = auth()->user()->role;
         return view('user.doctor.patient.all',[
-            'patient'   =>      $patient
+            'patient'   =>      $patient,
+            'patients' => $patients,
         ]);
     }
 

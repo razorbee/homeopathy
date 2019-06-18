@@ -11,6 +11,6 @@ Gender : @if($patient->gender ==1)
 <br>
 Age : {{$patient->age()}} <br>
 
-<a href="javascript:void(0);" onclick="window.location.replace('{{url('/take-patient-to-prescription-page/'.$patient->id)}}')"><i class="ti ti-ink-pen"></i> Prescribe Now </a>
+<a class="view_prescribe" href="javascript:void(0);" onclick="window.location.replace('{{url('/take-patient-to-prescription-page/'.$patient->id)}}')"><i class="ti ti-ink-pen"></i> Prescribe Now </a>
 <br>
 <a href="javascript:void(0);" onclick="window.location.replace('{{url('/take-patient-to-appointment/'.$patient->id)}}')"><i class="ti ti-calendar"></i> New Appointment </a>

@@ -6,7 +6,13 @@
 
 @section('extra-css')
     <link rel="stylesheet" href="{{url('/dashboard/plugins/datatables/datatable.min.css')}}">
+<style>
+.role_2 .view_medical , .role_4 .view_medical, .role_2 .view_medical_add , .role_4 .view_medical_add,.role_2 .view_prescribe , .role_4 .view_prescribe {
+display :none
+}
 
+
+</style>
 @endsection
 
 @section('content')
@@ -65,7 +71,8 @@
         </form>  
 
 
-        <table class="table table-striped" id="datatable">
+        <!-- <table class="table table-striped" id="datatable"> -->
+        <table class="table table-striped role_{{{auth()->user()->role}}}" id="datatable">
             <thead>
             <tr>
                 <th width="5px">#</th>

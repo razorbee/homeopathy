@@ -17,6 +17,7 @@ else{
   $rb_database= 'homeopathy1';
   $rb_username = 'drdiary';
    $rb_password = 'drdiary';
+   $storage = '/home/o6fz03c94a0p/public_html/homeopathy/data/';
 }
 
 return array (
