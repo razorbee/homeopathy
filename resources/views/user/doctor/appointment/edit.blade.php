@@ -33,14 +33,14 @@
                         </div>
                         <div class="col-md-3">
                             <div class="form-group-custom">
-                            <input id="datepicker"   value="{{$appointment->date->format('Y-m-d')}}" required class="datepicker-input" type="date" data-date-format="yyyy-mm-dd" >
-                                <!-- <input type="date" value="{{$appointment->date->format('Y-m-d')}}" name="date" required="required"/> -->
+                            <!-- <input id="datepicker"   value="{{$appointment->date->format('Y-m-d')}}" required class="datepicker-input" type="date" data-date-format="yyyy-mm-dd" > -->
+                                <input type="date" value="{{$appointment->date->format('Y-m-d')}}" name="date" required="required"/> 
                                 <label class="control-label">Date &nbsp;*</label><i class="bar"></i>
                             </div>
                         </div>
                         <div class="col-md-3">
                             <div class="form-group-custom">
-                                <input type="time" value="{{$appointment->time}}" required="required" name="time"/>
+                                <input type="time" value="{{$appointment->time}}" name="time"/>
                                 <label class="control-label">Time[24hrs-format]</label><i class="bar"></i>
                             </div>
                         </div>
@@ -111,15 +111,5 @@
             });
         })
         </script>
-        <!-- <script>
-        function checkDate() {
-   var selectedText = document.getElementById('datepicker').value;
-   var selectedDate = new Date(selectedText);
-   var now = new Date();
-   if (selectedDate < now) {
-    alert("Date must be in the future");
-   }
- }
-
-    </script> -->
+        
 @endsection

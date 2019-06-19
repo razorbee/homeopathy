@@ -34,7 +34,7 @@
                     <div class="row">
                         <div class="col-md-4" style="padding-left: 81px;">
                             <div id="image-preview">
-                                <label for="image-upload" id="image-label">Assistant photo</label>
+                                <label for="image-upload" id="image-label"><i class="ti-pencil-alt"></i></label>
                                 <input type="file" name="image" id="image-upload" />
                             </div>
                         </div>

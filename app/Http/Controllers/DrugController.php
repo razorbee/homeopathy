@@ -186,9 +186,9 @@ class DrugController extends Controller
         $disease = new Diseases();
         
         $disease->disease = $request->get('disease');
-        $disease->user_id = auth()->user()->id;
+      
         if ($disease->save()) {
-            return response()->json($diseases,200);
+            return response()->json($disease,200);
             // return response()->json([$disease->disease.' - Disease Added',$disease->disease." Has been added successfully"],'200');
         }
     }
@@ -206,7 +206,7 @@ class DrugController extends Controller
     {
         $disease = Diseases::findOrFail($id);
         if($disease->delete()){
-            return redirect()->back()->with('disease_delete','Disease has been deleted');
+            return redirect()->back()->with('delete_diseae','Disease has been deleted');
         }
     }
 

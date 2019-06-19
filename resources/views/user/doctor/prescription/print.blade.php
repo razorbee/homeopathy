@@ -54,7 +54,7 @@
                                 }
                                 @endif
                                 .col-md-4 {
-                                    width: 40%;
+                                    width: 30%;
                                 }
                                 .col-md-8 {
                                     width: 60%;

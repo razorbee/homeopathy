@@ -138,7 +138,7 @@ class AppointmentController extends Controller
         $request->validate([
             'patient_id'    =>  'required',
             'appointment_id'    =>  'required',
-            'date'    =>  'required|date',
+            // 'date'    =>  'required|date',
         ]);
         if($this->appointmentDateValidate($request)){
             $appointment = PatientAppointment::findOrFail($id);

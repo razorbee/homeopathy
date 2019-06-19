@@ -71,9 +71,11 @@
                     cache: false,
                     processData:false,
                     success:function (data) {
-                        $.Notification.notify('success','top right','Schedule update successfully',
+                        $.Notification.notify('success','top right','Patient created successfully',
                             'We are taking you to edit page');
+                            setTimeout(function(){
                         window.location.replace('{{url('/')}}/edit-patient/'+data.id);
+                    },3000); 
                     },error:function (data) {
                         if(data.status == 422 ){
                             $.each(data.responseJSON,function (key,data) {

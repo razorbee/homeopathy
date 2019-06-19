@@ -59,7 +59,7 @@
         </div>
     </div>
 
-
+    @if(auth()->user()->role == 1 || auth()->user()->role == 3)  
     <div class="col-6">
         <div class="card">
             <div class="card-header card-header-icon">
@@ -123,7 +123,7 @@
             </div>
         </div>
     </div>
-
+@endif
 @endsection
 @section('extra-js')
 <script src="{{url('/dashboard/plugins/datatables/datatable.min.js')}}"></script>
@@ -142,7 +142,6 @@
                 { "data": "action" }
             ]
         });
-
             var form = $("#newDrug");
             form.on('submit',function (e) {
                
@@ -150,14 +149,12 @@
                 e.preventDefault();
                 $(this).speedPost('{{url('/save-drug')}}',formData,form);
             });
-
             
-
     
-
         var forms = $("#newDisease");
             forms.on('submit',function (e) { 
-            var formData = new FormData(this);
+            
+                var formData = new FormData(this);
                 e.preventDefault();
                 //$(this).speedPost('{{url('/save-disease')}}',formData,form);
                 $.ajax({
@@ -170,22 +167,18 @@
             success:function (data) {
                 $.Notification.notify('success','top right',"Disease added successfully","Disease has been added successfully");
                 $('#diseaseTable').DataTable().ajax.reload()
-
                 
-            },error:function (data){
-                // $(this).showAjaxError("The name has already been taken");
-                $.Notification.notify('error','top right',"Disease has already taken","Disease has already taken");
-            }
-
+            },
+            error:function (data) {
+                    $.Notification.notify('error','top right','Disease already taken');
+                    
+                }
         });
     })
-
     @if(session('delete_diseae'))
             $.Notification.notify('success','top right','Disease Deleted','Disease has been deleted successfully');
         @endif
-        @if(session('delete_fail'))
-            $.Notification.notify('error','top right','Disease cannot delete','Something went wrong');
-        @endif
+        
 });
 </script>
     

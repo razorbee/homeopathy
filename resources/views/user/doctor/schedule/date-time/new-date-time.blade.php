@@ -43,7 +43,7 @@
                         <div class="col-md-4">
                             <div class="form-group-custom">
                                 <input type="time" name="end_time" required="required" autofocus/>
-                                <label class="control-label">End Time &nbsp;*</label><i class="bar"></i>
+                                <label class="control-label">End Time[24hr-format] &nbsp;*</label><i class="bar"></i>
                             </div>
                         </div>
                     </div>

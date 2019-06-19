@@ -84,7 +84,7 @@
                         <i class="zmdi zmdi-account-circle"></i> <span>Profile</span>
                     </a>
                     -->
-                    <a href="" class="dropdown-item notify-item" style="border-bottom: 1px black;">
+                    <a href="" class="dropdown-item notify-item" style="border-bottom: 1px black;text-transform: uppercase;">
                         <i class="zmdi zmdi-settings"></i> <span><b>{{auth()->user()->username}}</b></span>
                     </a>
 

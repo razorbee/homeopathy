@@ -109,7 +109,7 @@ class UserController extends Controller
             'email'     =>      'required|max:255',Rule::unique('users')->ignore($id),
             'name'      =>      'required|max:222',
             'phone'     =>      'required|max:255',
-            'username'     =>      'required|unique:username|max:255',
+            // 'username'     =>      'required|unique:users|max:255',
         ]);
 
         $user = User::findOrFail($id);

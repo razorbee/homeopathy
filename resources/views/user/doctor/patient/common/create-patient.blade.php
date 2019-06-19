@@ -5,7 +5,7 @@
         <div class="col-md-4">
            <center>
                <div id="image-preview">
-                   <label for="image-upload" id="image-label">Patient photo</label>
+                   <label for="image-upload" id="image-label"><i class="ti-pencil-alt"></i></label>
                    <input type="file" name="image" id="image-upload" />
                </div>
            </center>

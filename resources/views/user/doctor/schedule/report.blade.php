@@ -78,7 +78,7 @@
                                <tr>
                                    <td>{{$i++}}</td>
                                    <td>{{$a->patient->name}}</td>
-                                   <td>{{$a->date->format('d-M-Y')}} | {{\Carbon\Carbon::parse($a->time)->format('h:g a')}}</td>
+                                   <td>{{$a->date->format('d-M-Y')}} | {{\Carbon\Carbon::parse($a->time)->format('g:i a')}}</td>
                                    <td>{{$a->user->name}}</td>
                                    <td>{{$a->status == 1 ? "Appointed " : 'Pending'}}</td>
                                    <td>

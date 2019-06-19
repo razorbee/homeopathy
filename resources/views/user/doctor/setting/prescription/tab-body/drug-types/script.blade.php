@@ -63,7 +63,7 @@
             e.preventDefault();
             var data = new FormData(this);
             $.ajax({
-                url: '/update-drug-type/'+updateId,
+                url: 'update-drug-type/'+updateId,
                 type: 'POST',
                 data: data,
                 contentType: false,

@@ -27,7 +27,7 @@
                     <div class="form-group-custom{{$errors->has('username')||$errors->has('email') ? 'has-error':''}}">
                         <input type="text" id="user-name" name="username" value="{{old('username')}}" /><i class="bar"></i>
                         <br>
-                        <label class="control-label" for="user-name">Username/Email Address</label>
+                        <label class="control-label" for="user-name" >Username/Email Address</label>
                         @if ($errors->has('username'))
                             <span class="help-block">
                                 <strong class="text-danger">{{$errors->first('username')}}</strong>
@@ -45,7 +45,9 @@
                         <input type="password" id="user-password" name="password" value="{{old('password')}}"
                                required="required"/><i class="bar"></i>
                                <br>
-                        <label class="control-label" for="user-password">Password</label>
+                        <label class="control-label" for="user-password" style="margin-top:-17px;">Password</label>
+                        <br>
+
                         @if ($errors->has('password'))
                             <span class="help-block">
                                 <strong class="text-danger">{{ $errors->first('password') }}</strong>

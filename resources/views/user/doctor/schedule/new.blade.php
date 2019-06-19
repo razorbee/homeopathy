@@ -66,7 +66,9 @@
                     success:function (data) {
                         $.Notification.notify('success','top right','Schedule saved successfully',
                             'We are taking you to the schedule date and time page');
+                            setTimeout(function(){
                         window.location.replace('schedule='+data.id+'/date-time');
+                    },3000); 
                     },error:function (data) {
                         if(data.status == 422 ){
                             $.each(data.responseJSON,function (key,data) {
