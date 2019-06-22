@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Model\Patient;
 use App\Model\PatientAppointment;
 use App\Model\Prescription;
+use App\Model\Drug;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,12 @@ class DashboardController extends Controller
     {
         $patient = count(Patient::all());
         return $patient;
+    }
+
+    public function totalDrug()
+    {
+        $drug = count(Drug::all());
+        return $drug;
     }
 
     /**

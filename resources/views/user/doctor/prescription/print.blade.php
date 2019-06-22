@@ -64,7 +64,7 @@
                         <table width="100%" style="margin-bottom: 10px;">
                             <thead>
                             <tr>
-                                <th> <span class="prescription-p-title">Name</span> : {{$prescription->patient->name}}
+                                <th> <span class="prescription-p-title">Name</span> : {{$prescription->patient->name}} Id:{{$prescription->patient->id}}
                                 </th>
                                 <th> <span class="prescription-p-title">Age</span>
                                     : {{$prescription->patient->date_of_birth->diff($prescription->created_at)->format('%y years,%m month,%d days')}}</th>
@@ -171,7 +171,8 @@
                 <br>
             </div>
         </div>
-  
+        <button type="submit" class="btn btn-primary waves-effect waves-light" onclick="window.history.back();" id="myBtn"><img src="{{url('/')}}/dashboard/images/back.png"></button>
+        <button type="submit"  class="btn btn-primary waves-effect waves-light" id="myBtn1"><a href="{{url('/')}}"  style="color:#ffffff;"><i class="fa fa-home"></i></a></button>
 @endsection
 @section('extra-js')
     <script src="{{url('/dashboard/plugins/printthis/printThis.js')}}"></script>

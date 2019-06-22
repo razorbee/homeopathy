@@ -64,3 +64,4 @@ Route::get('/get-advices','PrescriptionApiController@getAdvice');
 
 //Api for disease
 Route::get('/get-disease/{id}','PrescriptionApiController@getDiseaseDetails');
+Route::get('total-drug','DashboardController@totalDrug');

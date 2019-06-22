@@ -6,7 +6,7 @@
     >
 <div>
     <span>
-    {{$appointment->patient->name}} || Patient_id : (P-{{$appointment->patient->id}})
+    {{$appointment->patient->name}} || Patient_id : {{$appointment->patient->id}}
     </span>
     <br>
     <span>

@@ -63,6 +63,15 @@
                 <div class="text-muted m-t-5"> New Patient Last 7 Days</div>
             </div>
         </div>
+        <div class="col-md-6 col-lg-6 col-xl-4">
+            <div class="widget-panel widget-style-2 bg-white">
+                <i class="icon icon-pill text-pink" style="font-size: 60px!important;"></i>
+                <h2 id="total_drug" class="m-0 text-dark counter font-600">
+                    0
+                </h2>
+                <div class="text-muted m-t-5">Total Drug</div>
+            </div>
+        </div>
     </div>
 
     <div class="row">
@@ -157,6 +166,10 @@
                         )
                     )
                 });
+            });
+            $.get('{{url('/api/total-drug')}}',function (data) {
+                console.log(data);
+                $("#total_drug").text(data);
             });
 
         });

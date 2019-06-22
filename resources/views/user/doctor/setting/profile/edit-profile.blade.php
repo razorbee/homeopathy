@@ -23,7 +23,7 @@
                         <div class="col-md-4" style="padding-left: 81px;">
                             <!-- <div id="image-preview" style="background-image: url('{{url(auth()->user()->image ? auth()->user()->image : '/dashboard/images/image_placeholder.jpg')}}')"> -->
                             <div id="image-preview"><img id="default_image" src="{{url('/')}}/{{auth()->user()->image}}" style="width:250px;height:250px;margin-bottom:-200px;z-index:-2!important;" alt="">
-                                <label for="image-upload" id="image-label">Profile Pic</label>
+                                <label for="image-upload" id="image-label"><i class="ti-pencil-alt"></i></label>
                                 <input type="file" name="image" id="image-upload" />
                             </div>
                         </div>
@@ -56,7 +56,7 @@
                                 <textarea name="address" required="required">{{auth()->user()->address}}</textarea>
                                 <label class="control-label">Address</label><i class="bar"></i>
                             </div>
-
+                    
                         </div>
                     </div>
 
@@ -67,7 +67,9 @@
             </div>
         </div>
     </div>
-@endsection
+    <button type="submit" class="btn btn-primary waves-effect waves-light" onclick="window.history.back();" id="myBtn"><img src="{{url('/')}}/dashboard/images/back.png"></button>
+    <button type="submit"  class="btn btn-primary waves-effect waves-light" id="myBtn1"><a href="{{url('/')}}"  style="color:#ffffff;"><i class="fa fa-home"></i></a></button>
+    @endsection
 
 @section('extra-js')
     <script>

@@ -15,6 +15,8 @@ $factory->define(App\Model\Patient::class, function (Faker $faker) {
         'disease'       =>  $faker->disease,
         'patientdetails'       =>  $faker->patientdetails,
         'status'        =>  1,
-        'user_id'       =>  1
+        'user_id'       =>  1,
+        'id'    => $faker->id
+  
     ];
 });

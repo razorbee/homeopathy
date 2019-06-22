@@ -7,7 +7,7 @@
 @section('content')
     <style>
        .footer-bottom {
-    background-color: #15224f;
+    background-color: #7aad5c;
     min-height: 30px;
     width: 100%;
 }

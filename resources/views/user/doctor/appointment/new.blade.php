@@ -53,7 +53,7 @@
                                 <select class="form-control select2" name="patient_id" id="" required="required">
                                     <option>Select the patient</option>
                                     @foreach($patients as $patient)
-                                        <option value="{{$patient->id}}">{{$patient->name}} | (P-{{$patient->id}} )</option>
+                                        <option value="{{$patient->id}}">{{$patient->name}} | {{$patient->id}} </option>
                                     @endforeach
                                 </select>
 
@@ -158,6 +158,8 @@
        
     
     </div>
+    <button type="submit" class="btn btn-primary waves-effect waves-light" onclick="window.history.back();" id="myBtn"><img src="{{url('/')}}/dashboard/images/back.png"></button>
+    <button type="submit"  class="btn btn-primary waves-effect waves-light" id="myBtn1"><a href="{{url('/')}}"  style="color:#ffffff;"><i class="fa fa-home"></i></a></button>
 @endsection
 
 @section('extra-js')

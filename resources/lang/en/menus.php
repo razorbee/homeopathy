@@ -29,6 +29,7 @@ return [
     ],
     'drug'          =>  [
         'main_menu'             =>  'Drug & Disease',
+        'main_menus'             =>  'Drugs',
         'new_drug_menu'         =>  'New Drug & Disease',
         'all_drug_menu'         =>  'All Drug',
     ],

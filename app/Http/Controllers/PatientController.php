@@ -168,7 +168,31 @@ class PatientController extends Controller
      */
     public function savePatient(Request $request)
     {
-        
+            
+        $patient = Patient::orderBy('p_id','desc')->first();
+        $id = '0';
+        $date = date("ymd");
+       
+
+       
+
+        if (!empty($patient )&& !empty($patient->id) && $patient->id){
+             $id_1 = substr($patient->id, 0, 6);
+             $id_2 = substr($patient->id, 6);
+             
+            if ($id_1 == $date){
+              
+
+                $id_2  = ((int) $id_2) +1;
+                $id = $id_1.$id_2;
+            }else{
+                $id =$date.'1';
+            }
+        }
+        else{
+      
+            $id = $date.'1';
+        }
 
           $age = $request->get('date_of_birth');
           $time1 = $age*31556926; // calculating age in seconds
@@ -176,6 +200,7 @@ class PatientController extends Controller
           $dob = date("Y-m-d",$dob1); // getting the date of birth here
           $patient = new Patient();
           $patient->name = $request->get('name');
+          $patient->id = $id;
           $patient->gender = $request->get('gender');
           $patient->date_of_birth = $dob;//Carbon::parse($request->get('date_of_birth'))->format('Y-m-d');
           $patient->email = $request->get('email');
@@ -183,6 +208,7 @@ class PatientController extends Controller
           $patient->phone = $request->get('phone');
           $patient->patientdetails = $request->get('patientdetails');
           $patient->user_id = auth()->user()->id;
+         
         if ($request->hasFile('image')) {
             $patient->image = $request->file('image')
                 ->move('../data/uploads/patient/\/', rand(100000, 900000) . '.' . $request->image->extension());
@@ -202,6 +228,7 @@ class PatientController extends Controller
      */
      public function updatePatient(Request $request, $id)
        {
+     
           $age = $request->get('date_of_birth');
    $time1 = $age*31556926; // calculating age in seconds
    $dob1 = time() - $time1; // getting the timestamp for his / her date of birth

@@ -122,9 +122,9 @@ class ApiController extends Controller
         parse_str($parts['query'], $query);
        $arr = array();
       
-       if (isset($query['patient_id']) && $query['patient_id']!=""){
-            array_push($arr,['patient_id', '=', $query['patient_id']]);
-       }
+       if (isset($query['patient_id']) && $query['patient_id']!==''){
+        array_push($arr,['patient_id', 'like', '%'.$query['patient_id'].'%']);
+    }
         $prescription = Prescription::orderBy('id','desc')->where($arr)->get();
         return datatables($prescription)
             ->addColumn('#',function (){

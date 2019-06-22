@@ -32,7 +32,7 @@ class AppointmentController extends Controller
     public function newAppointment()
     {
         $schedule = Appointment::get();
-        $patients = Patient::select('id','name','phone')->orderBy('name','asc')->get();
+        $patients = Patient::select('id','p_id','name','phone')->orderBy('name','asc')->get();
         return view('user.doctor.appointment.new',[
             'patients'      =>      $patients,
             'schedules'     =>      $schedule

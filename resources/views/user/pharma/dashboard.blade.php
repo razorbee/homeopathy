@@ -1,6 +1,6 @@
 <div class="col-md-12">
     <div class="row">
-        <div class="col-md-6 col-lg-6 col-xl-4">
+        <!-- <div class="col-md-6 col-lg-6 col-xl-4">
             <div class="widget-panel widget-style-2 bg-white">
                 <i class="ti-calendar text-primary"></i>
                 <h2 class="m-0 text-dark counter font-600">
@@ -12,7 +12,7 @@
                 </h2>
                 <div class="text-muted m-t-5">Today's Appointment</div>
             </div>
-        </div>
+        </div> -->
         <div class="col-md-6 col-lg-6 col-xl-4">
             <div class="widget-panel widget-style-2 bg-white">
                 <i class="ti-notepad text-pink"></i>
@@ -34,7 +34,7 @@
 
 
 
-        <div class="col-md-6 col-lg-6 col-xl-4">
+        <!-- <div class="col-md-6 col-lg-6 col-xl-4">
             <div class="widget-panel widget-style-2 bg-white">
                 <i class="fa fa-users text-primary"></i>
                 <h2 id="todays_patient" class="m-0 text-dark counter font-600">
@@ -42,9 +42,9 @@
                 </h2>
                 <div class="text-muted m-t-5">Today's Patient</div>
             </div>
-        </div>
+        </div> 
           </div>
-        <div class="row">
+        <div class="row"> -->
         <div class="col-md-6 col-lg-6 col-xl-4">
             <div class="widget-panel widget-style-2 bg-white">
                 <i class="fa fa-users text-pink"></i>
@@ -52,6 +52,15 @@
                     0
                 </h2>
                 <div class="text-muted m-t-5">Total Patient</div>
+            </div>
+        </div>
+        <div class="col-md-6 col-lg-6 col-xl-4">
+            <div class="widget-panel widget-style-2 bg-white">
+                <i class="icon icon-pill text-pink" style="font-size: 50px!important;"></i>
+                <h2 id="total_drug" class="m-0 text-dark counter font-600">
+                    0
+                </h2>
+                <div class="text-muted m-t-5">Total Drug</div>
             </div>
         </div>
         <!-- <div class="col-md-6 col-lg-6 col-xl-4">
@@ -87,7 +96,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-md-6">
+        <!-- <div class="col-md-6">
             <div class="card">
                 <div class="card-header card-header-icon">
                     <i class="fa fa-calendar fa-2x"></i>
@@ -108,7 +117,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
 
 </div>
 
@@ -129,6 +138,11 @@
             $.get('{{url('/api/latest-patient')}}',function (data) {
                 console.log(data);
                 $("#patient_latest").text(data);
+            });
+
+            $.get('{{url('/api/total-drug')}}',function (data) {
+                console.log(data);
+                $("#total_drug").text(data);
             });
 
             $.get('{{url('/api/latest-prescription')}}',function (data) {

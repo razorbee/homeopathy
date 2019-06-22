@@ -125,7 +125,17 @@ class PrescriptionApiController extends Controller
         return response()->json($disease);
     }
 
-
+/**
+     * @param $id
+     * @return \Illuminate\Http\JsonResponse
+     * API response patient details and patient age (form today)
+     */
+    public function getPatientViews($p_id)
+    {
+        $patient = Patient::all();
+        
+        return response()->json($patient);
+    }
 
 
 }
