@@ -74,7 +74,7 @@
                         $.Notification.notify('success','top right','Patient created successfully',
                             'We are taking you to edit page');
                             setTimeout(function(){
-                        window.location.replace('{{url('/')}}/edit-patient/'+data.id);
+                        window.location.replace('{{url('/')}}/edit-patient/'+data._id);
                     },3000); 
                     },error:function (data) {
                         if(data.status == 422 ){

@@ -100,6 +100,7 @@ class PatientController extends Controller
      */
     public function editPatient($id)
     {
+        
         $patient = Patient::findOrFail($id);
         $age=  $patient->only(['date_of_birth']);
         $dob="";
@@ -127,6 +128,7 @@ class PatientController extends Controller
         return view('user.doctor.patient.edit', [
             'patient'   =>    $patient,
             'age'    => $ages,
+            'id'=>$id,
         ]);
     }
 
@@ -200,6 +202,7 @@ class PatientController extends Controller
           $dob = date("Y-m-d",$dob1); // getting the date of birth here
           $patient = new Patient();
           $patient->name = $request->get('name');
+         
           $patient->id = $id;
           $patient->gender = $request->get('gender');
           $patient->date_of_birth = $dob;//Carbon::parse($request->get('date_of_birth'))->format('Y-m-d');
@@ -216,7 +219,13 @@ class PatientController extends Controller
 
 
         if ($patient->save()) {
-            return response()->json($patient, 200);
+            $patient['_id']=$id;
+        $res=response()->json($patient, 200);
+
+
+
+
+            return $res;
         }
     }
 
