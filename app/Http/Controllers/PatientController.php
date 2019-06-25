@@ -139,7 +139,7 @@ class PatientController extends Controller
     public function allPatient()
     {
         $patient = Diseases::all();
-     
+   
         return view('user.doctor.patient.all',[
             'patient'   =>      $patient,
            

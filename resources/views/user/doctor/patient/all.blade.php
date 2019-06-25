@@ -107,7 +107,7 @@ display :none
                         d.name = $('#search_name').val(),		
                         d.gender = $('#search_gender').val(),		
 						d.age = $('#search_age').val(),		
-						d.disease = $('#search_disease').val()		
+						d.disease = $('#search_disease').val()	
                 }		
             },
                 columns: [

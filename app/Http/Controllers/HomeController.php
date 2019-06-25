@@ -26,9 +26,11 @@ class HomeController extends Controller
      */
     public  function welcome() {
         if(config('app.has_installed') == 1){
+          
           $appointment = Appointment::all();
           return view('welcome',[
               'appointments'  =>  $appointment
+           
           ]);
         }else{
             return redirect()->to('/install');
@@ -75,7 +77,8 @@ class HomeController extends Controller
     {
         $appointment = Appointment::all();
         return view('welcome',[
-            'appointments'  =>  $appointment
+            'appointments'  =>  $appointment,
+            
         ]);
     }
 
