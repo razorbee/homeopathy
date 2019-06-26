@@ -290,8 +290,7 @@ list-style:none!important;
     @include('user.doctor.prescription.model.new-patient')
     @include('user.doctor.template.modals.new-drug')
     @include('user.doctor.template.modals.edit-drug-from-list')
-    <button type="submit" class="btn btn-primary waves-effect waves-light" onclick="window.history.back();" id="myBtn" style="bottom:-60px;"><img src="{{url('/')}}/dashboard/images/back.png"></button>
-    <button type="submit"  class="btn btn-primary waves-effect waves-light" id="myBtn1"  style="bottom:-60px;"><a href="{{url('/')}}"  style="color:#ffffff;"><i class="fa fa-home"></i></a></button>
+    
 @endsection
 
 @section('extra-js')

@@ -65,7 +65,7 @@
             
             <div class="col-md-4 col-sm-2">
                 <div class="text-center">
-                <img  src="{{\App\User::first() ? \App\User::first()->image : 'http://cdn.24.co.za/files/Cms/General/d/2809/34cbd0492a23476887812102f40f21d7.jpg'}}"  class="__img-fluid" alt="">
+                <img  src="{{App\User::first() ? App\User::first()->image : 'http://cdn.24.co.za/files/Cms/General/d/2809/34cbd0492a23476887812102f40f21d7.jpg'}}"  class="__img-fluid" alt="">
                 
                 </div>
             </div>

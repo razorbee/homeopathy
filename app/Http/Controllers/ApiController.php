@@ -267,9 +267,19 @@ class ApiController extends Controller
                 ]);
             })
             ->addColumn('disease',function ($patient){
-                return view('user.doctor.patient.datatable.disease',[
-                    'patient'   =>  $patient,
-                ]);
+                $diseases = $patient->disease;
+                $disease_text = '';
+                foreach ($diseases as $d) {
+                    if ($d['disease']){
+                        $disease_text .= ' ['.$d['disease'].'] ' ;
+                    }else{}
+                   }
+                
+                //foreach($disease as $disease) {
+                   // echo $disease->disease;
+                    //$disease_text.= $disease['disease'];
+                //}
+                return $disease_text;
             })
             ->editColumn('image','user.doctor.patient.datatable.image')
             ->rawColumns(['image','patient_info','contact_info','actions','medical_info'])

@@ -134,8 +134,7 @@
     </div>
   </div>
 </div>
-<button type="submit" class="" onclick="window.history.back();" id="myBtn"><img src="{{url('/')}}/dashboard/images/back.png"></button>
-<button type="submit"  class="btn btn-primary waves-effect waves-light" id="myBtn1"><a href="{{url('/')}}"  style="color:#ffffff;"><i class="fa fa-home"></i></a></button>
+
 @include('user.doctor.patient.modal.success-modal') @endsection @section('extra-js')
 <script>
 

@@ -16,6 +16,7 @@
         <div class="card-content">
             <h4 class="card-title">Add New File of - {{$patient->name}}</h4>
             <div style="padding-left: 30%;">
+            <div class="loading-bro" style="display:none;"><h1>Loading</h1><svg id="load" x="0px" y="0px" viewBox="0 0 150 150"><circle id="loading-inner" cx="75" cy="75" r="60"/></svg></div>
                 <form id="savemedicalfile" action="{{url('/save-medical-file/'.$patient->id)}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div id="image-preview">
@@ -23,7 +24,7 @@
                         <input required type="file" name="image" id="image-upload"/>
                     </div>
 
-                    <button type="submit" class="btn btn-primary waves-effect waves-light m-t-10 m-t-20">Submit &nbsp; <i id="loading"
+                    <button type="submit" id="formsubmit" class="btn btn-primary waves-effect waves-light m-t-10 m-t-20">Submit &nbsp; <i id="loading"
                                                                                                             class="fa fa-refresh fa-spin"></i>
                     </button>
                     <!-- <button type="reset" class="btn btn-danger waves-effect waves-light">Cancel</button> -->
@@ -46,16 +47,16 @@
         </div>
 
     </div>
-    <button type="submit" class="btn btn-primary waves-effect waves-light" onclick="window.history.back();" id="myBtn"><img src="{{url('/')}}/dashboard/images/back.png"></button>
-   <button type="submit"  class="btn btn-primary waves-effect waves-light" id="myBtn1"><a href="{{url('/')}}"  style="color:#ffffff;"><i class="fa fa-home"></i></a></button>
+    
 @endsection
 
 @section('extra-js')
     <script>
         $(document).ready(function () {
-            oLanguage: {
-                sProcessing : '<div class="loading-bro"><h1>Loading</h1><svg id="load" x="0px" y="0px" viewBox="0 0 150 150"><circle id="loading-inner" cx="75" cy="75" r="60"/></svg></div>'
-                }
+            $("#formsubmit").on("click", function(){
+             
+                 $('.loading-bro').css("display", "block")
+            });
            @if(session('medical_file_delete'))
             $.Notification.notify('success','top right','Medical file delete','Patient medical file has been deleted successfully');
            @endif
