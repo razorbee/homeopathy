@@ -80,7 +80,7 @@
                             </div>
                         </div>
                     </div>
-
+                   
                    <div style="padding-left: 35%;">
                        <button type="submit" class="btn btn-primary waves-effect waves-light">Submit &nbsp; <i id="loading" class="fa fa-refresh fa-spin"></i></button>
                        <!-- <button type="reset" class="btn btn-danger waves-effect waves-light">Cancel</button> -->
@@ -98,13 +98,16 @@
 @section('extra-js')
     <script>
         $(document).ready(function () {
-		
+         
             var form = $("#newAssistant");
             form.on('submit',function (e) {
             e.preventDefault();
                data = new FormData(this);
+               showLoader();
                $(this).speedPost('{{url('/save-assistant')}}',data,form);
+            
             });
+            hideLoader();
         })
        
     </script>

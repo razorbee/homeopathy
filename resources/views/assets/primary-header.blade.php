@@ -29,7 +29,15 @@
             @else
 
                     <li class="nav-item">
-                        <a class="nav-link" href="{{url('/home')}}"><i class="fa fa-dashboard"></i> &nbsp; {!! trans('nav.dashboard') !!}</a>
+                        <a class="nav-link" href="{{url('/home')}}"><i class="fa fa-dashboard"></i> &nbsp; {!! trans('nav.dashboard') !!}<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-size:11px;"> welcome
+                        @if(auth()->user()->role ==3)
+  Dr.{{auth()->user()->username}}
+
+@else
+{{auth()->user()->username}}
+@endif
+                        
+                        </span></a>
                     </li>
 
                     

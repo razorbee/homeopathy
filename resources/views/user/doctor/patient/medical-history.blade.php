@@ -15,7 +15,7 @@
             </div>
             <div class="card-content">
                 <h4 class="card-title">Medical History of - {{$patient->name}}</h4>
-                <div class="loading-bro"><h1>Loading</h1><svg id="load" x="0px" y="0px" viewBox="0 0 150 150"><circle id="loading-inner" cx="75" cy="75" r="60"/></svg></div>
+                <div class="loader"></div>
                 <div class="row">
                     <div class="col-md-4">
                         <img width="250px"

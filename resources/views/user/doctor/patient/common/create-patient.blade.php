@@ -34,6 +34,7 @@
                 </div>
             </div>
             <div class="form-group-custom">
+           
                 <input type="text" name="phone"/>
                 <label class="control-label">Phone &nbsp;<span class="text-danger"></span></label><i class="bar"></i>
             </div>

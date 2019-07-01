@@ -63,7 +63,10 @@ class ApiController extends Controller
                 return $drug->status ==1 ? 'Active' : "in-Active";
             })
             ->editColumn('name',function ($assistant){
-                return $assistant->name . '<br>' . $assistant->username . '<br>' . $assistant->email ;
+                return 'Name : '.$assistant->name . "<br>" .
+                 'Username : '.$assistant->username . "<br>" .
+                 'Email : '.$assistant->email . "<br>" ;
+               
             })
 
             ->addColumn('role',function($assistant){
@@ -229,8 +232,8 @@ class ApiController extends Controller
                 $diseases = $_patient->disease;
                 foreach ($diseases as $d) {
                     global $_disease;
-                    //return $_patient;
-                     if ($d['disease']==$_disease){ return $_patient;}
+                    
+                     if (strpos($d['disease'], $_disease)!==false){ return $_patient;}
                 }
             });
         }else{

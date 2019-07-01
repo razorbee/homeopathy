@@ -81,9 +81,11 @@
             $("#prescriptionPrintSetup").on('submit',function (e) {
                 e.preventDefault();
                 var data = new FormData(this);
+                showLoader();
                 console.log('prescription print setup submit');
                 $(this).speedPost('{{url('/prescription-print-setting')}}',data);
             })
+            hideLoader();
         })
     </script>
 @endsection

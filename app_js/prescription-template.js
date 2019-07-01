@@ -158,7 +158,7 @@ $(document).ready(function () {
                     disease:$("#selectDisease").val().join(','),
                     next_visit : $("#next_visit").val()
                 };
-              
+                $('.loading-bro').css("display", "block")
                 $("#loadingSavePrescription").show();
                 $.ajax({
                     url:'save-prescription',
@@ -186,7 +186,7 @@ $(document).ready(function () {
                 "Please add minimum one drug to save template.");
         }
         oLanguage: {
-            sProcessing : '<div class="loading-bro"><h1>Loading</h1><svg id="load" x="0px" y="0px" viewBox="0 0 150 150"><circle id="loading-inner" cx="75" cy="75" r="60"/></svg></div>'
+            sProcessing : '<div class="loader"></div>'
             }
     };
     // Save template function

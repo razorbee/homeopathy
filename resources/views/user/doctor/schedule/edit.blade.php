@@ -56,6 +56,7 @@
             $("#updateSchedule").on('submit',function (e) {
                 e.preventDefault();
                 var data = new FormData(this);
+                showLoader();
                 $.ajax({
                     url: "{{url('/')}}/update-schedule/{{$schedule->id}}",
                     type:'POST',
@@ -64,10 +65,12 @@
                     cache: false,
                     processData:false,
                     success:function (data) {
+                        hideLoader();
                         $.Notification.notify('success','top right','Schedule update successfully',
                             'We are taking you to the schedule date and time page');
                         window.location.replace('{{url('/')}}/schedule='+data.id+'/date-time');
                     },error:function (data) {
+                        hideLoader();
                         if(data.status == 422 ){
                             $.each(data.responseJSON,function (key,data) {
                                 for(var key in data) {

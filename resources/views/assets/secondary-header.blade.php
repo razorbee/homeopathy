@@ -121,12 +121,25 @@
 
         </ul>
 
-    </nav>
-
+    </nav>  
+    <div class="loader" style="display:none;" id="loader"></div>
 </div>
 <script src="{{url('/dashboard/js/jquery.min.js')}}"></script>
 <script>
 
+function showLoader(){
+    if ($('#loader') &&  $('#loader').length >0){
+        $("#loader").show();
+       setTimeout(() => {
+        $("#loader").hide();
+       }, 5000); 
+    }
+}
+function hideLoader(){
+    if ($('#loader') &&  $('#loader').length >0){
+        $("#loader").hide();
+    }
+}
 $(document).ready(function () {
 var forms = $("#search_patient_form");
             forms.on('submit',function (e) {               

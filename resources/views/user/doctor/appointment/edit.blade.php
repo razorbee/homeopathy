@@ -97,6 +97,7 @@
             $("#updateAppointment").on('submit',function (e) {
                 e.preventDefault();
                 var data = new FormData(this);
+                showLoader();
                 $.ajax({
                     url:'{{url('/update-appointment/'.$appointment->id)}}',
                     type:'POST',
@@ -105,8 +106,10 @@
                     cache: false,
                     processData:false,
                     success:function (data) {
+                        hideLoader();
                         $.Notification.notify('success','top right','Appointment updated successfully');
                     },error:function (data) {
+                        hideLoader();
                         $.Notification.notify('error','top right','Doctor will not available on that day in selected place')
                     }
                 })

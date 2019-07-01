@@ -16,7 +16,7 @@
         <div class="card-content">
             <h4 class="card-title">Add New File of - {{$patient->name}}</h4>
             <div style="padding-left: 30%;">
-            <div class="loading-bro" style="display:none;"><h1>Loading</h1><svg id="load" x="0px" y="0px" viewBox="0 0 150 150"><circle id="loading-inner" cx="75" cy="75" r="60"/></svg></div>
+
                 <form id="savemedicalfile" action="{{url('/save-medical-file/'.$patient->id)}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
                     <div id="image-preview">

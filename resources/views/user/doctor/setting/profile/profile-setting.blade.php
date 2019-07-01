@@ -46,6 +46,7 @@
             $('#passwordChangeForm').on('submit',function (e) {
                 e.preventDefault();
                 var data = new FormData(this);
+                showLoader();
                 $.ajax({
                     url: '{{url('/change-password')}}',
                     type: 'POST',
@@ -54,9 +55,11 @@
                     cache: false,
                     processData: false,
                     success: function (data) {
+                        hideLoader();
                         $.Notification.notify('success', 'top right', 'Password has been changed successfully');
                         $("#change-password").modal('hide');
                     }, error: function (data) {
+                        hideLoader();
                         if(data.status == 422 ){
                             $(this).showValidationError(data);
                         }else if(data.status == 500){
@@ -71,6 +74,7 @@
             $("#saveAboutMe").on('submit',function (e) {
                 e.preventDefault();
                 var data = new FormData(this);
+                showLoader();
                 $.ajax({
                     url: '{{url('/save-about')}}',
                     type: 'POST',
@@ -79,9 +83,11 @@
                     cache: false,
                     processData: false,
                     success: function (data) {
+                        hideLoader();
                         $.Notification.notify('success', 'top right', 'About me saved successfully');
                         $("#about-me").modal('hide');
                     }, error: function (data) {
+                        hideLoader();
                         if(data.status == 422 ){
                             $(this).showValidationError(data);
                         }else if(data.status == 500){

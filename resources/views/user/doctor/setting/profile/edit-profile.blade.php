@@ -40,7 +40,7 @@
                                 <input type="email" name="email" value="{{auth()->user()->email}}" required="required"/>
                                 <label class="control-label">Email &nbsp;*</label><i class="bar"></i>
                             </div>
-
+                            <div class="loader" style="display:none;"></div>
                             <div class="form-group-custom">
                                 <input type="text" value="{{auth()->user()->phone}}" name="phone" required="required"/>
                                 <label class="control-label">Phone &nbsp;*</label><i class="bar"></i>
@@ -76,9 +76,15 @@
             $("#updateProfile").on('submit',function (e) {
                 e.preventDefault();
                 var data = new FormData(this);
+              
+                    showLoader();
+ 
+               
                 console.log('submit');
                 $(this).speedPost('{{url('/update-profile')}}',data);
             })
+            hideLoader();
+           
         })
         function hidedefault(){
       

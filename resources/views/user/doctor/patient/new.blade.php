@@ -57,12 +57,15 @@
                
            var myform = document.getElementById("newPatient");
            var data = new FormData(myform);
+         
+             
+            
              $.ajaxSetup({
                headers: {
                  'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                }
              });
-
+             showLoader();
                 $.ajax({
                     url:'{{url('/save-patient')}}',
                     type:'POST',
@@ -71,12 +74,14 @@
                     cache: false,
                     processData:false,
                     success:function (data) {
+                        hideLoader();
                         $.Notification.notify('success','top right','Patient created successfully',
                             'We are taking you to edit page');
                             setTimeout(function(){
                         window.location.replace('{{url('/')}}/edit-patient/'+data._id);
                     },3000); 
                     },error:function (data) {
+                        hideLoader();
                         if(data.status == 422 ){
                             $.each(data.responseJSON,function (key,data) {
                                 for(var key in data) {

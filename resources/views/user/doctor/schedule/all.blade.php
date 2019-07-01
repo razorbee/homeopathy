@@ -58,8 +58,14 @@
                     { "data": "model" },
                     { "data": "action" }
                 ],
+                oLanguage: {
+                    
+                    sProcessing : '<div class="loader"></div>'
+                }
 
             });
+
+   
 
             $.fn.getScheduleDetails = function (id) {
 //                console.log("data" +id);

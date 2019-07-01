@@ -145,12 +145,12 @@
         });
             var form = $("#newDrug");
             form.on('submit',function (e) {
-               
-                var formData = new FormData(this);
+               var formData = new FormData(this);
                 e.preventDefault();
+                showLoader();
                 $(this).speedPost('{{url('/save-drug')}}',formData,form);
             });
-            
+            hideLoader(); 
     
         var forms = $("#newDisease");
             forms.on('submit',function (e) { 
@@ -158,6 +158,7 @@
                 var formData = new FormData(this);
                 e.preventDefault();
                 //$(this).speedPost('{{url('/save-disease')}}',formData,form);
+                showLoader();
                 $.ajax({
             url:'save-disease',
             type:'POST',
@@ -166,11 +167,13 @@
             cache: false,
             processData:false,
             success:function (data) {
+                hideLoader();
                 $.Notification.notify('success','top right',"Disease added successfully","Disease has been added successfully");
                 $('#diseaseTable').DataTable().ajax.reload()
                 
             },
             error:function (data) {
+                hideLoader();
                     $.Notification.notify('error','top right','Disease already taken');
                     
                 }

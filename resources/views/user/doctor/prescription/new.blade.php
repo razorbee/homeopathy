@@ -75,6 +75,7 @@ list-style:none!important;
                                 <div class="col-md-4">
                                     <script>
                                         var drugs = "{{$drugs}}"
+                                        console.log(drugs);
                                         </script>
                     
                                     <select class="form-control select2" id="drug">
@@ -110,6 +111,7 @@ list-style:none!important;
                                     </div>
                                 </div>
                                 <div class="col-md-5">
+                               
                                     <div   class="form-group-custom">
                                     
                                       <label type="hidden" class="control-label" id="frequencies"></label>
@@ -206,7 +208,7 @@ list-style:none!important;
                         </select>
                         
                         <center>
-                            <img id="_patientImage" src="{{url('/dashboard/images/image_placeholder.jpg')}}" height="35"
+                            <img id="_patientImage" src="{{url('/dashboard/images/patient.png')}}" height="35"
                                  style="margin-top:10px; height:90px" class="rounded-circle img-fluid" alt="">
                            <div> <span id="_patientName"><b>No Patient Selected yet</b></span>
                             <span id="_patientAge"></span>
@@ -312,6 +314,7 @@ list-style:none!important;
                  return $('<div>').html(html).text();
             }
             if (drugs){
+                debugger;
                 drugs = JSON.parse(decodeHtml(drugs));
             }
             $('#drug_type').on('change', function() {
@@ -378,6 +381,7 @@ list-style:none!important;
             $("#newPatient").on("submit",function (e) {
                e.preventDefault();
                data = new FormData(this);
+               showLoader();
                $.ajax({
                    url:'{{url('/save-patient')}}',
                    type:'post',
@@ -386,6 +390,7 @@ list-style:none!important;
                    cache: false,
                    processData:false,
                    success:function (data) {
+                       hideLoader();
                        $.Notification.notify('success','top right',"Patient added successfully","Patient has been added successfully");
                        $("#selectPatient").append(
                             $('<option>',{value:data.id,text:data.name + "|" +data.phone}).select2({
@@ -395,6 +400,7 @@ list-style:none!important;
                        $("#selectPatient").val(data.id).trigger('change');
                        $(".bs-example-modal-lg").modal('hide');
                    },error:function (data) {
+                    hideLoader();
                         $(this).showAjaxError(data);
                    }
                });

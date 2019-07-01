@@ -33,9 +33,9 @@
 
                     <div class="row">
                         <div class="col-md-4" style="padding-left: 81px;">
-                            <!-- <div id="image-preview"><img src="{{url('/')}}/{{$user->image}}" style="width:250px;height:250px;margin-bottom: -200px;" alt=""> -->
-                            <div id="image-preview"><img id="default_image" src="{{url('/')}}/{{$user->image}}" style="width:250px;height:250px;margin-bottom:-200px;z-index:-2!important;" alt="">
-                                <label for="image-upload" id="image-label"><img src="{{url('/')}}/dashboard/images/pencil.png" height="20"/></label>
+                           
+                            <div id="image-preview"><img id="default_image" src="{{url('/')}}/{{$user->image}}" style="width:250px;height:250px;margin-bottom:-200px;z-index:-2!important;background-image: none !important;" alt="">
+                                <label for="image-upload" id="image-label"><img  src="{{url('/')}}/dashboard/images/pencil.png" height="20"/></label>
                                 <input type="file" name="image" id="image-upload" onchange='hidedefault()'/>
                             </div>
                         </div>
@@ -105,8 +105,11 @@
             form.on('submit',function (e) {
                 e.preventDefault();
                 data = new FormData(this);
+                showLoader();
                 $(this).speedPost('{{url('/update-assistant/'.$user->id)}}',data,form);
+              
             });
+            hideLoader();
         })
         function hidedefault(){
      $('#default_image').hide();

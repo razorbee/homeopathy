@@ -76,9 +76,11 @@
             form.on('submit',function (e) {
                 e.preventDefault();
                 data = new FormData(this);
+                showLoader();
                 // $(this).speedPost('update-drug/{{$drug->id}}',data);
                  $(this).speedPost("{{url('/')}}/update-drug/{{$drug->id}}",data);
             })
+            hideLoader();
         })
     </script>
 @endsection

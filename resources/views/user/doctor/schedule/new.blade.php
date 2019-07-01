@@ -57,6 +57,7 @@
             $('#newSchedule').on('submit',function (e) {
                 e.preventDefault();
                 var data = new FormData(this);
+                showLoader();
                 $.ajax({
                     url: "save-schedule",
                     type:'POST',
@@ -65,12 +66,14 @@
                     cache: false,
                     processData:false,
                     success:function (data) {
+                        hideLoader();
                         $.Notification.notify('success','top right','Schedule saved successfully',
                             'We are taking you to the schedule date and time page');
                             setTimeout(function(){
                         window.location.replace('schedule='+data.id+'/date-time');
                     },3000); 
                     },error:function (data) {
+                        hideLoader();
                         if(data.status == 422 ){
                             $.each(data.responseJSON,function (key,data) {
                                 for(var key in data) {
@@ -82,6 +85,7 @@
                                 }
                             });
                         }else{
+                            
                             $.Notification.notify('warning','top right',"Internal server error",
                                 "Internal server error" +
                                 "Refresh this page and try again" +

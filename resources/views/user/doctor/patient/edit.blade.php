@@ -193,10 +193,11 @@
             }
             document.getElementById("patientdetails").value = value;
             var data = new FormData(this);
-
+            showLoader();
             // $(this).speedPost('update-patient/{{$patient->id}}',data);
             $(this).speedPost("{{url('/')}}/update-patient/{{$patient->id}}", data);
         })
+        hideLoader();
     });
 
     function hidedefault(){

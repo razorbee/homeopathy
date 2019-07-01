@@ -6,31 +6,7 @@
 
 @section('extra-css')
     <link rel="stylesheet" href="{{url('/dashboard/plugins/select2/css/select2.min.css')}}">
-    <style>
-.accordion {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-  transition: 0.4s;
-}
-
-.active, .accordion:hover {
-  background-color: #ccc; 
-}
-
-.panel {
-  padding: 0 18px;
-  display: none;
-  background-color: white;
-  overflow: hidden;
-}
-</style>
+  
 @endsection
 
 @section('content')
@@ -62,9 +38,9 @@
                         
                         <div class="col-md-3">
                             <div class="form-group-custom">
-                                <!-- <input type="date" name="date" id="date" required="required"/> -->
-                                <input id="datepicker" name="date" onchange="checkDate()" required class="datepicker-input" type="date" data-date-format="yyyy-mm-dd" >
-                                <label class="control-label">Date &nbsp;*</label><i class="bar"></i>
+                            <input type="date" name="date" required="required"/>
+                         <!-- <input type="date" name="date" id="date" required="required"/> -->
+                         <input id="datepicker" name="date" onchange="checkDate()" required class="datepicker-input" type="date" data-date-format="yyyy-mm-dd" >
                             </div>
                         </div>
                         <div class="col-md-3">
@@ -79,6 +55,7 @@
                        
                     </div>
                     <div class="row">
+                    
                         <div class="col-md-6">
                             <div class="form-group-custom">
                                 <select required="required" class="form-control select3" name="appointment_id" id="">
@@ -184,6 +161,7 @@
                 e.preventDefault();
                 var formId = $("#newAppointment");
                 var data = new FormData(this);
+                showLoader();
                 $.ajax({
                     url:'{{url('/save-appointment')}}',
                     type:'POST',
@@ -192,16 +170,18 @@
                     cache: false,
                     processData:false,
                     success:function (data) {
+                        hideLoader();
                         $.Notification.notify('success','top right','Appointment make successfully');
                         formId.get(0).reset();
                         $('.select2').val('').change();
                         $('.select3').val('').change();
                     },error:function (data) {
+                        hideLoader();
                         $.Notification.notify('error','top right','Doctor will not available on that day in selected place')
                     }
                 })
-            });
-        })
+            })
+        });
 
     </script>
 @endsection

@@ -7,7 +7,7 @@
 @section('content')
     <style>
        .footer-bottom {
-    background-color: #7aad5c;
+    background-color: #c00;
     min-height: 30px;
     width: 100%;
 }
@@ -27,34 +27,7 @@
 .design a {
     color: #fff;
 }
-.home_degree{
-    font-size: 22px;
-  
-  }
 
-  .home_desc{
-
-    text-align: left !important;
-    padding-left: 70px;
-    padding-top: 170px;
-    padding-bottom: 10px;
-    margin-top: 170px;
-    margin-left: 100px;
-  }
-  .home_desc h1{
-    font-family: -webkit-body;
-    font-size:45px;
-    font-weight: 900;
-    margin-top:-200px;
-    /* -webkit-text-stroke-width: 1px; */
-    /* -webkit-text-stroke-color: black; */
-
-  }
-  .text-center > img{
-    border-radius:50%;
-    margin-top:0px;
-    height:520px;
-}
     </style>
     <?php $doctor = \App\User::first(); ?>
     <div class="container fullpage">
@@ -63,19 +36,21 @@
          
 
             
-            <div class="col-md-4 col-sm-2">
-                <div class="text-center">
-                <img  src="{{App\User::first() ? App\User::first()->image : 'http://cdn.24.co.za/files/Cms/General/d/2809/34cbd0492a23476887812102f40f21d7.jpg'}}"  class="__img-fluid" alt="">
-                
-                </div>
-            </div>
+           
             <div class="col-md-8 col-sm-2" style="padding-top: 50px;">
                 <div class="_text-center home_desc">
-                    <h1>{{$doctor ? $doctor->name : "Demo"}}</h1>
-				   <!-- <h1>Sri Mahima Multispeciality Homeo Clinic</h1> -->
+                    <!-- <h1>{{$doctor ? $doctor->name : "Demo"}}</h1> -->
+                    
+				    <h1>Sri Mahima Multispeciality Homoeo Clinic</h1> 
                     <p class="home_degree">
-                         {!! nl2br(e($doctor ? $doctor->info : "Demo")) !!}
+                         <!-- {!! nl2br(e($doctor ? $doctor->info : "Demo")) !!} -->
                     </p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-2">
+                <div class="text-center">
+                <!-- <img  src="{{App\User::first() ? App\User::first()->image : 'http://cdn.24.co.za/files/Cms/General/d/2809/34cbd0492a23476887812102f40f21d7.jpg'}}"  class="__img-fluid" alt=""> -->
+                
                 </div>
             </div>
            <!--<div class="col-md-12" style="padding-top: 85px;">
@@ -99,11 +74,11 @@
     <div class="container-fluid form-zoom-in-up">
       <div class="row">
         <div class="card-box" style="margin-left:10%;">
-            <div class="panel-heading">
+            <!-- <div class="panel-heading">
                 <h4 class="text-center"><strong>Appointment Schedule</strong></h4>
-            </div>
+            </div> -->
             <div class="panel-body">
-            <!-- <h4 class="text-center red"><strong>Appointment Schedule</strong></h4> -->
+             <h4 class="text-center red"><strong>Appointment Schedule</strong></h4> 
           
                 @foreach($appointments as $appointment)
                     <div class="row">
