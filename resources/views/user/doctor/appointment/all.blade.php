@@ -6,6 +6,13 @@
 
 @section('extra-css')
     <link rel="stylesheet" href="{{url('/dashboard/plugins/datatables/datatable.min.css')}}">
+    <style>
+.role_2 .view_medical , .role_4 .view_medical {
+display :none
+}
+
+
+</style>
 @endsection
 
 @section('content')
@@ -17,7 +24,7 @@
             <div class="card-content">
                 <h4 class="card-title">Appointments</h4>
             </div>
-            <table class="table table-striped" id="datatable">
+            <table class="table table-striped role_{{{auth()->user()->role}}}" id="datatable">
                 <thead>
                 <tr>
                     <th width="5px">#</th>

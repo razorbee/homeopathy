@@ -78,19 +78,19 @@
 
 
 
-<!--
-                <li class="text-muted menu-title">Settings</li>
+
+            <!--<li class="text-muted menu-title">Settings</li>
 
                 <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-settings"></i> <span> {!! trans('menus.setting.main_menu') !!} </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
-                        <li><a href="{{url('/all-schedule')}}">Schedule Setting</a></li>
-                        <li><a href="{{url('/prescription-setting')}}">Prescription Setting</a></li>
-                        <li><a href="{{url('/app-setting')}}">App Setting</a></li>
+                       <li><a href="{{url('/all-schedule')}}">Schedule Setting</a></li>-->
+                        <!--<li><a href="{{url('/prescription-setting')}}">Prescription Setting</a></li>-->
+                <!--<li><a href="{{url('/app-setting')}}">App Setting</a></li>
                         <li><a href="{{url('/profile')}}">Profile</a></li>
                     </ul>
-                </li>
--->
+                </li>-->
+
 
 
             </ul>

@@ -38,9 +38,9 @@
                         
                         <div class="col-md-3">
                             <div class="form-group-custom">
-                            <input type="date" name="date" required="required"/>
-                         <!-- <input type="date" name="date" id="date" required="required"/> -->
-                         <input id="datepicker" name="date" onchange="checkDate()" required class="datepicker-input" type="date" data-date-format="yyyy-mm-dd" >
+                                 <input type="date" name="date" id="date" required="required"/> 
+                                <!--<input id="datepicker" name="date" onchange="checkDate()" required class="datepicker-input" type="date" data-date-format="yyyy-mm-dd" >-->
+                                <label class="control-label">Date &nbsp;*</label><i class="bar"></i>
                             </div>
                         </div>
                         <div class="col-md-3">

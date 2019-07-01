@@ -132,7 +132,7 @@ function showLoader(){
         $("#loader").show();
        setTimeout(() => {
         $("#loader").hide();
-       }, 5000); 
+       }, 2000); 
     }
 }
 function hideLoader(){

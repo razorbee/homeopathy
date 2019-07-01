@@ -5,19 +5,19 @@ if(in_array($_SERVER['REMOTE_ADDR'], $localhost)){
  $rbpath = 'C:/xampp/htdocs/homeopathy/homeopathy/';
    $domain = 'http://localhost/homeopathy/homeopathy/';
 
-  $rb_database= 'homeopathy1';
+  $rb_database= 'homeopathy';
   $rb_username = 'root';
   $rb_password = '';
   $storage = 'C:/xampp/htdocs/homeopathy/data/';
 }
 
 else{
-  $rbpath = '/home/o6fz03c94a0p/public_html/homeopathy/';
-   $domain = 'http://project.razorbee.com/homeopathy/';
-  $rb_database= 'homeopathy1';
+  $rbpath = '/home/o6fz03c94a0p/public_html/homeopathy_qa/homeopathy/';
+   $domain = 'http://project.razorbee.com/homeopathy_qa/homeopathy/';
+  $rb_database= 'homeopathy_qa';
   $rb_username = 'drdiary';
    $rb_password = 'drdiary';
-   $storage = '/home/o6fz03c94a0p/public_html/homeopathy/data/';
+   $storage = '/home/o6fz03c94a0p/public_html/homeopathy_qa/data/';
 }
 
 return array (

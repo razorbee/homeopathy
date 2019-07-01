@@ -33,6 +33,7 @@
             </div>
         </div>
         <hr>
+        <!--<div class="loader" style="display:none;" id="loader"></div>-->
         <div class="row">
             @foreach($patient->medicalFiles as $image)
                 <div class="col-md-4">
@@ -55,7 +56,7 @@
         $(document).ready(function () {
             $("#formsubmit").on("click", function(){
              
-                 $('.loading-bro').css("display", "block")
+                 $('.loader').css("display", "block")
             });
            @if(session('medical_file_delete'))
             $.Notification.notify('success','top right','Medical file delete','Patient medical file has been deleted successfully');

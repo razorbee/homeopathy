@@ -47,6 +47,7 @@
 
 
 
+<!--
                 <li class="text-muted menu-title">Setting</li>
 
                 <li class="has_sub">
@@ -55,6 +56,7 @@
                         <li><a href="{{url('/profile')}}">Profile</a></li>
                     </ul>
                 </li>
+-->
 
 
             </ul>

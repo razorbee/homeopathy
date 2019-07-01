@@ -15,7 +15,7 @@
             </div>
             <div class="card-content">
                 <h4 class="card-title">Medical History of - {{$patient->name}}</h4>
-                <div class="loader"></div>
+               
                 <div class="row">
                     <div class="col-md-4">
                         <img width="250px"
@@ -79,8 +79,6 @@
 @section('extra-js')
 <script type="text/javascript">
 
-setTimeout(function() {
-    $('.loading-bro').fadeOut('fast');
-}, 1000); 
+showLoader();
 </script>
 @endsection
