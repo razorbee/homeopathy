@@ -33,7 +33,7 @@
 
                     <div class="row">
                         <div class="col-md-4" style="padding-left: 81px;">
-                            <div id="image-preview">
+                            <div class="image-src" id="image-preview">
                                 <label for="image-upload" id="image-label"><i class="ti-pencil-alt"></i></label>
                                 <input type="file" name="image" id="image-upload" />
                             </div>
@@ -71,7 +71,7 @@
                                 <label class="control-label">Confirm Password &nbsp;*</label><i class="bar"></i>
                             </div>
                             <div class="form-group-custom">
-                                <input type="text" name="phone" required="required"/>
+                                <input type="text" name="phone" maxlength="13" required="required"/>
                                 <label class="control-label">Phone &nbsp;*</label><i class="bar"></i>
                             </div>
                             <div class="form-group-custom">

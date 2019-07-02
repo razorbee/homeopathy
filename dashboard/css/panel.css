@@ -62,9 +62,16 @@
 .card-content form{
     margin-top: 35px;
 }
+.image-src{
+  background-image: url("../images/patient.png");
 
+}
+.image-file{
+  background-image: url("../images/file-upload.png");
+
+}
 #image-preview {
-    background-image: url("../images/patient.png");
+   
     width: 250px;
     height: 250px;
     position: relative;

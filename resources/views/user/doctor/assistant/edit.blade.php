@@ -34,7 +34,7 @@
                     <div class="row">
                         <div class="col-md-4" style="padding-left: 81px;">
                            
-                            <div id="image-preview"><img id="default_image" src="{{url('/')}}/{{$user->image}}" style="width:250px;height:250px;margin-bottom:-200px;z-index:-2!important;background-image: none !important;" alt="">
+                            <div class="image-src" id="image-preview"><img id="default_image" src="{{url('/')}}/{{$user->image}}" style="width:250px;height:250px;margin-bottom:-200px;z-index:-2!important;background-image: none !important;" alt="">
                                 <label for="image-upload" id="image-label"><img  src="{{url('/')}}/dashboard/images/pencil.png" height="20"/></label>
                                 <input type="file" name="image" id="image-upload" onchange='hidedefault()'/>
                             </div>
@@ -70,7 +70,7 @@
                                 <label class="control-label">Confirm Password &nbsp;*</label><i class="bar"></i>
                             </div>
                             <div class="form-group-custom">
-                                <input type="text" value="{{$user->phone}}" name="phone" required="required"/>
+                                <input type="text" value="{{$user->phone}}" name="phone" maxlength="13" required="required"/>
                                 <label class="control-label">Phone &nbsp;*</label><i class="bar"></i>
                             </div>
                             <div class="form-group-custom">

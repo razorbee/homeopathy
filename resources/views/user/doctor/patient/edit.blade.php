@@ -23,7 +23,7 @@
                     <div class="col-md-4">
                         <center>
                             <!-- <div id="image-preview" style="background-image: url({{url($patient->image != null ? $patient->image : "/dashboard/images/patient.png")}})"> -->
-                            <div id="image-preview"><img id="default_image" src="{{url('/')}}/{{$patient->image}}" class="img-responsive" style="width:250px;height:250px;margin-bottom: -200px;" alt="">
+                            <div class="image-src" id="image-preview"><img id="default_image" src="{{url('/')}}/{{$patient->image}}" class="img-responsive" style="width:250px;height:250px;margin-bottom: -200px;" alt="">
                                 <label for="image-upload" id="image-label"><img src="{{url('/')}}/dashboard/images/pencil.png" height="20" /></label>
                                 <input type="file" name="image" id="image-upload"  onchange='hidedefault()' />
                             </div>
@@ -53,7 +53,7 @@
                             </div>
                         </div>
                         <div class="form-group-custom">
-                            <input value="{{$patient->phone}}" type="text" name="phone" />
+                            <input value="{{$patient->phone}}" type="text" name="phone" maxlength="13"/>
                             <label class="control-label">Phone &nbsp;<span class="text-danger"></span></label><i class="bar"></i>
                         </div>
                         <div class="form-group-custom">
@@ -103,7 +103,7 @@
                 <div style="padding-left: 35%;">
                     <button type="submit" class="btn btn-primary waves-effect waves-light">Submit<i id="loading" class="fa fa-refresh fa-spin"></i></button>
                     <!-- <button type="reset" class="btn btn-danger waves-effect waves-light">Cancel</button> -->
-                    <button type="reset" class="btn btn-danger waves-effect waves-light" onclick=" window.history.back();">Cancel</button>
+                    <button type="reset" class="btn btn-primary waves-effect waves-light" onclick=" window.history.back();">Cancel</button>
                 </div>
                
             </form>

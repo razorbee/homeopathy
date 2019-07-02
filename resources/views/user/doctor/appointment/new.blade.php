@@ -171,7 +171,7 @@
                     processData:false,
                     success:function (data) {
                         hideLoader();
-                        $.Notification.notify('success','top right','Appointment make successfully');
+                        $.Notification.notify('success','top right','Appointment successfully fixed');
                         formId.get(0).reset();
                         $('.select2').val('').change();
                         $('.select3').val('').change();

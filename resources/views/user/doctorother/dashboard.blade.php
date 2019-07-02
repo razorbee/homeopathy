@@ -4,11 +4,11 @@
             <div class="widget-panel widget-style-2 bg-white">
                 <i class="ti-calendar text-primary"></i>
                 <h2 class="m-0 text-dark counter font-600">
-                    <?php
-                    $visited = count(\App\Model\PatientAppointment::where('status',3)->where('date',\Carbon\Carbon::today())->get());
-                    $total =count(\App\Model\PatientAppointment::where('date',\Carbon\Carbon::today())->get());
-                    ?>
-                    {{$visited}} / {{$total}}
+                <?php
+                            $visited = count(\App\Model\PatientAppointment::where('status',1)->where('date',\Carbon\Carbon::today())->get());
+                            $total =count(\App\Model\PatientAppointment::where('date',\Carbon\Carbon::today())->get());
+                        ?>
+                       {{$visited}} / {{$total}}
                 </h2>
                 <div class="text-muted m-t-5">Today's Appointment</div>
             </div>

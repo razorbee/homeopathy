@@ -19,7 +19,7 @@
 
                 <form id="savemedicalfile" action="{{url('/save-medical-file/'.$patient->id)}}" method="post" enctype="multipart/form-data">
                     {{csrf_field()}}
-                    <div id="image-preview">
+                    <div class="image-file" id="image-preview">
                         <label for="image-upload" id="image-label"><i class="ti-pencil-alt"></i></label>
                         <input required type="file" name="image" id="image-upload"/>
                     </div>

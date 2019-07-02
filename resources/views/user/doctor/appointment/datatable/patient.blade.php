@@ -1,6 +1,6 @@
 <p>
     <img width="60px" height="60px" class="img-fluid"
-         src="{{url($appointment->patient->image != null ? $appointment->patient->image : "dashboard/images/image_placeholder.jpg")}}"
+         src="{{url($appointment->patient->image != null ? $appointment->patient->image : "dashboard/images/patient.png")}}"
          alt=""
          align="right"
     >

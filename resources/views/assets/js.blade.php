@@ -7,12 +7,12 @@
         $("#loading").hide();
     })
 
-    $(".nav-link").click(function(){
-    if(clicked){
-        $(this).css('background-color', 'red');
-        clicked  = false;
-    }
-});
+    // $(".nav-link").click(function(){
+    // if(clicked){
+    //     $(this).css('background-color', 'red');
+    //     clicked  = false;
+    // }
+//});
 </script>
 <!-- Bootstrap plugins -->
 <script src="{{url('/dashboard/js/popper.min.js')}}"></script>
