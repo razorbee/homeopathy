@@ -19,7 +19,7 @@
             <div class="card-content">
                 <h4 class="card-title">{{auth()->user()->name}}</h4>
                 <center>
-                    <img class="img-rounded" width="220px" src="{{url(auth()->user()->image ? auth()->user()->image : '/dashboard/images/image_placeholder.jpg')}}" alt="">
+                    <img class="img-rounded" width="220px" src="{{url(auth()->user()->image ? auth()->user()->image : '/dashboard/images/patient.png')}}" alt="">
                     <h4>{{auth()->user()->name}}</h4>
                     <p>
                         {{auth()->user()->email}} <br>
@@ -29,8 +29,9 @@
                         @endif
                     </p>
                     <a href="{{url('/edit-profile')}}" class="btn btn-success"><i class="fa fa-pencil-square-o"></i> Edit Profile</a>
-                    <button class="btn btn-success" data-toggle="modal" data-target="#change-password"><i class="fa fa-key"></i> Change Password</button>
                     @if(auth()->user()->role == 1)
+                    <button class="btn btn-success" data-toggle="modal" data-target="#change-password"><i class="fa fa-key"></i> Change Password</button>
+                    
                     <button class="btn btn-primary"  data-toggle="modal" data-target="#about-me"> About Me</button>
                     @endif
                 </center>
