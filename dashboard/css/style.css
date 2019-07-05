@@ -3906,6 +3906,7 @@ span.select2-container--open .select2-dropdown .select2-search--dropdown input{
   background-color: violet;
   position: relative;
   display: block;
+ 
 }
 
 .bar:before, .bar:after   {
@@ -6126,3 +6127,4 @@ height: 27px;
 #myBtn1:hover {
   background-color: #555;
 }
+

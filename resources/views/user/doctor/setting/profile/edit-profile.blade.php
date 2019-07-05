@@ -42,7 +42,7 @@
                             </div>
                             <div class="loader" style="display:none;"></div>
                             <div class="form-group-custom">
-                                <input type="text" value="{{auth()->user()->phone}}" name="phone" required="required"/>
+                                <input type="text" value="{{auth()->user()->phone}}" name="phone" maxlength="13" required="required"/>
                                 <label class="control-label">Phone &nbsp;*</label><i class="bar"></i>
                             </div>
                             @if(auth()->user()->role == 1)
