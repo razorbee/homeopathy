@@ -145,12 +145,13 @@
         });
             var form = $("#newDrug");
             form.on('submit',function (e) {
+                e.preventDefault();
+
                 if ($("#newdrug").val() && $("#newdrug").val().indexOf('\\') !== -1){
                     alert(" please ignore '\\'");
                     return;
                 }
                var formData = new FormData(this);
-                e.preventDefault();
                 showLoader();
                 $(this).speedPost('{{url('/save-drug')}}',formData,form);
             });

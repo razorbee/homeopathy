@@ -2,13 +2,13 @@
 
 $localhost = array('127.0.0.1', "::1", 'localhost');
 if(in_array($_SERVER['REMOTE_ADDR'], $localhost)){
- $rbpath = 'C:/xampp/htdocs/homeopathy_qa/homeopathy/';
-   $domain = 'http://localhost/homeopathy_qa/homeopathy/';
+ $rbpath = 'C:/xampp/htdocs/homeopathy/';
+   $domain = 'http://localhost/homeopathy/';
 
   $rb_database= 'homeopathy';
   $rb_username = 'root';
   $rb_password = '';
-  $storage = 'C:/xampp/htdocs/homeopathy_qa/data/';
+  $storage = 'C:/xampp/htdocs/data/';
 }
 
 else{

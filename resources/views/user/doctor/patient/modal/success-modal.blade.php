@@ -14,7 +14,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary waves-effect" data-dismiss="modal">Close</button>
-                <button type="button" id="modalBtnMakeAppointment" class="btn btn-success waves-effect waves-light">Make Appointment</button>
+                <button type="button" id="modalBtnMakeAppointment" class="btn btn-success waves-effect waves-light">Next Appointment</button>
                 <button type="button" id="modalBtnAddMedicalFile" class="btn btn-success waves-effect waves-light">Add File</button>
                 @if(auth()->user()->role == 1 || auth()->user()->role == 3)
                 <button type="button" id="modalBtnPrescribeNow" class="btn btn-primary waves-effect waves-light">Prescribe now</button>

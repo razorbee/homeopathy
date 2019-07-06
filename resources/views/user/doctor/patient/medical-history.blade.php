@@ -14,8 +14,11 @@
                 <i class="fa fa-user-circle-o fa-2x"></i>
             </div>
             <div class="card-content">
-                <h4 class="card-title">Medical History of - {{$patient->name}}</h4>
-               
+                <h4 class="card-title">Medical History of - {{$patient->name}}
+                <div style="text-align: right"><a href="{{url('/view-patient/'.$patient->id)}}" class="btn btn-success pull-right"><i class="fa fa-info"></i> View</a></span>
+
+                
+                </h4>
                 <div class="row">
                     <div class="col-md-4">
                         <img width="250px"

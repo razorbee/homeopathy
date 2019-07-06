@@ -86,7 +86,7 @@
                         </ul>
                     </div>
                     <div class="col-md-6">
-                        <h4>Appointment Info <a style="font-size: 15px;margin-bottom:20px;" href="javascript:void(0);" onclick="window.location.replace('{{url('take-patient-to-appointment/'.$patient->id)}}')" class="pull-right btn btn-success"> <i class="ti ti-calendar"></i> Make an appointment</a> </h4>
+                        <h4>Appointment Info <a style="font-size: 15px;margin-bottom:20px;" href="javascript:void(0);" onclick="window.location.replace('{{url('take-patient-to-appointment/'.$patient->id)}}')" class="pull-right btn btn-success"> <i class="ti ti-calendar"></i> Next appointment</a> </h4>
                         <!-- <ul class="list-group">
                             @foreach($patient->payments as $payment)
                                 <li class="list-group-item">{{$payment->payment}} <span class="pull-right">{{$payment->created_at->format('d-M-Y')}}</span> </li>
