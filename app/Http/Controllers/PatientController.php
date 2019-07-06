@@ -277,11 +277,9 @@ if ($request->hasFile('image')) {
         if (!file_exists('../data/uploads')) { mkdir('uploads', 0777, true); }
         if (!file_exists('../data/uploads/medical_files')) { mkdir('../data/uploads/medical_files', 0777, true); }
 
-        error_log("before", 3, "./my-errors.log");
 
         if ($request->hasFile('image')) {
 
-            error_log("inside", 3, "./my-errors.log");
 
             $patient_document->path = $request->file('image')
                 ->move('../data/uploads/medical_files', rand(100000, 900000) . '.' . $request->image->extension());
