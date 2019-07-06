@@ -1,1 +1,0 @@
-<a href="{{url('/print-prescription/'.$id)}}" class="btn btn-success"><i class="fa fa-eye">&nbsp;View</i></a>

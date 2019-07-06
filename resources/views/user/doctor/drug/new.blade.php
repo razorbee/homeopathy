@@ -44,7 +44,7 @@
                         <label class="control-label">Drug Type &nbsp;*</label><i class="bar"></i>
                     </div>
                     <div class="form-group-custom">
-                        <input type="text" name="name" required="required" autofocus/>
+                        <input type="text" name="name" required="required" id="newdrug" autofocus/>
                         <label class="control-label">Drug Name &nbsp;*</label><i class="bar"></i>
                     </div>
                     <div class="form-group-custom">
@@ -145,6 +145,10 @@
         });
             var form = $("#newDrug");
             form.on('submit',function (e) {
+                if ($("#newdrug").val() && $("#newdrug").val().indexOf('\\') !== -1){
+                    alert(" please ignore '\\'");
+                    return;
+                }
                var formData = new FormData(this);
                 e.preventDefault();
                 showLoader();

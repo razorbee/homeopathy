@@ -1,1 +1,0 @@
-<img src="{{url($image != null ? $image : url('/dashboard/images/patient.png'))}}" width="120px" alt="">
