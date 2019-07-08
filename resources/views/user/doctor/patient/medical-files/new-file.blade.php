@@ -21,10 +21,10 @@
                     {{csrf_field()}}
                     <div class="image-file" id="image-preview">
                         <label for="image-upload" id="image-label"><i class="ti-pencil-alt"></i></label>
-                        <input required type="file" name="image" id="image-upload"/>
+                        <input required type="file" name="image" id="image-upload" accept="image/*"/>
                     </div>
-
-                    <button type="submit" id="formsubmit" class="btn btn-primary waves-effect waves-light m-t-10 m-t-20">Submit &nbsp; <i id="loading"
+                   
+                    <button type="submit" id="formsubmit" class="btn btn-primary waves-effect waves-light m-t-10 m-t-20">Upload &nbsp; <i id="loading"
                                                                                                             class="fa fa-refresh fa-spin"></i>
                     </button>
                     <!-- <button type="reset" class="btn btn-danger waves-effect waves-light">Cancel</button> -->
