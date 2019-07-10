@@ -62,7 +62,7 @@ return array (
   'app' =>
   array (
     'has_installed' => '1',
-    'name' => 'Dr Diary',
+    'name' => 'Homeopathy',
     'env' => 'local',
     'debug' => true,
     'url' => 'localhost',

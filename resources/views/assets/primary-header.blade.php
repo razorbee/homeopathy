@@ -1,3 +1,9 @@
+<style>
+#login,#register{
+margin-top:30px;
+
+}
+</style>
 <div class="">
     <nav class="navbar navbar-expand-lg navbar-dark">
 
@@ -16,16 +22,23 @@
                 </li> -->
 
             @guest
-
-                @if(count(\App\User::all()) == 0)
+            <li class="nav-item" id="">
+                <a class="navbar-brand" href="{{url('/')}}"><img src="dashboard/images/mahi.png" class="img-responsive"></a>
+                    
+                </li>
+                 @if(count(\App\User::all()) == 0) 
                 <li class="nav-item" id="register">
                     <a class="nav-link {{ Request::is('register') ? 'active' :'' }}" href="{{route('register')}}"><i class="fa fa-user-plus fa-md"></i> &nbsp; {!! trans('nav.register') !!}</a>
                 </li>
-                @endif
+                 @endif 
+               
                 <li class="nav-item" id="login">
                     <a class="nav-link {{ Request::is('login') ? 'active' :'' }}" href="{{route('login')}}"><i class="fa fa-sign-in fa-md"> </i> &nbsp; {!! trans('nav.login') !!}</a>
+                    
                 </li>
-
+               
+                       
+              
             @else
 
                     <li class="nav-item">

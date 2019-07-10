@@ -28,6 +28,7 @@
         background-color: #c00;
     height: 100px;
     justify-content: space-between;
+    box-shadow: 10px 10px 20px 10px rgba(0,0,0,0.3), 40px 20px 10px -50px rgba(0,0,0,0.8)   
 }
 .navbar-light .navbar-nav .active>.nav-link, .navbar-light .navbar-nav .nav-link.active, .navbar-light .navbar-nav .nav-link.show, .navbar-light .navbar-nav .show>.nav-link{
     color: #ffffff!important;
