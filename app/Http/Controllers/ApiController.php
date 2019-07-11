@@ -324,10 +324,22 @@ class ApiController extends Controller
      */
     public function allAppointmentToDataTable()
     {
-        $appointment = PatientAppointment::with('user')
-            ->orderBy('created_at','desc')
-            ->orderBy('status','asc')
-            ->get();
+        $parts = parse_url($_SERVER['REQUEST_URI']);
+        parse_str($parts['query'], $query);
+       $arr = array();
+      
+       if (isset($query['name']) && $query['name']!==""){
+        array_push($arr,['name', '=', $query['name']]);
+   }
+    
+        // $appointment = Appointment::orderBy('id','desc')->where($arr)->get();
+
+      $appointment = PatientAppointment::with('user')
+           ->orderBy('created_at','desc')
+         ->orderBy('status','asc')
+         ->orderBy('appointment_id','desc')->where($arr) 
+      ->get();
+      
         return datatables($appointment)
             ->addColumn('patient',function($appointment){
                 return view('user.doctor.appointment.datatable.patient',[

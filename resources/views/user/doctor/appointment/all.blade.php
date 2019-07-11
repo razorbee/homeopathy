@@ -24,6 +24,29 @@ display :none
             <div class="card-content">
                 <h4 class="card-title">Appointments</h4>
             </div>
+            <form id="advancesearch" class="m-b-20" style="background:#f9f9f9">	
+        <div class="row" style="margin-left:50px;">		
+			
+         
+           	
+		
+         		
+            <div class="col-2">		
+                <div ><b>schedule</b></div>		
+                <select name="name" id="search_name" class="advselect">		
+                    <option  value="">select schedule</option>		
+                    @foreach($appointment as $diseases)
+                                <option value="{{$diseases -> name}}">{{$diseases -> name}}
+                                </option>
+                            @endforeach	
+                </select>		
+            </div>	
+            <div class="col-2">		
+                <div >&nbsp;</div>		
+                <input type="submit" id="search_submit" value="submit" class="advselect"/>	
+            </div>	
+        </div>
+        </form>  
             <table class="table table-striped role_{{{auth()->user()->role}}}" id="datatable">
                 <thead>
                 <tr>
@@ -49,8 +72,14 @@ display :none
             $('#datatable').DataTable({
                 "processing": true,
                 "serverSide": true,
-                "ajax": "{{ url('/api/data-table/all-appointment') }}",
-                "columns": [
+                ajax: {		              
+                    url: 'api/data-table/all-appointment',		
+                    data: function (d) {		
+                       
+						d.name = $('#search_name').val()	
+                }		
+            },
+                columns: [
                     { "data" : "#"},
                     { "data": "patient" },
                     { "data": "appointment" },
@@ -69,5 +98,10 @@ display :none
                 $.Notification.notify('success','top right','Appointment Deleted','Appointment has been deleted');
             @endif
         });
+        $("#advancesearch").submit(function( e ) {		
+                e.preventDefault();		
+                oTable = $('#datatable').DataTable(); 		
+                oTable.draw(); 
+            });
     </script>
 @endsection

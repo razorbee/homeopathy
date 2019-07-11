@@ -45,7 +45,11 @@ class AppointmentController extends Controller
      */
     public function allAppointment()
     {
-        return view('user.doctor.appointment.all');
+        $appointment = Appointment::all();
+        return view('user.doctor.appointment.all',[
+            'appointment'=>$appointment
+        ]);
+
     }
 
     /**
