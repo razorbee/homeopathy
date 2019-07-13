@@ -5698,7 +5698,7 @@ span.select2-container--open .select2-dropdown .select2-search--dropdown input{
   color:#f00;
 }
 .fullpage{
-  background: url("../images/homeopathy3.jpg");
+  /* background: url("../images/homeopathy3.jpg"); */
   background-repeat: no-repeat;
   width:100%;
   background-size: cover;
@@ -5744,7 +5744,8 @@ span.select2-container--open .select2-dropdown .select2-search--dropdown input{
   }
   .home_desc h1{
     font-family: -webkit-body;
-    font-size:52px;
+    text-align: center;
+    font-size:45px;
     font-weight: 900;
       color: brown;
     text-shadow: 2px 2px black;
@@ -6128,3 +6129,6 @@ height: 27px;
   background-color: #555;
 }
 
+.text-center > p{
+  font-size:16px;
+}

@@ -24,7 +24,7 @@
                 <form action="#" method="post" id="newAppointment">
                     {{csrf_field()}}
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="form-group-custom ">
                                 <select class="form-control select2" name="patient_id" id="" required="required">
                                     <option>Select the patient</option>
@@ -43,16 +43,26 @@
                                 <label class="control-label">Date &nbsp;*</label><i class="bar"></i>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group-custom">
-                                <input type="time" required="required" name="time"/>
+                                <input type="time" name="time"/>
                                 <label class="control-label">Time[24hr-format]</label><i class="bar"></i>
                                 
                                    
                                 
                             </div>
                         </div>
-                       
+                        <div class="col-md-2">
+                            <div class="form-group-custom">
+                                <select name="session" id="">
+                                
+                            <option value="morning">Morning</option>
+                            <option value="evening">Evening</option>
+                           
+                        </select>
+                        <label class="control-label">Session &nbsp;</label><i class="bar"></i>
+                           </div>
+                        </div>
                     </div>
                     <div class="row">
                     

@@ -165,6 +165,11 @@ body {
     animation: rotate 1s infinite;  
     height: 50px;
     width: 50px;
+    left: 700px!important;
+    top: 400px!important;
+    margin-left: 50%;
+    /* margin-top: 20%; */
+}
     /* position:absolute; */
     /* left:700px!important;
     top:400px!important; */
@@ -172,8 +177,6 @@ body {
   #loader  {
  
      position:absolute; 
-    left:700px!important;
-    top:400px!important;
   }
   .loader:before,
   .loader:after {   

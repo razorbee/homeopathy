@@ -79,7 +79,7 @@
                             'We are taking you to edit page');
                             setTimeout(function(){
                         window.location.replace('{{url('/')}}/edit-patient/'+data._id);
-                    },3000); 
+                    },1800); 
                     },error:function (data) {
                         hideLoader();
                         if(data.status == 422 ){

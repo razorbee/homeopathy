@@ -1,13 +1,8 @@
-<style>
-#login,#register{
-margin-top:30px;
 
-}
-</style>
 <div class="">
     <nav class="navbar navbar-expand-lg navbar-dark">
 
-  <a class="navbar-brand" href="{{url('/')}}"><img src="dashboard/images/doctorlogo.png" class="img-responsive"></a>
+  <a class="navbar-brand" href="{{url('/')}}"><img src="dashboard/images/logo (2).png" class="img-responsive"></a>
 
         <a class="navbar-brand mobile" href="#"></a>
         <button class="navbar-toggler" type="button">
@@ -22,10 +17,7 @@ margin-top:30px;
                 </li> -->
 
             @guest
-            <li class="nav-item" id="">
-                <a class="navbar-brand" href="{{url('/')}}"><img src="dashboard/images/mahi.png" class="img-responsive"></a>
-                    
-                </li>
+            
                  @if(count(\App\User::all()) == 0) 
                 <li class="nav-item" id="register">
                     <a class="nav-link {{ Request::is('register') ? 'active' :'' }}" href="{{route('register')}}"><i class="fa fa-user-plus fa-md"></i> &nbsp; {!! trans('nav.register') !!}</a>

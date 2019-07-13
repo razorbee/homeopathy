@@ -122,7 +122,14 @@
         </ul>
 
     </nav>  
-    <div class="loader" style="display:none;" id="loader"></div>
+    <div  style="display:none;    width: 100%;
+    height: 800px;
+    background: #000;
+    opacity: 0.3;padding-top: 20%;" id="loader">
+
+    <div class="loader" ></div>
+
+    </div>
 </div>
 <script src="{{url('/dashboard/js/jquery.min.js')}}"></script>
 <script>
@@ -132,7 +139,7 @@ function showLoader(){
         $("#loader").show();
        setTimeout(() => {
         $("#loader").hide();
-       }, 2000); 
+       }, 10000); 
     }
 }
 function hideLoader(){

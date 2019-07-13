@@ -113,6 +113,7 @@ class AppointmentController extends Controller
             $appointment->patient_id = $request->get('patient_id');
             $appointment->date = Carbon::parse($request->get('date'))->format('Y-m-d');
             $appointment->time = $request->get('time');
+            $appointment->session = $request->get('session');
             $appointment->appointment_id = $request->get('appointment_id');
             $appointment->note = $request->get('note');
             $appointment->user_id =auth()->user()->id;
@@ -149,6 +150,7 @@ class AppointmentController extends Controller
             $appointment->patient_id = $request->get('patient_id');
             $appointment->date = Carbon::parse($request->get('date'))->format('Y-m-d');
             $appointment->time = $request->get('time');
+            $appointment->session = $request->get('session');
             $appointment->appointment_id = $request->get('appointment_id');
             $appointment->note = $request->get('note');
             $appointment->user_id =auth()->user()->id;

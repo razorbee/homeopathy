@@ -20,7 +20,7 @@
                 <form action="#" method="post" id="updateAppointment">
                     {{csrf_field()}}
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-5">
                             <div class="form-group-custom ">
                                 <select class="form-control select2" name="patient_id" id="" required="required">
                                     <option></option>
@@ -38,11 +38,22 @@
                                 <label class="control-label">Date &nbsp;*</label><i class="bar"></i>
                             </div>
                         </div>
-                        <div class="col-md-3">
+                        <div class="col-md-2">
                             <div class="form-group-custom">
                                 <input type="time" value="{{$appointment->time}}" name="time"/>
                                 <label class="control-label">Time[24hrs-format]</label><i class="bar"></i>
                             </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group-custom">
+                                <select name="session" id="">
+                                <option {{$appointment->session =='morning' ? 'selected' : ''}} value="morning">Morning</option>
+                                <option {{$appointment->session =='evening' ? 'selected' : ''}} value="evening">Evening</option>
+                                       
+                           
+                        </select>
+                        <label class="control-label">Session &nbsp;</label><i class="bar"></i>
+                           </div>
                         </div>
                     </div>
                     <div class="row">

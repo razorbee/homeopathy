@@ -34,7 +34,9 @@
                         <div class="col-md-6">
                             <div class="form-group-custom">
                                 <input type="text" id="updateDrugDose"/>
-                                <label class="control-label">Dose</label><i class="bar"></i>
+                               
+                        <label class="control-label">Dose</label><i class="bar"></i>  
+                       <input type="text" class="dosage" name="dose" id="dose" placeholder="value" style="display:none;"/><i class="bar"></i>  
                             </div>
                         </div>
                         <div class="col-md-6">

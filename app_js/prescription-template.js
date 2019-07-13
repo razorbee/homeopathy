@@ -61,16 +61,16 @@ $(document).ready(function () {
                 drug_id : $("#drug").val(),
                 drug_name : $("#drug").select2('data')[0].text,
                 drug_type : $("#drug_type").val(),
-                strength : $("#strength").val(),
-                dose : $("#dose").val(),
-                duration : $("#duration").val(),
+                strength : $("#selectStrength").val(),
+                dose : $("#selectDosage").val(),
+                duration : $("#selectDuration").val(),
                 drug_advice : $("#drug_advice").val(),
                 frequencies : freq
             };
             drugList.push(drug);
             $(this).refreshDrugForm();
             $(this).renderDrug(drugList);
-            console.log(drugList);
+            // console.log(drugList);
             });
     // Open drug update (form the drug list) modal
     $("#updateDrugList").on('click',function () {

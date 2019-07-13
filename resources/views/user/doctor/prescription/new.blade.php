@@ -75,7 +75,7 @@ list-style:none!important;
                                 <div class="col-md-4">
                                     <script>
                                         var drugs = "{{$drugs}}"
-                                        console.log(drugs);
+                                        // console.log(drugs);
                                         </script>
                     
                                     <select class="form-control select2" id="drug">
@@ -92,21 +92,60 @@ list-style:none!important;
                                 </div>
                                 <div class="col-md-4">
                                   <div class="form-group-custom">
-                                  <input type="text" id="strength"/>
+                                  <!-- <input type="text" id="strength"/> -->
+                                  <select id = "selectStrength" class="form-control js-select2" name = "strength" >
+                               
+                                  <option value="">Pick a dose</option>
+                                <option value="1X">1X</option>
+                                <option value="3X">3X</option>
+                                <option value="6X">6X</option>
+                                <option value="12X">12X</option>
+                                <option value="6C">6C</option>
+                                <option value="30C">30C</option>
+                                <option value="200C">200C</option>
+                                <option value="1M">1M</option>
+                                <option value="10M">10M</option>  
+                                <option value="50M">50M</option>  
+                             </select>
                                         <label class="control-label">Strength</label><i class="bar"></i>
                                 
-                                   
+                                   </div>
                                   </div>
-                                </div>
-                                <div class="col-md-3">
+
+                                <!-- <div class="col-md-3">
                                     <div class="form-group-custom">
                                     <input type="text" id="dose"/>
                                         <label class="control-label">Dose</label><i class="bar"></i>
                                     </div>
+                                </div> -->
+                                <div class="col-md-3">
+                                    <div class="form-group-custom">
+                                   
+                                    <!-- <select name="dose" id="dose" placeholder="Dose"> -->
+                                    <select id = "selectDosage" class="form-control js-select2" name = "dose" >
+                                    <option value="">Pick a dose</option>
+                                <option value="1 tab">1 Tab</option>
+                                <option value="3 pill">3 Pills</option>
+                                <option value="4 pills">4 Pills</option>
+                                <option value="6 pills">6 Pills</option>
+                                <option value="3 diskets">3 diskets</option>
+                                <option value="4 diskets">4 diskets</option>
+                                <option value="15 drops">15 drops</option>
+                                <option value="20 drops">20 drops</option>
+                                <option value="30 drops">30 drops</option>  
+                            </select>
+                            <label class="control-label">Dose</label><i class="bar"></i>  
+                              </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group-custom">
-                                        <input type="text" id="duration"/>
+                                    <select id = "selectDuration" class="form-control js-select2" name = "duration" >
+                                    <option value="">Pick a dose</option>
+                                <option value="1 week">1 week</option>
+                                <option value="2 week">2 weeks</option>
+                                <option value="1 month">1 month</option>
+                                <option value="2 month">2 months</option>
+                             </select>
                                         <label class="control-label">Duration</label><i class="bar"></i>
                                     </div>
                                 </div>
@@ -314,7 +353,7 @@ list-style:none!important;
                  return $('<div>').html(html).text();
             }
             if (drugs){
-                debugger;
+                // debugger;
                 drugs = JSON.parse(decodeHtml(drugs));
             }
             $('#drug_type').on('change', function() {
@@ -327,6 +366,19 @@ list-style:none!important;
                     }
                 }
             });
+
+            $("#selectDosage").select2({
+                placeholder: "select dosage",
+                tags: true,
+                   });
+                   $("#selectDuration").select2({
+                placeholder: "select duration",
+                tags: true,
+                   });
+                   $("#selectStrength").select2({
+                placeholder: "select strength",
+                tags: true,
+                   });
             // Select template
             $("#selectTemplate").select2({
                 placeholder: "Prescription template"
@@ -371,7 +423,7 @@ list-style:none!important;
             });
             // get patient details
             $("#selectPatient").on('change', function () {
-                console.log("Change");
+                // console.log("Change");
                 var patientId = $("#selectPatient").val();
                 $(this).getPatientDetails(patientId);
             });

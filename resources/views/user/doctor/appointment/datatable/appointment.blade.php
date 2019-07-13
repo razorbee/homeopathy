@@ -5,8 +5,11 @@
 </p>
 <p>
     Arranged By : <b>{{$appointment->user->name}}</b>
+    
 </p>
-
+<p>
+    Session : <b>{{$appointment->session}}</b>
+</p>
 <p>
     <!-- Payment : <b>{{$appointment->payment ? $appointment->payment->payment : '0' }}</b> -->
 </p>

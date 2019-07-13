@@ -27,32 +27,56 @@
 .design a {
     color: #fff;
 }
-
+.img-src{
+    width: 240px;
+    height: 250px;
+    margin-left:200px;
+}
+h1,h6,p{
+    text-align:center;  
+}
+.degrees{
+    font-size:13px;
+    text-align:center;
+}
     </style>
     <?php $doctor = \App\User::first(); ?>
     <div class="container fullpage">
 
-        <div class="row">
-         
-
-            
-           
-            <div class="col-md-8 col-sm-2" style="padding-top: 50px;">
-                <div class="_text-center home_desc">
-                    <!-- <h1>{{$doctor ? $doctor->name : "Demo"}}</h1> -->
-                    
+        <div class="row"  style="padding-top:150px;">
+         <div class="col-md-5 col-sm-2">
+               
+                   
+                    <img src="dashboard/images/mahima_logo.png" class="img-src"></a>
 				    <h1>Sri Mahima Multispeciality Homoeo Clinic</h1> 
                     <p class="home_degree">
                          <!-- {!! nl2br(e($doctor ? $doctor->info : "Demo")) !!} -->
+                          <!-- <h1>{{$doctor ? $doctor->name : "Demo"}}</h1> -->
                     </p>
-                </div>
+             
             </div>
-            <div class="col-md-4 col-sm-2">
-                <div class="text-center">
+            <div class="col-md-2 col-sm-2">
+            
+                <img src="dashboard/images/logo (2).png" class="img-responsive">
                 <!-- <img  src="{{App\User::first() ? App\User::first()->image : 'http://cdn.24.co.za/files/Cms/General/d/2809/34cbd0492a23476887812102f40f21d7.jpg'}}"  class="__img-fluid" alt=""> -->
+                <h6>Dr.P. PREMAJYOTHI FRASER <div class="degrees">B.H.M.S.,M.D.,</div></h6>
+                <p>Reg. No A-11934<br>Homoeopatic Physician<br>Asst.prof.Homoeopathic Medical college,Bengaluru</p>
+</div>
+
+<div class="col-md-2 col-sm-2">
+               <img src="dashboard/images/logo (2).png" class="img-responsive">
+              <h6>Dr.P. KUMARAIAH <div class="degrees">B.H.M.S.,M.D.,(Acu)</div> </h6>
+              <p>Reg. No 5141<br>State Gen.Secretary,NAMA<br>State Joint Secretary,IIHP</p>
+</div>
+
+<div class="col-md-2 col-sm-2">
+  
+                <img src="dashboard/images/logo (2).png" class="img-responsive">
                 
-                </div>
-            </div>
+                <h6>Dr.P. NAGENDRA BABU <div class="degrees">B.H.M.S.,M.D.,M.B.A.,(H.M,)</div></h6>
+                <p>Reg. No A-11935<br>Homoeopatic Physician<br>Asst.prof.Homoeopathic Medical college,Bengaluru</p>
+</div>
+              
            <!--<div class="col-md-12" style="padding-top: 85px;">
                <div class="card-box">
                    <div class="panel-heading">

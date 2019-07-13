@@ -18,6 +18,7 @@ class CreatePatientAppointmentsTable extends Migration
             $table->integer('patient_id');
             $table->integer('appointment_id');
             $table->date('date');
+            $table->string('session');
             $table->time('time')->nullable();
             $table->text('note')->nullable();
             $table->boolean('status')->default(0);
