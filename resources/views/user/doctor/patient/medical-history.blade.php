@@ -35,7 +35,7 @@
                                 @if($patient->gender ==1)
                                     Male
                                 @elseif($patient->gender ==2)
-                                    Fe-Male
+                                    Female
                                 @else
                                     Other
                                 @endif

@@ -52,6 +52,9 @@
                                     font-weight: 100;
                                     font-size: 16px;
                                 }
+                                table{
+                                    margin-top:150px;
+                                }
                                 @endif
                                 .col-md-4 {
                                     width: 30%;

@@ -5,7 +5,11 @@
 @endsection
 
 @section('extra-css')
-
+<style>
+#diseaseTable_filter{
+    margin-left: 70%!important;
+}
+</style>
 @endsection
 
 @section('breadcrumb')
@@ -35,7 +39,7 @@
                     <div class="form-group-custom">
                         <!-- <input type="text" name="generic_name" required="required"/> -->
                         <select name="generic_name" id="" required="required">
-                            <option  value="Medicine">Medicine</option>
+                            <option  value="Medicine">Biochemic</option>
                             <option  value="Mother-Tinture">Mother-Tinture</option>
                             <option  value="Ointments & Oils">Ointments & Oils</option>
                             <option  value="Syrups">Syrups</option>
@@ -112,7 +116,7 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>diseases</th>
+            <th>Diseases</th>
            
             <th>Date</th>
             <th>Actions</th>
@@ -132,7 +136,7 @@
         $(document).ready(function () {
     
             var diseaseTable =  $("#diseaseTable").dataTable({
-               
+                "dom": '<"top"lf>rt<"right"><"bottom"ip><"clear">',
             "processing": true,
             "serverSide": true,
             "ajax": "{{ url('/api/data-table/all-disease') }}",

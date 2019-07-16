@@ -106,6 +106,8 @@ list-style:none!important;
                                 <option value="1M">1M</option>
                                 <option value="10M">10M</option>  
                                 <option value="50M">50M</option>  
+                                <option value="Q">Q</option>  
+
                              </select>
                                         <label class="control-label">Strength</label><i class="bar"></i>
                                 
@@ -433,7 +435,7 @@ list-style:none!important;
             $("#newPatient").on("submit",function (e) {
                e.preventDefault();
                data = new FormData(this);
-               showLoader();
+          showLoader();
                $.ajax({
                    url:'{{url('/save-patient')}}',
                    type:'post',
@@ -442,7 +444,7 @@ list-style:none!important;
                    cache: false,
                    processData:false,
                    success:function (data) {
-                       hideLoader();
+                    showLoader();
                        $.Notification.notify('success','top right',"Patient added successfully","Patient has been added successfully");
                        $("#selectPatient").append(
                             $('<option>',{value:data.id,text:data.name + "|" +data.phone}).select2({
@@ -452,7 +454,7 @@ list-style:none!important;
                        $("#selectPatient").val(data.id).trigger('change');
                        $(".bs-example-modal-lg").modal('hide');
                    },error:function (data) {
-                    hideLoader();
+          
                         $(this).showAjaxError(data);
                    }
                });

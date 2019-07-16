@@ -75,11 +75,12 @@
                     processData:false,
                     success:function (data) {
                         hideLoader();
+                        document.getElementById("newPatient").reset();
                         $.Notification.notify('success','top right','Patient created successfully',
                             'We are taking you to edit page');
                             setTimeout(function(){
                         window.location.replace('{{url('/')}}/edit-patient/'+data._id);
-                    },1800); 
+                    },600); 
                     },error:function (data) {
                         hideLoader();
                         if(data.status == 422 ){

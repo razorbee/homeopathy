@@ -7,5 +7,5 @@
     
 </p>
 
-<a class="view_medical" href="{{url('/patient-history/'.$patient->id)}}"><i class="fa fa-eye"></i> &nbsp; View Medical History</a> <br>
-<a class="view_medical_add" href="{{url('/patient-medical-file/'.$patient->id)}}"><i class="fa fa-plus"></i> &nbsp; Add Medical File </a>
+<a style="white-space:nowrap;" class="view_medical" href="{{url('/patient-history/'.$patient->id)}}"><i class="fa fa-eye"></i> &nbsp; View Medical History</a> <br>
+<a style="white-space:nowrap;" class="view_medical_add" href="{{url('/patient-medical-file/'.$patient->id)}}"><i class="fa fa-plus"></i> &nbsp; Add Medical File </a>
