@@ -64,7 +64,7 @@ list-style:none!important;
                         <!-- <input type="text" name="generic_name" required="required"/> -->
                         <select name="drug_type" id="drug_type" required="required" class="select2">
                         <option  value="select">select Medicine type</option>
-                            <option  value="Medicine">Biochemic</option>
+                            <option  value="Biochemic">Biochemic</option>
                             <option  value="Mother-Tinture">Mother-Tinture</option>
                             <option  value="Ointments & Oils">Ointments & Oils</option>
                             <option  value="Syrups">Syrups</option>
