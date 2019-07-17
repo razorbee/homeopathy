@@ -364,7 +364,7 @@ list-style:none!important;
                 for (var i=0; i<drugs.length; i++){
                     if (drugs[i].generic_name==this.value){
                         data.push({id: drugs[i].id, text: drugs[i].name });
-                        $("select.select2").append("<option value='"+drugs[i].id+"'>"+drugs[i].name+"</option>");
+                        $("select#drug.select2").append("<option value='"+drugs[i].id+"'>"+drugs[i].name+"</option>");
                     }
                 }
             });
