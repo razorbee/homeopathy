@@ -36,12 +36,15 @@
             };
 
             $("#modalBtnPrescribeNow").on('click',function () {
-//                console.log(patientId);
-                window.location.replace('take-patient-to-prescription-page/'+patientId);
+                //console.log(patientId);
+                window.location.replace('take-patient-to-prescription-page/'+patientId); 
+              
+                // window.location.replace('{{url('/')}}/take-patient-to-prescription-page/'+data._id);
+
             });
 
             $("#modalBtnMakeAppointment").on('click',function () {
-//                console.log(patientId);
+               //console.log(patientId);
                 window.location.replace('take-patient-to-appointment/'+patientId);
             });
 
@@ -74,13 +77,20 @@
                     cache: false,
                     processData:false,
                     success:function (data) {
-                        hideLoader();
+                         hideLoader();
                         document.getElementById("newPatient").reset();
-                        $.Notification.notify('success','top right','Patient created successfully',
-                            'We are taking you to edit page');
-                            setTimeout(function(){
-                        window.location.replace('{{url('/')}}/edit-patient/'+data._id);
-                    },600); 
+                        // $.Notification.notify('success','top right','Patient created successfully',
+                        //      'We are taking you to edit page');
+                    //          setTimeout(function(){
+                    //      window.location.replace('{{url('/')}}/take-patient-to-appointment/'+data._id);
+                    // },600); 
+                    console.log(data.image);
+                         $("#patientSavedSuccessModal").modal('show');
+                         $(this).formReset($("#newPatient"));
+                         $(this).newPatientSetPatientId(data._id);
+                     $("#modalPatientImage").attr('src',data.image != null ? data.image : 'http://pms.razorbee.com/homeopathy/dashboard/images/patient.png');
+                       $("#modalPatientName").text(data.name);
+                        $("#modalPatientPhone").text(data.phone);
                     },error:function (data) {
                         hideLoader();
                         if(data.status == 422 ){

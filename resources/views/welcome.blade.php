@@ -71,10 +71,11 @@ section#timeline article:after {
   clear: both;
 }
 section#timeline article div.inner {
-  width: 40%;
+  width: 30%;
   float: left;
-  margin: 5px 0 0 0;
+  margin: 5px 0px 0 0px;
   border-radius: 6px;
+  margin-left:-30px;
 }
 section#timeline article div.inner span.date {
   display: block;
@@ -135,29 +136,35 @@ section#timeline article div.inner p {
   border-radius: 0 0 6px 6px;
 }
 section#timeline article:nth-child(2n+2) div.inner {
-  float: right;
+  /* float: right; */
   margin-top:-560px;
+  margin-left:35%;
+}
+section#timeline article:nth-child(3n+3) div.inner {
+  /* float: right; */
+  margin-top:-560px;
+  margin-left:72%;
 }
 section#timeline article:nth-child(2n+2) div.inner h2:after {
-  left: -5px;
+  /* left: -5px; */
 }
 section#timeline article:nth-child(1) div.inner h2 {
   background: #e74c3c;
 }
 section#timeline article:nth-child(1) div.inner h2:after {
-  background: #e74c3c;
+  /* background: #e74c3c; */
 }
 section#timeline article:nth-child(2) div.inner h2 {
   background: #2ecc71;
 }
 section#timeline article:nth-child(2) div.inner h2:after {
-  background: #2ecc71;
+  /* background: #2ecc71; */
 }
 section#timeline article:nth-child(3) div.inner h2 {
   background: #e67e22;
 }
 section#timeline article:nth-child(3) div.inner h2:after {
-  background: #e67e22;
+  /* background: #e67e22; */
 }
 section#timeline article:nth-child(4) div.inner h2 {
   background: #1abc9c;

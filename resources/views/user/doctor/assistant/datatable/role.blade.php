@@ -1,7 +1,7 @@
 Role : @if($assistant->role == 1)
   Admin
 @elseif($assistant->role == 2)
-    Receiptionist
+    Receptionist
 @elseif($assistant->role == 3)
     Doctor
 @elseif($assistant->role == 4)

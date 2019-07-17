@@ -33,7 +33,7 @@
                         <div class="col-6">
                           <div class="form-group-custom">
                         <select name="generic_name" id="" required="required">
-                            <option  {{$drug->generic_name =='Medicine' ? 'selected' : ''}} value="Medicine">Medicine</option>
+                            <option  {{$drug->generic_name =='Biochemic' ? 'selected' : ''}} value="Biochemic">Biochemic</option>
                             <option  {{$drug->generic_name =='>Mother-Tinture' ? 'selected' : ''}} value="Mother-Tinture">Mother-Tinture</option>
                             <option  {{$drug->generic_name =='Ointments & Oils' ? 'selected' : ''}} value="Ointments & Oils">Ointments & Oils</option>
                             <option  {{$drug->generic_name =='Syrups' ? 'selected' : ''}} value="Syrups">Syrups</option>
