@@ -9,6 +9,7 @@
                 <center>
                     <img id="modalPatientImage" src="http://via.placeholder.com/120x120" width="120px"  alt="">
                     <h4 id="modalPatientName">Patient Name</h4>
+                    <h4>Id:<span id="modalPatientId">Patient Id</span></h4>
                     <p id="modalPatientPhone">Phone : 01738070062</p>
                 </center>
             </div>

@@ -1,3 +1,8 @@
+<?php
+if(isset($_COOKIE['local'])) {
+ echo '<div>from local database</div>';
+}
+?>
 <style>
 .inner-addon { 
     position: relative; 

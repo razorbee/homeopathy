@@ -51,7 +51,7 @@
 							<div class="form-group-custom">
                         <select name="role" id="" required="required">
                             <option>Select the user</option>
-                            <option value="2">Receiptionist</option>
+                            <option value="2">Receptionist</option>
                             <option value="3">Doctor</option>
                             <option value="4">Pharmacist</option>
                             

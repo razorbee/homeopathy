@@ -51,7 +51,7 @@
                             </div>
 							<div class="form-group-custom">
                                         <select name="role" id="" required="required">
-                                            <option {{$user->role ==2 ? 'selected' : ''}} value="2">Receiptionist</option>
+                                            <option {{$user->role ==2 ? 'selected' : ''}} value="2">Receptionist</option>
                                             <option {{$user->role ==3 ? 'selected' : ''}} value="3">Doctor</option>
                                             <option {{$user->role ==4 ? 'selected' : ''}} value="4">Pharmacist</option>
                                         </select>

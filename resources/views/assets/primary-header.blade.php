@@ -1,5 +1,10 @@
-
+<?php
+if(isset($_COOKIE['local'])) {
+ echo '<div>from local database</div>';
+}
+?>
 <div class="">
+
     <nav class="navbar navbar-expand-lg navbar-dark">
 
   <a class="navbar-brand" href="{{url('/')}}"><img src="dashboard/images/logo (2).png" class="img-responsive"></a>

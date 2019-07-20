@@ -12,8 +12,8 @@
                         <div class="col-md-6">
                           <div class="form-group-custom">
                               <!-- <input type="text" name="generic_name" required="required"/> -->
-                              <select name="generic_name" id="" required="required">
-                                  <option  value="Medicine">Medicine</option>
+                                <select name="generic_name" id="" required="required">
+                                  <option  value="Biochemic">Biochemic</option>
                                   <option  value="Mother-Tinture">Mother-Tinture</option>
                                   <option  value="Ointments & Oils">Ointments & Oils</option>
                                   <option  value="Syrups">Syrups</option>
