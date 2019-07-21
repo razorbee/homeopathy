@@ -117,13 +117,35 @@ class PrescriptionController extends Controller
                     $prescription_drug = new PrescriptionDrug();
                     $prescription_drug->prescription_id = $prescription->id;
                     $prescription_drug->drug_id = $drug['drug_id'];
+                    $prescription_drug->drug_id1 = $drug['drug_id1'];
+                    $prescription_drug->drug_id2 = $drug['drug_id2'];
                     $prescription_drug->type = $drug['drug_type'];
+                    $prescription_drug->drug_name = $drug['drug_name'];
                     $prescription_drug->dose = $drug['dose'];
                     $prescription_drug->strength = $drug['strength'];
                     $prescription_drug->duration = $drug['duration'];
                     $prescription_drug->advice = $drug['drug_advice'];
                     $prescription_drug->frequencies = $drug['frequencies'];
- $prescription_drug->save();
+                    $prescription_drug->save();
+
+
+                    if ($drug['drug_id1']){
+                     $prescription_drug = new PrescriptionDrug();
+
+                        $prescription_drug->prescription_id = $prescription->id;
+                        $prescription_drug->drug_id = $drug['drug_id1'];
+                        $prescription_drug->multi_drug = 1;
+                        $prescription_drug->save();
+                    }
+                    if ($drug['drug_id2']){
+                        $prescription_drug = new PrescriptionDrug();
+
+
+                        $prescription_drug->prescription_id = $prescription->id;
+                        $prescription_drug->drug_id = $drug['drug_id2'];
+                        $prescription_drug->multi_drug = 1;
+                        $prescription_drug->save();
+                    }
                 }
                 return response()->json($prescription, 200);
             }

@@ -17,6 +17,8 @@ class CreatePrescriptionTemplateDrugsTable extends Migration
             $table->increments('id');
             $table->integer('prescription_template_id');
             $table->integer('drug_id');
+            $table->integer('drug_id1');
+            $table->integer('drug_id2');
             $table->string('type')->nullable();
             $table->string('dose')->nullable();
             $table->string('duration')->nullable();

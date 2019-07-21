@@ -77,8 +77,8 @@ list-style:none!important;
                                         var drugs = "{{$drugs}}"
                                         // console.log(drugs);
                                         </script>
-                    
-                                    <select class="form-control select2" id="drug">
+
+                                    <select class="form-control select2" id="drug" multiple="multiple">
                                         <option>Please select Medicine</option>
                                         
 
@@ -93,7 +93,7 @@ list-style:none!important;
                                 <div class="col-md-4">
                                   <div class="form-group-custom">
                                   <!-- <input type="text" id="strength"/> -->
-                                  <select id = "selectStrength" class="form-control js-select2" name = "strength" >
+                                  <select id = "selectStrength" class="form-control js-select2" name = "strength" multiple="multiple">
                                
                                   <option value="">Pick a dose</option>
                                 <option value="1X">1X</option>

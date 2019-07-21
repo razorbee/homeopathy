@@ -99,9 +99,11 @@
                         </div>
                         <ol>
                             <div class="row">
+
+
                             @foreach($prescription->drugs as $drug)
+                            @if(!$drug->multi_drug)
                             <div class="col-md-4" style="margin-top: 10px;">
-                         
                             
                                         <li class="print_class"><b>Drug-Type:</b> <i>{{$drug->type}}</i> <br>
                                         <b>Dose:</b> {{$drug->dose}}
@@ -111,7 +113,7 @@
                                             <div class="col-md-4" style="margin-top: 10px;">
                                             <ul style="padding-left: 0px">
                                                 <li style="list-style: none">
-                                                <b>Drug Name:</b> {{$drug->drug['name']}}
+                                                <b>Drug Name:</b>{{$drug->drug_name}}
                                             @if(config('app.generic_name') == 1)
                                                 ({{$drug->drug['generic_name']}})
                                             @endif
@@ -139,6 +141,7 @@
                                         
                                   </div>
                                   </li>
+                                  @endif
                                   @endforeach
                                                 </div>
                             

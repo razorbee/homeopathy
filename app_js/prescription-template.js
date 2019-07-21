@@ -57,11 +57,28 @@ $(document).ready(function () {
                 return $(el).val();
             }).get();
          freq = freq?freq.join(','):'';
+
+         var selectdrugs = $("#drug").select2('data');
+
+         var drug_name = [];
+         for (var i=0; i< selectdrugs.length; i++){
+             drug_name.push(selectdrugs[i].text);
+         }
+
+         if (selectdrugs.length != $("#selectStrength").select2('data').length){
+             
+            alert ("drug selection and strength should be same!");
+            return;
+         }
+         drug_name = drug_name.join(', ');
+
             drug = {
-                drug_id : $("#drug").val(),
-                drug_name : $("#drug").select2('data')[0].text,
+                drug_id : selectdrugs[0]?selectdrugs[0].id:'',
+                drug_name : drug_name,
+                drug_id1 : selectdrugs[1]?selectdrugs[1].id:'',
+                drug_id2 : selectdrugs[2]?selectdrugs[2].id:'',
                 drug_type : $("#drug_type").val(),
-                strength : $("#selectStrength").val(),
+                strength : $("#selectStrength").val().join(', '),
                 dose : $("#selectDosage").val(),
                 duration : $("#selectDuration").val(),
                 drug_advice : $("#drug_advice").val(),
