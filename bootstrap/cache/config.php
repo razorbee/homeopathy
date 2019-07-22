@@ -28,7 +28,7 @@ else{
   $rbpath = '/var/www/html/pms.razorbee.com/homeopathy/';
    $domain = 'http://pms.razorbee.com/homeopathy/';
    if ($local) {
-    $rb_database= ‘pms_dr_diary_local’;
+    $rb_database= 'pms_dr_diary_local';
   }
   else{
   $rb_database= 'pms_dr_diary';
