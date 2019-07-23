@@ -90,6 +90,7 @@
                          $(this).newPatientSetPatientId(data._id);
                      $("#modalPatientImage").attr('src',data.image != null ? data.image : 'http://pms.razorbee.com/homeopathy/dashboard/images/patient.png');
                        $("#modalPatientName").text(data.name);
+                       $("#modalPatientId").text(data._id);
                         $("#modalPatientPhone").text(data.phone);
                     },error:function (data) {
                         hideLoader();
