@@ -21,11 +21,20 @@
         ol > li{
             margin-left:-25px;
         }
-        
+        .letterhead{
+        height: cover;
+         overflow:hidden;
+         width:1200px;
+        }
         #print,#printPageBtn{
             margin-top:40px;
             margin-bottom:20px;
-        margin-left:100px;        }
+        margin-left:100px;        
+        }
+        table{
+            padding-right:40px;
+            width:100%;
+        }
     </style>
 @endsection
 @section('content')
@@ -36,7 +45,10 @@
             </div>
             <div class="card-content">
                 <div id="printPage">
+                <div class="letterheadbg">
+  <div class="letterhead">
                     <div class="text-right">
+                    
                         <h3>{{$prescription->user->name}}</h3>
                         <p>{!! nl2br(e($prescription->user->info)) !!}</p>
                     </div>
@@ -53,7 +65,51 @@
                                     font-size: 16px;
                                 }
                                 table{
-                                    margin-top:150px;
+                                    margin-top:250px;
+                                    margin-left:250px;
+                                    width:720px;
+                                }
+                                th{
+                                    width:150px!important;
+                                    height:3px;
+                                }
+                                th:nth-child(2){
+                                    width:140px;
+                                   
+                                }
+                                th:nth-child(3){
+                                    width:160px!important;
+                                    
+                                }
+                                th:nth-child(4){
+                                    width:170px!important;
+                             }
+                                th:nth-child(5){
+                                    width:210px!important;
+                                    } 
+                                    th:nth-child(6){
+                                   margin-top:20px!important;
+                                    } 
+                                   
+                                    .prescription-p-title{
+                                        margin-top:100px;
+                                    }  
+                                  .print_img{
+                                      margin-left:25%!important;
+                                  } 
+                                .letterheadbg{
+                                  /* background:url('{{url('/')}}/dashboard/images/bill-page0001.jpg'); */
+                                  height: 1000px;
+                                  overflow:hidden;
+                                  width:750px;
+                                } 
+                                .letterhead{
+                                    height: 970px;
+                                  overflow:hidden;
+                                  width:715px;
+                                }
+                                ol{
+                                    margin-left:25%!important;  
                                 }
                                 @endif
                                 .col-md-4 {
@@ -64,14 +120,14 @@
                                 }
                             }
                         </style>
-                        <table width="100%" style="margin-bottom: 10px;">
+                        <table  style="margin-bottom: 10px;">
                             <thead>
                             <tr>
                                 <th> <span class="prescription-p-title">Name</span> : {{$prescription->patient->name}} 
                                 </th>
                                 <th> <span class="prescription-p-title">Id</span> :{{$prescription->patient->id}}</th>
                                 <th> <span class="prescription-p-title">Age</span>
-                                    : {{$prescription->patient->date_of_birth->diff($prescription->created_at)->format('%y years,%m month,%d days')}}</th>
+                                    : {{$prescription->patient->date_of_birth->diff($prescription->created_at)->format('%y years')}}</th>
                                 <th><span class="prescription-p-title">Gender</span>
                                     : @if($prescription->patient->gender ==1)
                                         Male
@@ -83,9 +139,11 @@
                                 </th>
                                 <th>
                                     <span class="prescription-p-title">Date :</span>
-                                    {{$prescription->prescription_date->format('d-M-Y')}}
+                                    {{$prescription->prescription_date->format('d-m-Y')}}
                                 </th>
+                               
                                 <th>
+                                
                                     <span class="prescription-p-title">Disease :</span>
                                     {{$prescription->disease}}
                                 </th>
@@ -94,7 +152,7 @@
                         </table>
                         <div class="row">
                        
-                          <img src="{{url('/dashboard/images/rx.png')}}" width="30px" height="25px" alt="" style="margin-left:  20px  ">  
+                          <img class="print_img" src="{{url('/dashboard/images/rx.png')}}" width="30px" height="25px" alt="" style="margin-left:20px  ">  
                         
                         </div>
                         <ol>
@@ -133,7 +191,7 @@
                                   </div>
                                   <div class="col-md-12" style="margin-top: 0px;">
                                             <ul style="padding-left: 50px">
-                                            <li style="list-style: none"><b> Advice:</b> {{$drug->advice}}</li>
+                                            <li style="list-style:none"><b> Advice:</b> {{$drug->advice}}</li>
                                            
                                           
                                             </ul>
@@ -171,14 +229,16 @@
                             </div>
                         </div>
                     </div>
-            
+                    </div>
+                    </div>
                 <button id="print" class="btn btn-inverse pull-right m-l-15"><i class="fa fa-print"></i> &nbsp; Print Prescription</button>
                 <button id="printPageBtn" class="btn btn-success pull-right m-l-15"><i class="fa fa-print"></i> &nbsp; Print Page</button>
                 <br>
                 <br>
             </div>
         </div>
-        
+        /* <div style="display:none;background-image:url('{{url('/')}}/dashboard/images/bill-page0001.jpg');"> */
+    
 @endsection
 @section('extra-js')
     <script src="{{url('/dashboard/plugins/printthis/printThis.js')}}"></script>
