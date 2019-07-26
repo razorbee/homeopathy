@@ -72,7 +72,7 @@
     </div>
     <div class="row">
         <div class="col-sm-12 text-center">
-            <p class="text-white">Already have an account? <a href="{{ route('login') }}" class="text-white m-l-5"><b>Sign
+            <p class="text-danger">Already have an account? <a href="{{ route('login') }}" class="text-danger m-l-5"><b>Sign
                         In</b></a>
             </p>
 

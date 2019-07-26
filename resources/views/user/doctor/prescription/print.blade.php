@@ -66,7 +66,7 @@
                                 }
                                 table{
                                     margin-top:250px;
-                                    margin-left:250px;
+                                    /* margin-left:250px; */
                                     width:720px;
                                 }
                                 th{
@@ -108,9 +108,9 @@
                                   overflow:hidden;
                                   width:715px;
                                 }
-                                ol{
+                                /* ol{
                                     margin-left:25%!important;  
-                                }
+                                } */
                                 @endif
                                 .col-md-4 {
                                     width: 30%;
@@ -120,15 +120,15 @@
                                 }
                             }
                         </style>
-                        <table  style="margin-bottom: 10px;">
+                        <table style="margin-bottom: 10px;">
                             <thead>
                             <tr>
-                                <th> <span class="prescription-p-title">Name</span> : {{$prescription->patient->name}} 
+                                <th> <span class="prescription-p-title"></span> Name: {{$prescription->patient->name}} 
                                 </th>
-                                <th> <span class="prescription-p-title">Id</span> :{{$prescription->patient->id}}</th>
-                                <th> <span class="prescription-p-title">Age</span>
+                                <th> <span class="prescription-p-title"></span> Id:{{$prescription->patient->id}}</th>
+                                <th> <span class="prescription-p-title"></span> Age
                                     : {{$prescription->patient->date_of_birth->diff($prescription->created_at)->format('%y years')}}</th>
-                                <th><span class="prescription-p-title">Gender</span>
+                                <th><span class="prescription-p-title"></span> Gender
                                     : @if($prescription->patient->gender ==1)
                                         Male
                                     @elseif($prescription->patient->gender ==2)
@@ -138,13 +138,13 @@
                                     @endif
                                 </th>
                                 <th>
-                                    <span class="prescription-p-title">Date :</span>
+                                    <span class="prescription-p-title"></span>Date :
                                     {{$prescription->prescription_date->format('d-m-Y')}}
                                 </th>
                                
                                 <th>
                                 
-                                    <span class="prescription-p-title">Disease :</span>
+                                    <span class="prescription-p-title"></span>Disease :
                                     {{$prescription->disease}}
                                 </th>
                             </tr>
@@ -155,7 +155,7 @@
                           <img class="print_img" src="{{url('/dashboard/images/rx.png')}}" width="30px" height="25px" alt="" style="margin-left:20px  ">  
                         
                         </div>
-                        <ol>
+                        <ol class="hi">
                             <div class="row">
 
 
@@ -232,12 +232,12 @@
                     </div>
                     </div>
                 <button id="print" class="btn btn-inverse pull-right m-l-15"><i class="fa fa-print"></i> &nbsp; Print Prescription</button>
-                <button id="printPageBtn" class="btn btn-success pull-right m-l-15"><i class="fa fa-print"></i> &nbsp; Print Page</button>
+                <button id="printPageBtn"  class="btn btn-success pull-right m-l-15"><i class="fa fa-print"></i> &nbsp; Print Page</button>
                 <br>
                 <br>
             </div>
         </div>
-        /* <div style="display:none;background-image:url('{{url('/')}}/dashboard/images/bill-page0001.jpg');"> */
+   
     
 @endsection
 @section('extra-js')
@@ -245,11 +245,22 @@
     <script>
         $(document).ready(function () {
             $("#print").on('click', function () {
-                $("#print_prescription").printThis();
+              
+                 $("#print_prescription").printThis(); 
+              
+            }); 
+            $("#printPageBtn").on('click', function () {
+               $("#printPage").printThis();
             });
-            $("#printPageBtn").on('click',function () {
-                $("#printPage").printThis();
+       
+    
+            $("#print").on('click', function () {
+              
+                $("table").css('left','50%');
+              
             });
         });
-    </script>
+        
+</script>
+
 @endsection
