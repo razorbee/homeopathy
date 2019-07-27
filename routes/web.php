@@ -13,6 +13,8 @@
 
 Route::get('/', 'HomeController@welcome');
 
+
+
 //Website
 Route::get('/appointment','WebSiteController@appointment');
 
@@ -22,6 +24,7 @@ Route::get('/account-disabled','HomeController@accountDisable');
 // Cache config
 Route::get('/config-cache','SettingController@cacheConfig');
 Route::get('/cache-config-success','SettingController@cacheConfigSuccess');
+
 
 // Install
 Route::get('/install','HomeController@install');

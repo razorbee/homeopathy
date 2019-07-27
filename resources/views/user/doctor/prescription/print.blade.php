@@ -66,7 +66,7 @@
                                 }
                                 table{
                                     margin-top:250px;
-                                    /* margin-left:250px; */
+                                    margin-left:250px;
                                     width:720px;
                                 }
                                 th{
@@ -108,9 +108,9 @@
                                   overflow:hidden;
                                   width:715px;
                                 }
-                                /* ol{
+                                ol{
                                     margin-left:25%!important;  
-                                } */
+                                }
                                 @endif
                                 .col-md-4 {
                                     width: 30%;
@@ -192,22 +192,15 @@
                                   <div class="col-md-12" style="margin-top: 0px;">
                                             <ul style="padding-left: 50px">
                                             <li style="list-style:none"><b> Advice:</b> {{$drug->advice}}</li>
-                                           
-                                          
-                                            </ul>
-                                        
-                                        
-                                  </div>
+                                           </ul>
+                                   </div>
                                   </li>
                                   @endif
                                   @endforeach
                                                 </div>
-                            
-                      </li>
-                       
-                            </ol>
-                      
-                             <!-- <div class="col-md-2" style="margin-top: 10px;">
+                     </li>
+                        </ol>
+                      <!-- <div class="col-md-2" style="margin-top: 10px;">
                                 <table>
                                     <tr>
                                         <td>Disease:</td>
@@ -254,11 +247,7 @@
             });
        
     
-            $("#print").on('click', function () {
-              
-                $("table").css('left','50%');
-              
-            });
+            
         });
         
 </script>
