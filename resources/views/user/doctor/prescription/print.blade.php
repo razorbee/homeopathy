@@ -66,7 +66,7 @@
                                 }
                                 table{
                                     margin-top:250px;
-                                    margin-left:250px;
+                                    /* margin-left:250px; */
                                     width:720px;
                                 }
                                 th{
@@ -108,9 +108,9 @@
                                   overflow:hidden;
                                   width:715px;
                                 }
-                                ol{
+                                 .force{
                                     margin-left:25%!important;  
-                                }
+                                } 
                                 @endif
                                 .col-md-4 {
                                     width: 30%;
@@ -238,7 +238,7 @@
     <script>
         $(document).ready(function () {
             $("#print").on('click', function () {
-              
+                $("#print_prescription").addClass('force'); 
                  $("#print_prescription").printThis(); 
               
             }); 
