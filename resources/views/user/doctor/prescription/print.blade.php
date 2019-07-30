@@ -95,7 +95,7 @@
                                         margin-top:100px;
                                     }  
                                   .print_img{
-                                      margin-left:25%!important;
+                                      /* margin-left:25%!important; */
                                   } 
                                 .letterheadbg{
                                   /* background:url('{{url('/')}}/dashboard/images/bill-page0001.jpg'); */

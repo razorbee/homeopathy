@@ -53,6 +53,16 @@
                             </div>
                         </div>
                         <div class="form-group-custom">
+                                    <select name="gender" id="" required="required">
+                                        <option {{$patient->marital =='married' ? 'selected' : ''}} value="married">Married</option>
+                                        <option {{$patient->marital =='single' ? 'selected' : ''}} value="single">Single</option>
+                                        <option {{$patient->marital =='widowed' ? 'selected' : ''}} value="widowed">Widowed</option>
+                                        <option {{$patient->marital =='divorcee' ? 'selected' : ''}} value="divorcee">Divorcee</option>
+                                        <option {{$patient->marital =='widower' ? 'selected' : ''}} value="widower">Widower</option>
+                                    </select>
+                                    <label class="control-label">Gender &nbsp;<span class="text-danger">*</span></label><i class="bar"></i>
+                                </div>
+                        <div class="form-group-custom">
                             <input value="{{$patient->phone}}" type="text" name="phone" maxlength="13"/>
                             <label class="control-label">Phone &nbsp;<span class="text-danger"></span></label><i class="bar"></i>
                         </div>

@@ -52,7 +52,7 @@ Route::middleware(['auth','active.user'])->group(function (){
         Route::post('/update-appointment/{id}','AppointmentController@updateAppointment');
         // Appointment Today
         Route::get('/appointment-today','AppointmentController@appointmentToday');
-
+        Route::get('/files','HomeController@file');
         // Patient Management
         Route::get('/new-patient', 'PatientController@newPatient');
         Route::get('/all-patient', 'PatientController@allPatient');

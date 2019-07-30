@@ -34,6 +34,16 @@
                 </div>
             </div>
             <div class="form-group-custom">
+                        <select name="marital" id="" required="required">
+                            <option value="married">Married</option>
+                            <option value="single">Single</option>
+                            <option value="widowed">Widowed</option>
+                            <option value="divorcee">Divorcee</option>
+                            <option value="widower">Widower</option>
+                        </select>
+                        <label class="control-label">Marital Status &nbsp;</label><i class="bar"></i>
+                    </div>
+            <div class="form-group-custom">
            
                 <input type="text" name="phone" maxlength="13"/>
                 <label class="control-label">Phone &nbsp;<span class="text-danger"></span></label><i class="bar"></i>

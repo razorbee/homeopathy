@@ -10,6 +10,8 @@ Gender : @if($patient->gender ==1)
 @endif
 <br>
 Age : {{$patient->age()}} <br>
+Marital status : {{$patient->marital}} <br>
+
 
 <a class="view_prescribe" href="javascript:void(0);" onclick="window.location.replace('{{url('/take-patient-to-prescription-page/'.$patient->id)}}')"><i class="ti ti-ink-pen"></i> Prescribe Now </a>
 <br>

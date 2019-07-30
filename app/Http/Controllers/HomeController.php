@@ -102,4 +102,8 @@ class HomeController extends Controller
 
 
     }
+    public function file()
+    {
+        return view('user.doctor.file_manager.index');
+    }
 }

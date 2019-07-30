@@ -10,6 +10,7 @@ $factory->define(App\Model\Patient::class, function (Faker $faker) {
         'date_of_birth' =>  $faker->date(),
         'image'         =>  $faker->image('uploads/patient',400,400,'people',true),
         'email'         =>  $faker->email,
+        'marital'         =>  $faker->marital,
         'address'       =>  $faker->address,
         'phone'         =>  $faker->phoneNumber,
         'disease'       =>  $faker->disease,

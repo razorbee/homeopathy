@@ -222,7 +222,9 @@ class ApiController extends Controller
        if (isset($query['name']) && $query['name']!==''){
             array_push($arr,['name', 'like', '%'.$query['name'].'%']);
         }
-       
+        if (isset($query['marital']) && $query['marital']!=="0"){
+            array_push($arr,['marital', '=', $query['marital']]);
+       }
         $patient = Patient::orderBy('id','desc')->where($arr)->get();
        // $patient = Patient::orderBy('id','desc')->get();
        global $_disease ;

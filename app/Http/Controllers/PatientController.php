@@ -205,6 +205,7 @@ class PatientController extends Controller
          
           $patient->id = $id;
           $patient->gender = $request->get('gender');
+          $patient->marital = $request->get('marital');
           $patient->date_of_birth = $dob;//Carbon::parse($request->get('date_of_birth'))->format('Y-m-d');
           $patient->email = $request->get('email');
           $patient->address = $request->get('address');

@@ -45,5 +45,9 @@ return [
         'prescription_setting_menu' =>  'Prescription Setting',
         'app_setting_menu'      =>  'App Setting',
         'profile_menu'          =>  'Profile'
+    ],
+    'file'       =>  [
+        'main_menu'             =>  'File'     
+        
     ]
 ];

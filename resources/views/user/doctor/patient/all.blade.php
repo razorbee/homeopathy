@@ -51,8 +51,18 @@ display :none
                 <div><b>Gender</b></div>		
                 <select id="search_gender" class="advselect"><option value='0'>select gender</option><option value='1'>Male</option><option value='2'>female</option></select>	
             </div>	
-		
-         		
+    
+            <div class="col-2">	
+            <div><b>Marital status</b></div>		
+            <select name="marital" id="search_marital" class="advselect">		
+                <option  value="0">select marital status</option>		
+                <option value="married">Married</option>
+                            <option value="single">Single</option>
+                            <option value="widowed">Widowed</option>
+                            <option value="divorcee">Divorcee</option>
+                            <option value="widower">Widower</option>		
+                </select>		
+            </div>		
             <div class="col-2">		
                 <div ><b>Disease</b></div>		
                 <select name="disease" id="search_disease" class="advselect">		
@@ -106,7 +116,8 @@ display :none
                         d.name = $('#search_name').val(),		
                         d.gender = $('#search_gender').val(),		
 						d.age = $('#search_age').val(),		
-						d.disease = $('#search_disease').val()	
+						d.disease = $('#search_disease').val(),
+                        d.marital = $('#search_marital').val()		
                 }		
             },
                 columns: [
