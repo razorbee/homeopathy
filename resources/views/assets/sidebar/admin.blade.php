@@ -89,13 +89,13 @@
                         <li><a href="{{url('/profile')}}">Profile</a></li>
                     </ul>
                 </li>
-                <!-- <li class="has_sub">
+               <li class="has_sub">
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-folder"></i><span> {!! trans('menus.file.main_menu') !!} </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{url('/files')}}">File Manager</a></li>
                     
                     </ul>
-                </li>  -->
+                </li> 
 
             </ul>
             <div class="clearfix"></div>

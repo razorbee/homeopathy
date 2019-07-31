@@ -340,6 +340,7 @@ list-style:none!important;
 @section('extra-js')
     <script src="{{url('/dashboard/js/jquery.hotkeys-0.7.9.min.js')}}"></script>
     <script src="{{url('/dashboard/plugins/select2/js/select2.min.js')}}"></script>
+    
     <script src="{{url('/app_js/prescription-template.js')}}"></script>
     <script src="{{url('/dashboard/plugins/jquery-ui/jquery-ui.js')}}"></script>
     <script src="{{url('/app_js/prescription-autocomplete.js')}}"></script>
@@ -378,32 +379,14 @@ list-style:none!important;
                 tags: true,
                    });
                    $("#selectStrength").select2({
-                placeholder: "select strength",
+                    placeholder: "select strength",
                 tags: true,
                    });
             // Select template
             $("#selectTemplate").select2({
                 placeholder: "Prescription template"
             });
-            $('.select2').select2(); 
- // delegate a click event on the input box
- $('.select2-input').on('click',function()
- {
-   // remove select2-disabled class from all li under the dropdown
-   $('.select2-drop .select2-results li').removeClass('select2-disabled');
-    // add select2-result-selectable class to all li which are missing the respective class
-   $('.select2-drop .select2-results li').each(function()
-   {
-     if(!$(this).hasClass('select2-result-selectable'))
-       $(this).addClass('select2-result-selectable');
-   });   
- });
- 
-   // had to include the following code as a hack since the click event required double click on 'select2-input' to invoke the event
- $('.select2-container-multi').on('mouseover',function()
- {
-   $('.select2-input').click();
- });
+            
             // Select patient
             $("#selectPatient").select2({
                 placeholder: "Patients"

@@ -53,6 +53,7 @@ Route::middleware(['auth','active.user'])->group(function (){
         // Appointment Today
         Route::get('/appointment-today','AppointmentController@appointmentToday');
         Route::get('/files','HomeController@file');
+        Route::get('/scan','HomeController@scan');
         // Patient Management
         Route::get('/new-patient', 'PatientController@newPatient');
         Route::get('/all-patient', 'PatientController@allPatient');
