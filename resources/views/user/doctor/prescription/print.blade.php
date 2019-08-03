@@ -12,7 +12,7 @@
         .prescription-p-title{
             font-family: 'Lobster', cursive;
             font-weight: 100;
-            font-size: 16px;
+            font-size: 14px;
         }
         @endif
         .print_class:nth-child(3),.print_class:nth-child(2) {
@@ -20,7 +20,8 @@
         }
         ol > li{
             margin-left:-25px;
-        }
+           
+      }
         .letterhead{
         height: cover;
          overflow:hidden;
@@ -32,7 +33,7 @@
         margin-left:100px;        
         }
         table{
-            padding-right:40px;
+           
             width:100%;
         }
     </style>
@@ -62,19 +63,20 @@
                                 .prescription-p-title{
                                     font-family: 'Lobster', cursive;
                                     font-weight: 100;
-                                    font-size: 16px;
+                                    font-size: 14px;
+                                 
                                 }
                                 table{
                                     margin-top:250px;
                                     /* margin-left:250px; */
-                                    width:720px;
+                                    width:100%;
                                 }
                                 th{
                                     width:150px!important;
                                     height:3px;
                                 }
                                 th:nth-child(2){
-                                    width:140px;
+                                    width:120px;
                                    
                                 }
                                 th:nth-child(3){
@@ -85,29 +87,17 @@
                                     width:170px!important;
                              }
                                 th:nth-child(5){
-                                    width:210px!important;
+                                    width:180px!important;
                                     } 
                                     th:nth-child(6){
                                    margin-top:20px!important;
                                     } 
                                    
-                                    .prescription-p-title{
-                                        margin-top:100px;
-                                    }  
+                                     
                                   .print_img{
                                       /* margin-left:25%!important; */
                                   } 
-                                .letterheadbg{
-                                  /* background:url('{{url('/')}}/dashboard/images/bill-page0001.jpg'); */
-                                  height: 1000px;
-                                  overflow:hidden;
-                                  width:750px;
-                                } 
-                                .letterhead{
-                                    height: 970px;
-                                  overflow:hidden;
-                                  width:715px;
-                                }
+                               
                                  .force{
                                     margin-left:25%!important;  
                                 } 
@@ -152,7 +142,7 @@
                         </table>
                         <div class="row">
                        
-                          <img class="print_img" src="{{url('/dashboard/images/rx.png')}}" width="30px" height="25px" alt="" style="margin-left:20px  ">  
+                          <img class="print_img" src="{{url('/dashboard/images/rx.png')}}" width="30px" height="25px" alt="" style="margin-left:20px;">  
                         
                         </div>
                         <ol class="hi">
@@ -243,6 +233,7 @@
               
             }); 
             $("#printPageBtn").on('click', function () {
+                $("#print_prescription").removeClass('force'); 
                $("#printPage").printThis();
             });
        
