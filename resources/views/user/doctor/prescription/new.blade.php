@@ -94,9 +94,8 @@ list-style:none!important;
                                 <div class="col-md-4">
                                   <div class="form-group-custom">
                                   <!-- <input type="text" id="strength"/> -->
-                                  <select id = "selectStrength" class="form-control select2" name = "strength" multiple="multiple">
+                    <select id = "selectStrength" class="select3 js-select2" name = "strength" multiple="multiple">
                                
-                                  <option value="">Pick a dose</option>
                                 <option value="1X">1X</option>
                                 <option value="3X">3X</option>
                                 <option value="6X">6X</option>
@@ -330,7 +329,7 @@ list-style:none!important;
             </div>
         </div>
     </div>
-    
+
     @include('user.doctor.prescription.model.new-patient')
     @include('user.doctor.template.modals.new-drug')
     @include('user.doctor.template.modals.edit-drug-from-list')
@@ -340,12 +339,38 @@ list-style:none!important;
 @section('extra-js')
     <script src="{{url('/dashboard/js/jquery.hotkeys-0.7.9.min.js')}}"></script>
     <script src="{{url('/dashboard/plugins/select2/js/select2.min.js')}}"></script>
-    
+
+
     <script src="{{url('/app_js/prescription-template.js')}}"></script>
     <script src="{{url('/dashboard/plugins/jquery-ui/jquery-ui.js')}}"></script>
     <script src="{{url('/app_js/prescription-autocomplete.js')}}"></script>
+    <script src="{{url('/dashboard/plugins/select2/js/select3.min.js')}}"></script>
+
     <script>
         $(document).ready(function () {
+
+
+
+            
+            $('.select3').select3();
+ 
+ $('.select3-input').on('click',function()
+ {
+   $('input.select3-input').css('width','300px;');
+   $('.select3-drop .select3-results li').removeClass('select3-disabled');
+   $('.select3-drop .select3-results li').each(function()
+   {
+     if(!$(this).hasClass('select3-result-selectable'))
+       $(this).addClass('select3-result-selectable');
+   });   
+ });
+ 
+ $('.select3-container-multi').on('mouseover',function()
+ {
+   $('.select3-input').click();
+ });
+
+
             $("#loadingSaveTemplate").hide();
             $("#loadingSavePrescription").hide();
             var defaultPatient = $("#defaultPatient").val();
@@ -378,10 +403,14 @@ list-style:none!important;
                 placeholder: "select duration",
                 tags: true,
                    });
-                   $("#selectStrength").select2({
-                    placeholder: "select strength",
-                tags: true,
-                   });
+                
+
+
+
+  
+
+
+
             // Select template
             $("#selectTemplate").select2({
                 placeholder: "Prescription template"

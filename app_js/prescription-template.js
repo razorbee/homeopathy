@@ -52,7 +52,7 @@ $(document).ready(function () {
     // Add drug to the list
     $("#addDrugToListForm").on('submit',function (e) {
         e.preventDefault();
-      
+        
             var freq = $('#main_freq input[type=checkbox]:checked').map(function(_, el) {
                 return $(el).val();
             }).get();
@@ -65,11 +65,18 @@ $(document).ready(function () {
              drug_name.push(selectdrugs[i].text);
          }
 
-         if (selectdrugs.length != $("#selectStrength").select2('data').length){
+         var strength = $("#selectStrength").select3('data');
+         if (selectdrugs.length != strength.length){
              
             alert ("drug selection and strength should be same!");
             return;
          }
+
+         var drugstrength = [];
+        for (var i=0; i< strength.length; i++){
+            drugstrength.push(strength[i].id);
+         }
+
          drug_name = drug_name.join(', ');
 
             drug = {
@@ -78,7 +85,7 @@ $(document).ready(function () {
                 drug_id1 : selectdrugs[1]?selectdrugs[1].id:'',
                 drug_id2 : selectdrugs[2]?selectdrugs[2].id:'',
                 drug_type : $("#drug_type").val(),
-                strength : $("#selectStrength").val().join(', '),
+                strength : drugstrength.join(', '),
                 dose : $("#selectDosage").val(),
                 duration : $("#selectDuration").val(),
                 drug_advice : $("#drug_advice").val(),

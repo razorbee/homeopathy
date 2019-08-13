@@ -31,7 +31,8 @@ $(function(){
 		// Hiding and showing the search box
 
 		filemanager.find('.search').click(function(){
-
+			$("#viewdoc").hide();
+			$("ul.data").show();
 			var search = $(this);
 
 			search.find('span').hide();
@@ -97,7 +98,22 @@ $(function(){
 
 
 		// Clicking on folders
+		fileList.on('click', 'li.files', function(e){
+			e.preventDefault();
+			var href = $(e.currentTarget).find("a").attr('href');
+			$.post( 'doc.php', {path:href}, function( data ) {
+				$('#viewdoc').show();
+				$("ul.data").hide();
 
+				$('#editor1').val(data);
+				CKEDITOR.config.width = '100%';
+				CKEDITOR.config.height = '800';
+				CKEDITOR.replace( 'editor1', {
+					allowedContent: true
+				});
+			});
+
+		});
 		fileList.on('click', 'li.folders', function(e){
 			e.preventDefault();
 
@@ -126,7 +142,7 @@ $(function(){
 
 		breadcrumbs.on('click', 'a', function(e){
 			e.preventDefault();
-
+debugger;
 			var index = breadcrumbs.find('a').index($(this)),
 				nextDir = breadcrumbsUrls[index];
 

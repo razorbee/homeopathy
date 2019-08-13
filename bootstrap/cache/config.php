@@ -1,37 +1,36 @@
 <?php
+
 $local  = false;
 if (isset($_GET['local'])){
   setcookie("local", true, time() + (86400 * 30), "/"); // 86400 = 1 day
 }
 
 if(!isset($_COOKIE['local'])) {
-  //  echo "Cookie named local is not set!";
 } else {
   $local = true;
 }
+
 $localhost = array('127.0.0.1', "::1", 'localhost');
 if(in_array($_SERVER['REMOTE_ADDR'], $localhost)){
- $rbpath = 'C:/xampp/htdocs/homeopathy/';
-   $domain = 'http://localhost/homeopathy/';
-   if ($local) {
-  $rb_database= 'homeopathy';
- }
-   else{
-    $rb_database= 'homeopathy';
-    }
+
+ $rbpath = '/opt/lampp/htdocs/pms/homeopathy/';
+   $domain = 'http://localhost:8080/pms/homeopathy/';
+
+  $rb_database= 'pms_dr_diary';
+  if ($local) {
+    $rb_database= 'pms_dr_diary';
+  }
   $rb_username = 'root';
   $rb_password = '';
-  $storage = 'C:/xampp/htdocs/data/';
+  $storage = '/opt/lampp/htdocs/pms/data/';
 }
 
 else{
   $rbpath = '/var/www/html/pms.razorbee.com/homeopathy/';
    $domain = 'http://pms.razorbee.com/homeopathy/';
-   if ($local) {
-    $rb_database= 'pms_dr_diary_local';
-  }
-  else{
   $rb_database= 'pms_dr_diary';
+  if ($local) {
+    $rb_database= 'pms_dr_diary_local';
   }
   $rb_username = 'root';
    $rb_password = 'razorbee@123';
@@ -527,5 +526,4 @@ return array (
     ),
   ),
 );
-
 ?>

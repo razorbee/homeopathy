@@ -13,6 +13,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     
+  <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
 
 
     
@@ -73,7 +74,7 @@ body {
 	width: 95%;
 	max-width:1340px;
 	position: relative;
-	margin: 100px auto 50px;
+	margin: 0px auto 50px;
 }
 
 @media all and (max-width: 965px) {
@@ -603,6 +604,17 @@ footer #tzine-actions iframe{
     margin-right: auto;
     margin-left: auto;
     }
+	.button {
+  background-color: #F00; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-left: 80%;
+}
 </style>
     
 </head>
@@ -647,9 +659,25 @@ footer #tzine-actions iframe{
                 <span class="icon folder full"></span><span class="name">Videos</span> <span class="details">3items</span></a>
             </li>
             
-         </ul>   
+		 </ul> 
+		 <div id="viewdoc" style='display:none'>
+		 <textarea id="editor1">
+
+		</textarea>
+		<br/>
+		<input type="button"  value="back" id="viewfile" class='button' >
+		 </div>  
 </div>
 	
+<script>
+
+$( document ).ready(function() {
+	$("#viewfile").click(function(e){
+		$("#viewdoc").hide();
+		$("ul.data").show();
+	})
+});
+</script>
 </body>
 </html>
 
