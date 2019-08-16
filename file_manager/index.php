@@ -633,7 +633,7 @@ footer #tzine-actions iframe{
 		</div>
 
 		<div class="breadcrumbs">
-            <a href="files"><span class="folderName">Files</span></a> <span class="arrow">→</span> <span class="folderName">Files</span>
+            <a href="files"><span class="folderName">Files</span></a> <span class="arrow">5655/</span> <span class="folderName">Files</span>
         </div>
 
 		<ul class="data animated" style="">
