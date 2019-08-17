@@ -12,6 +12,11 @@
 #drugListView > li > ul >li,.print_class {
 list-style:none!important;
 }
+
+.select3-results{
+    max-height:300px!important;
+    overflow-y:hidden!important;
+}
 </style>
 @endsection
 
