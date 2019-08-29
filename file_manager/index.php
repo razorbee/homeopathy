@@ -669,6 +669,11 @@ footer #tzine-actions iframe{
 		 </div>  
 </div>
 	
+
+
+<iframe src='//docs.google.com/gview?url=https://localhost:8443/pms/homeopathy/file_manager/11.docx' frameborder='0'></iframe>
+
+
 <script>
 
 $( document ).ready(function() {
