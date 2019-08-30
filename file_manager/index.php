@@ -613,8 +613,24 @@ footer #tzine-actions iframe{
   text-decoration: none;
   display: inline-block;
   font-size: 16px;
-  margin-left: 80%;
 }
+.close_button{
+	background-repeat: no-repeat;
+    background-image: url(close.png);
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    right: 0;
+    cursor: pointer;
+}
+.save_button{
+	right: 0;
+    position: absolute;
+}
+.savebutton{
+	width:250px;
+}
+
 </style>
     
 </head>
@@ -622,12 +638,11 @@ footer #tzine-actions iframe{
     
     
 <body>
-
-    <div class="filemanager">
+	<div class="filemanager">
     
-<br><br>
+		<br><br>
         
-
+	
 		<div class="search" action="scan.php">
 			<input type="search" placeholder="Find a file..">
 		</div>
@@ -636,53 +651,30 @@ footer #tzine-actions iframe{
             <a href="files"><span class="folderName">Files</span></a> <span class="arrow">5655/</span> <span class="folderName">Files</span>
         </div>
 
-		<ul class="data animated" style="">
-            
-            <li class="folders">
-                <a href="files/Important Documents" title="files/Photos" class="folders">
-                <span class="icon folder full"></span><span class="name">Important Documents</span> <span class="details">1 item</span></a>
-            </li>
-            <li class="folders">
-                <a href="files/Photos" title="files/Photos" class="folders">
-                <span class="icon folder full"></span><span class="name">Photos</span> <span class="details">6 item</span></a>
-            </li>
-            <li class="folders">
-                <a href="files/Movies" title="files/Movies" class="folders">
-                <span class="icon folder full"></span><span class="name">Movies</span> <span class="details">1 item</span></a>
-            </li>
-            <li class="folders">
-                <a href="files/Music" title="files/Movies" class="folders">
-                <span class="icon folder full"></span><span class="name">Music</span> <span class="details">3 item</span></a>
-            </li>
-            <li class="folders">
-                <a href="files/Videos" title="files/Videos" class="folders">
-                <span class="icon folder full"></span><span class="name">Videos</span> <span class="details">3items</span></a>
-            </li>
-            
+
+		<ul class="data animated" style="">   
 		 </ul> 
 		 <div id="viewdoc" style='display:none'>
-		 <textarea id="editor1">
-
-		</textarea>
-		<br/>
-		<input type="button"  value="back" id="viewfile" class='button' >
-		 </div>  
-</div>
+		 <div class="close_button">		
+		</div>
+		 	<textarea id="editor1">
+			</textarea>
+			<div class="save_button">		
+				<input type="button"  value="Save" id="viewfile" class='button savebutton' >
+			</div>
 	
+  
+	</div>
+	
+	<script>
 
-
-<iframe src='//docs.google.com/gview?url=https://localhost:8443/pms/homeopathy/file_manager/11.docx' frameborder='0'></iframe>
-
-
-<script>
-
-$( document ).ready(function() {
-	$("#viewfile").click(function(e){
-		$("#viewdoc").hide();
-		$("ul.data").show();
-	})
-});
-</script>
+	$( document ).ready(function() {
+		$("#viewfile").click(function(e){
+			$("#viewdoc").hide();
+			$("ul.data").show();
+		})
+	});
+	</script>
 </body>
 </html>
 

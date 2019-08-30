@@ -23,7 +23,7 @@ File manager
             </div>
 
 
-   <div><iframe src="{{url('/file_manager')}}" width="100%" height="700px" style="border:0"></iframe>
+   <div style="height:1000px"><iframe src="{{url('/file_manager')}}" width="100%" height="1100px" style="border:0"></iframe>
 </div>
 </div>
 

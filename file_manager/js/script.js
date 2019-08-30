@@ -101,17 +101,24 @@ $(function(){
 		fileList.on('click', 'li.files', function(e){
 			e.preventDefault();
 			var href = $(e.currentTarget).find("a").attr('href');
-			$.post( 'doc.php', {path:href}, function( data ) {
-				$('#viewdoc').show();
-				$("ul.data").hide();
+			var extention =  $(e.currentTarget).find("a").attr('extention')
+			if (extention=='doc'){ 
+				$.get(href, function(data, status){
+					$('#viewdoc').show();
+					$("ul.data").hide();
 
-				$('#editor1').val(data);
-				CKEDITOR.config.width = '100%';
-				CKEDITOR.config.height = '800';
-				CKEDITOR.replace( 'editor1', {
-					allowedContent: true
+					$('#editor1').val(data);
+					CKEDITOR.config.width = '100%';
+					CKEDITOR.config.height = '600';
+					CKEDITOR.replace( 'editor1', {
+						allowedContent: true
+					});
 				});
-			});
+			}else{
+				window.open(href, '_blank');
+
+			}
+
 
 		});
 		fileList.on('click', 'li.folders', function(e){
@@ -142,7 +149,6 @@ $(function(){
 
 		breadcrumbs.on('click', 'a', function(e){
 			e.preventDefault();
-debugger;
 			var index = breadcrumbs.find('a').index($(this)),
 				nextDir = breadcrumbsUrls[index];
 
@@ -344,10 +350,9 @@ debugger;
 						icon = '<span class="icon file"></span>';
 
 					fileType = fileType[fileType.length-1];
+					icon = '<span class="icon file f-'+fileType+'">'+f.text+'</span>';
 
-					icon = '<span class="icon file f-'+fileType+'">.'+fileType+'</span>';
-
-					var file = $('<li class="files"><a href="'+ f.path+'" title="'+ f.path +'" class="files">'+icon+'<span class="name">'+ name +'</span> <span class="details">'+fileSize+'</span></a></li>');
+					var file = $('<li class="files"><a extention="'+f.text+'"  href="'+ f.path+'" title="'+ f.path +'" class="files">'+icon+'<span class="name">'+ name +'</span> <span class="details">'+fileSize+'</span></a></li>');
 					file.appendTo(fileList);
 				});
 

@@ -38,13 +38,19 @@ function scan($dir){
 			else {
 
 				// It is a file
-
-				$files[] = array(
-					"name" => $f,
-					"type" => "file",
-					"path" => $dir . '/' . $f,
-					"size" => filesize($dir . '/' . $f) // Gets the size of this file
-				);
+				$path_info = pathinfo($f);
+				//if ($path_info  && $path_info.extension )
+				$ext =  $path_info['extension'];
+				if($ext =='html'||$ext =='jpg' || $ext ==='png'){
+					$text = ($ext =='html') ?'doc':'image';
+					$files[] = array(
+						"name" => $f,
+						"type" => "file",
+						"text" => $text,
+						"path" => $dir . '/' . $f,
+						"size" => filesize($dir . '/' . $f) // Gets the size of this file
+					);
+				}
 			}
 		}
 	
