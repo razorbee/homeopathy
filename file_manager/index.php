@@ -10,14 +10,14 @@
    
 
  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
+  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
     
   <script src="https://cdn.ckeditor.com/4.10.0/standard/ckeditor.js"></script>
 
 
-    
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+   
 	<script src="js/script.js"></script>
 
 
@@ -654,17 +654,36 @@ footer #tzine-actions iframe{
 
 		<ul class="data animated" style="">   
 		 </ul> 
-		 <div id="viewdoc" style='display:none'>
-		 <div class="close_button">		
-		</div>
-		 	<textarea id="editor1">
-			</textarea>
-			<div class="save_button">		
-				<input type="button"  value="Save" id="viewfile" class='button savebutton' >
-			</div>
-	
-  
-	</div>
+
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fileeditor">
+  Launch demo modal
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="fileeditor">
+  <div class="modal-dialog modal-dialog-centered" role="document" style="width:80%">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="filename"></h3>
+		<input type="hidden" id="hidden_path"/>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="filedisplay">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="save()" id="savebutton">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
 	
 	<script>
 
@@ -674,6 +693,39 @@ footer #tzine-actions iframe{
 			$("ul.data").show();
 		})
 	});
+
+function showsave(flag){
+	if (flag){
+		$("#savebutton").show();
+	}else{
+		$("#savebutton").hide();
+	}
+}
+function save(){
+	var formData = {
+		'content': CKEDITOR.instances.editor1.getData(),
+		'filename': $("#hidden_path").val()
+	};
+
+	$.ajax({
+		url: "save.php",
+		type: "post",
+		data: formData,
+		success: function(d) {
+			d = JSON.parse(d);
+			if(d.status=='success'){
+				$("#filedisplay").html("<h3>document file updated successfully!</h3>");
+				showsave();
+			}else{
+				alert('could not able to update!');
+			}
+		},error:function(){
+			alert('Error');
+		}
+	});
+
+}
+
 	</script>
 </body>
 </html>

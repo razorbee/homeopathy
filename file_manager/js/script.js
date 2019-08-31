@@ -31,8 +31,6 @@ $(function(){
 		// Hiding and showing the search box
 
 		filemanager.find('.search').click(function(){
-			$("#viewdoc").hide();
-			$("ul.data").show();
 			var search = $(this);
 
 			search.find('span').hide();
@@ -101,21 +99,27 @@ $(function(){
 		fileList.on('click', 'li.files', function(e){
 			e.preventDefault();
 			var href = $(e.currentTarget).find("a").attr('href');
+			$("#hidden_path").val(href);
+			var title = $(e.currentTarget).find("a").find('span.name').text();
+			title = title.replace(".html", ".docx");
+			$("#filename").html(title);
+			showsave(true);
 			var extention =  $(e.currentTarget).find("a").attr('extention')
 			if (extention=='doc'){ 
 				$.get(href, function(data, status){
-					$('#viewdoc').show();
-					$("ul.data").hide();
-
-					$('#editor1').val(data);
+					$("#filedisplay").html("<textarea id='editor1'>"+data+"</textarea>");
 					CKEDITOR.config.width = '100%';
 					CKEDITOR.config.height = '600';
 					CKEDITOR.replace( 'editor1', {
 						allowedContent: true
 					});
+					$("#fileeditor").modal('show')
 				});
 			}else{
-				window.open(href, '_blank');
+				showsave();
+				$("#filedisplay").html("<img src='"+href+"' style='width:100%'/>");
+				$("#fileeditor").modal('show')
+				//window.open(href, '_blank');
 
 			}
 
