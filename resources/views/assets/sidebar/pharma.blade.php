@@ -72,7 +72,7 @@
                     <ul class="list-unstyled">
                         <li><a href="{{url('/drug-report/drug=0/start=2017-06-05/end='.$date_today)}}">Drug Report</a></li>
 <!--                        <li><a href="{{url('/template-report/template=0/start=2017-06-05/end='.$date_today)}}">Template Report</a></li>-->
-                        <li><a href="{{url('/schedule-report/schedule=0/start=2017-06-05/end='.$date_today)}}">Schedule Report</a></li>
+                        <!-- <li><a href="{{url('/schedule-report/schedule=0/start=2017-06-05/end='.$date_today)}}">Schedule Report</a></li> -->
                     </ul>
                 </li>
 
