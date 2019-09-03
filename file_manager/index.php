@@ -657,9 +657,9 @@ footer #tzine-actions iframe{
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fileeditor">
+<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#fileeditor">
   Launch demo modal
-</button>
+</button> -->
 
 <!-- Modal -->
 <div class="modal fade" id="fileeditor">
