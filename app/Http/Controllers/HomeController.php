@@ -106,5 +106,9 @@ class HomeController extends Controller
     {
         return view('user.doctor.file_manager.index');
     }
+    public function upload()
+    {
+        return view('user.doctor.file_manager.upload');
+    }
     
 }

@@ -13,16 +13,16 @@ if(!isset($_COOKIE['local'])) {
 $localhost = array('127.0.0.1', "::1", 'localhost');
 if(in_array($_SERVER['REMOTE_ADDR'], $localhost)){
 
- $rbpath = '/opt/lampp/htdocs/pms/homeopathy/';
-   $domain = 'http://localhost:8080/pms/homeopathy/';
+$rbpath = 'C:/xampp/htdocs/homeopathy/';
+   $domain = 'http://localhost/homeopathy/';
 
-  $rb_database= 'pms_dr_diary';
+  $rb_database= 'homeopthy';
   if ($local) {
-    $rb_database= 'pms_dr_diary';
+    $rb_database= 'homeopthy';
   }
   $rb_username = 'root';
   $rb_password = '';
-  $storage = '/opt/lampp/htdocs/pms/data/';
+  $storage = 'C:/xampp/htdocs/data/';
 }
 
 else{

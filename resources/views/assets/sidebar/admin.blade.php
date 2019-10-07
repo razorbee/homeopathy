@@ -93,6 +93,7 @@
                     <a href="javascript:void(0);" class="waves-effect"><i class="ti-folder"></i><span> {!! trans('menus.file.main_menu') !!} </span> <span class="menu-arrow"></span> </a>
                     <ul class="list-unstyled">
                         <li><a href="{{url('/files')}}">File Manager</a></li>
+                        <li><a href="{{url('/upload')}}">Upload</a></li>
                     
                     </ul>
                 </li> 

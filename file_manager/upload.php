@@ -5,7 +5,7 @@ $filename = $_FILES['files']['name'];
 
 /* Getting File size */
 $filesize = $_FILES['files']['size'];
-
+echo $filesize;
 /* Location */
 $location = "files/".implode(',', $filename);
 
