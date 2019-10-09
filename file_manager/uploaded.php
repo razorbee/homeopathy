@@ -205,34 +205,5 @@ function hideLoader(){
         $("#loader").hide();
     }
 }
-                        $(document).ready(function () {
-   var forms = $("#fileupload");
-            forms.on('submit',function (e) { 
-            
-                var formData = new FormData(this);
-                e.preventDefault();
-               
-                // showLoader();
-                $.ajax({
-           
-            type:'POST',
-            data:formData,
-            contentType: false,
-            cache: false,
-            processData:false,
-            success:function (data) {
-                hideLoader();
-                alert("files has been added successfully");
-             
-                
-            },
-            error:function (data) {
-                // hideLoader();
-                    alert('file are not uploaded');
-                    
-                }
-        });
-    })
-})
                     </script>
                 </html>
