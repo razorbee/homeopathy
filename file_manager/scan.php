@@ -41,7 +41,7 @@ function scan($dir){
 				$path_info = pathinfo($f);
 				//if ($path_info  && $path_info.extension )
 				$ext =  $path_info['extension'];
-				if($ext =='html'||$ext =='jpg' || $ext ==='png'){
+				if($ext =='html'||$ext =='jpg' || $ext ==='png' || $ext == 'pdf'){
 					$text = ($ext =='html') ?'doc':'image';
 					$files[] = array(
 						"name" => $f,

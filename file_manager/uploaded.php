@@ -28,10 +28,10 @@
 						$file_ext=strtolower(end($file_name_array));
 
                         //   $file_ext = end(explode(".", $file));  
-                          $allowed_ext = array('jpg', 'png', 'html','docx','jpeg');  
+                          $allowed_ext = array('jpg', 'png','html','docx','jpeg','pdf');  
                           if(in_array($file_ext, $allowed_ext))  
                           {  
-                               $new_name = md5(rand()).'.' . $file_ext;  
+                               $new_name = $file;
                                $output .= '<div class="col-md-6"><div style="padding:16px; border:1px solid #CCC;"><img src="upload/'.$new_name.'" width="170" height="240" /></div></div>';  
                                copy($path.$name.'/'.$file, $path . $new_name);  
                                unlink($path.$name.'/'.$file);  
@@ -70,6 +70,10 @@
     .status{
         font-size:25px;
         color:green;
+    }
+    .error{
+        font-size:25px;
+        color:red;
     }
     .loader  {
     animation: rotate 1s infinite;  
@@ -186,6 +190,9 @@
                     //  $try = trim(trim(trim(trim($str,"["),'"'),']'),'"');
                      echo '<div class="status">File uploaded successfully</div>';
                 }  
+                else{
+                  // echo '<div class="error">upload the zip file</div>';
+                }
                 ?>  
                 </div>
             </div>
