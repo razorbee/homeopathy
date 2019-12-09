@@ -1,0 +1,1 @@
+find $1 -name "*.docx" | while read i; do pandoc "$i" -o "${i%.*}.html"; done

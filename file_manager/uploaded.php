@@ -8,11 +8,17 @@
            $array = explode(".", $file_name);  
            $name = $array[0];  
            $ext = $array[1];  
+           $path = '';
            if($ext == 'zip')  
            {  
-                $path = 'files/';  
-                $location = $path . $file_name;  
-                if(move_uploaded_file($_FILES['zip_file']['tmp_name'], $location))  
+                $folder =$without_extension = substr($file_name, 0, strrpos($file_name, "."));
+                $path = 'files/'.$folder.'/';  
+                $location = $path . $file_name; 
+                if(!is_dir($path )) {
+                  mkdir($path );
+              }
+
+                if(move_uploaded_file($_FILES['zip_file']['tmp_name'], $path.$file_name))  
                 {  
                      $zip = new ZipArchive;  
                      if($zip->open($location))  
