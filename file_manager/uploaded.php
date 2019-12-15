@@ -1,4 +1,5 @@
-<?php  
+<?php 
+$path=''; 
  if(isset($_POST["btn_zip"]))  
  {  
       $output = '';  
@@ -13,7 +14,8 @@
            {  
                 $folder =$without_extension = substr($file_name, 0, strrpos($file_name, "."));
                 $path = 'files/'.$folder.'/';  
-                $location = $path . $file_name; 
+         
+	       $location = $path . $file_name; 
                 if(!is_dir($path )) {
                   mkdir($path );
               }
@@ -44,7 +46,12 @@
                           }       
                      }  
                      unlink($location);  
-                     rmdir($path . $name);  
+                     rmdir($path . $name);
+
+//echo 'files/'.$folder;
+//echo "sh pandoc.sh ".$path;
+		//$output = shell_exec("sh pandoc.sh ".$path);
+  
                 }  
            }  
       }  
@@ -187,8 +194,11 @@
     <div class="loader" ></div>
 </div>
 				<?php  
-                if(isset($output))  
-                {  
+if(isset($output))  
+                { 
+echo $path."-----";
+                $output = shell_exec("sh pandoc.sh ".$path);
+ 
                     //  echo $output;  
                      // echo "<script type='text/javascript'>alert(\"uploaded successfully\");</script>";
                     //  $result_json = array('File updated successfully!');
