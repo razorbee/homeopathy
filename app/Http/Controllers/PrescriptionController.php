@@ -93,7 +93,6 @@ class PrescriptionController extends Controller
      */
     public function savePrescription(Request $request)
     {
-
         $prescription = new Prescription();
         $prescription->patient_id = $request->get('patient_id');
         $prescription->prescription_template_id = $request->get('template_id');
@@ -127,8 +126,6 @@ class PrescriptionController extends Controller
                     $prescription_drug->advice = $drug['drug_advice'];
                     $prescription_drug->frequencies = $drug['frequencies'];
                     $prescription_drug->save();
-
-
                     if ($drug['drug_id1']){
                      $prescription_drug = new PrescriptionDrug();
 

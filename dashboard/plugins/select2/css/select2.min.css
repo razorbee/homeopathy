@@ -290,7 +290,8 @@ Version: 3.2 Timestamp: Mon Sep 10 10:38:04 PDT 2012
 
 /*
 disabled look for already selected choices in the results dropdown
-*/.select3-results .select3-disabled.select3-highlighted {
+*/
+/* .select3-results .select3-disabled.select3-highlighted {
     color: #666;
     background: #f4f4f4;
     display: list-item;
@@ -300,10 +301,9 @@ disabled look for already selected choices in the results dropdown
   background: #f4f4f4;
   display: list-item;
   cursor: default;
-}
+} */
 
-.select3-results .select3-disabled {
-}
+
 
 .select3-more-results.select3-active {
     background: #f4f4f4 url('spinner.gif') no-repeat 100%;
