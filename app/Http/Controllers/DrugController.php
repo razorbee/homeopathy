@@ -101,8 +101,8 @@ class DrugController extends Controller
     public function deleteDrug($id)
     {
         $drug = Drug::findOrFail($id);
-        $drug_in_template = PrescriptionTemplateDrug::where('drug_id','drug_id1','drug_id2',$id)->first();
-        $drug_in_prescription = PrescriptionDrug::where('drug_id','drug_id1','drug_id2',$id)->first();
+        $drug_in_template = PrescriptionTemplateDrug::where('drug_id',$id)->first();
+        $drug_in_prescription = PrescriptionDrug::where('drug_id',$id)->first();
         if(!$drug_in_template && !$drug_in_prescription){
             $drug->delete();
             return redirect()->back()->with('delete_drug','Drug deleted');
