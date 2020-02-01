@@ -1,4 +1,8 @@
 <?php
+header('Content-type: application/json');
+
+echo file_get_contents('file.json');
+exit();
 
 $dir = "files";
 
@@ -65,9 +69,15 @@ function scan($dir){
 
 header('Content-type: application/json');
 
-echo json_encode(array(
+$data =  json_encode(array(
 	"name" => "files",
 	"type" => "folder",
 	"path" => $dir,
 	"items" => $response
 ));
+
+echo $data;
+
+
+
+
