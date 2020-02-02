@@ -271,7 +271,7 @@ $(document).ready(function () {
                 $('<li>').append(
 
                     $('<div style="margin-left: 10px; overflow: hidden; position: absolute; margin-top: 10px;z-index:100">').append(
-                        $("<button>",{class:"btn btn-sm btn-link btn-primary",
+                        $("<button>",{class:"btn btn-sm btn-link btn-primary ",
                             onClick:"$(this).editDrug("+key+")"}).append(
                             $("<i>",{class:'fa fa-pencil'})
                         ),

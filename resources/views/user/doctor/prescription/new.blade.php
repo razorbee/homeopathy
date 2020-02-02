@@ -78,6 +78,8 @@ list-style:none!important;
                             <option  value="Ointments & Oils">Ointments & Oils</option>
                             <option  value="Syrups">Syrups</option>
                             <option  value="Dilutions">Dilutions</option>
+                            <option  value="Balsam">Balsam</option>
+                            <option  value="Others">Others</option>
                         </select>
                      </div>
                                 </div>
@@ -367,12 +369,17 @@ list-style:none!important;
    $('input.select3-input').css('width','300px;'); 
 
    $('.select3-drop .select3-results li').removeClass('select3-disabled');
+  setTimeout(() => {
+    $('.select3-drop .select3-results li').removeClass('select3-disabled');
 
-   $('.select3-drop .select3-results li').each(function()
+    $('.select3-drop .select3-results li').addClass('select3-result-selectable');
+  }, 500);
+
+  /* $('.select3-drop .select3-results li').each(function()
    {
      if(!$(this).hasClass('select3-result-selectable'))
        $(this).addClass('select3-result-selectable');
-   });   
+   });*/   
  });
  
  $('.select3-container-multi').on('mouseover',function()

@@ -18,6 +18,8 @@
                                   <option  value="Ointments & Oils">Ointments & Oils</option>
                                   <option  value="Syrups">Syrups</option>
                                   <option  value="Dilutions">Dilutions</option>
+                                  <option  value="Balsam">Balsam</option>
+                                  <option  value="Others">Others</option>
                               </select>
                               <label class="control-label">Drug Type &nbsp;*</label><i class="bar"></i>
                           </div>

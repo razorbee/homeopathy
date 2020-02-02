@@ -38,6 +38,8 @@
                             <option  {{$drug->generic_name =='Ointments & Oils' ? 'selected' : ''}} value="Ointments & Oils">Ointments & Oils</option>
                             <option  {{$drug->generic_name =='Syrups' ? 'selected' : ''}} value="Syrups">Syrups</option>
                             <option  {{$drug->generic_name =='Dilutions' ? 'selected' : ''}} value="Dilutions">Dilutions</option>
+                            <option  {{$drug->generic_name =='Balsam' ? 'selected' : ''}} value="Balsam">Balsam</option>
+                            <option  {{$drug->generic_name =='Others' ? 'selected' : ''}} value="Others">Others</option>
                         </select>
                         <label class="control-label">Drug Type  &nbsp;<span class="text-danger">*</span></label><i class="bar"></i>
                       </div>
