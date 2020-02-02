@@ -110,6 +110,8 @@ $(document).ready(function () {
         if(drugUpdateKey != null){
             drug = {
                 drug_id : $("#drugUpdateSelect").val(),
+                 drug_id1 : $("#drugUpdateSelect").val(),
+                 drug_id2 : $("#drugUpdateSelect").val(),
                 drug_name : $("#drugUpdateSelect").select2('data')[0].text,
                 strength : $("#updateDrugStrength").val(),
                 dose : $("#updateDrugDose").val(),
@@ -144,6 +146,8 @@ $(document).ready(function () {
           $.each(data.drugs, function (key, data) {
               var _drug = {
                   drug_id: data.drug.id,
+                 drug_id1: data.drug.id1,
+                   drug_id2: data.drug.id2,
                   drug_name: data.drug.name,
                   drug_type: data.type,
                   strength: data.strength,
@@ -194,6 +198,7 @@ $(document).ready(function () {
                     success:function (data) {
                         window.location.replace('print-prescription/'+data.id);
                         $("#loadingSavePrescription").hide();
+                        
                     },error:function (data) {
                         console.log(data);
                         $("#loadingSavePrescription").hide();

@@ -8,7 +8,8 @@ class Drug extends Model
 {
     public function prescriptions()
     {
-        return $this->hasMany(PrescriptionDrug::class,'drug_id');
+     return $this->hasMany(PrescriptionDrug::class,'drug_id','drug_id1','drug_id2');
+        // return $this->hasMany(PrescriptionDrug::class,'drug_id');
     }
 
     public function templates()

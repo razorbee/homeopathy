@@ -17,6 +17,9 @@ list-style:none!important;
     max-height:300px!important;
     overflow-y:hidden!important;
 }
+.parsley-required{
+    margin-top:-10px;
+}
 </style>
 @endsection
 
@@ -361,8 +364,10 @@ list-style:none!important;
  
  $('.select3-input').on('click',function()
  {
-   $('input.select3-input').css('width','300px;');
+   $('input.select3-input').css('width','300px;'); 
+
    $('.select3-drop .select3-results li').removeClass('select3-disabled');
+
    $('.select3-drop .select3-results li').each(function()
    {
      if(!$(this).hasClass('select3-result-selectable'))
@@ -438,6 +443,8 @@ list-style:none!important;
                         $.each(data.drugs, function (key, data) {
                             var _drug = {
                                 drug_id: data.drug.id,
+                                drug_id1: data.drug.id1,
+                                drug_id2: data.drug.id2,
                                 drug_name: data.drug.name,
                                 drug_type: data.type,
                                 strength: data.strength,

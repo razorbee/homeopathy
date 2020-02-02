@@ -6,6 +6,8 @@ $factory->define(\App\Model\PrescriptionTemplateDrug::class, function (Faker $fa
     return [
         'prescription_template_id'  =>  $faker->numberBetween(1,50),
         'drug_id'                   =>  $faker->numberBetween(1,476),
+        'drug_id1'                   =>  $faker->numberBetween(1,476),
+        'drug_id2'                   =>  $faker->numberBetween(1,476),
         'type'                      =>  'Tab',
         'dose'                      =>  '1+0+1',
         'duration'                  =>  $faker->numberBetween(1,10) . "Days",
